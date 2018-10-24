@@ -41,11 +41,7 @@ public class UserLogin extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		response.setContentType("application/json");
-		//response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
-		PrintWriter out = response.getWriter();
-		// Assuming your json object is **jsonObject**, perform the following, it will return your json object  
-		out.print(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
-		out.flush();
+		response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
 	}
 
 }
