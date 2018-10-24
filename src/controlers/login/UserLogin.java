@@ -38,8 +38,12 @@ public class UserLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		if(ProfilesService.getProfileServiceInstance()) {
-			
+		if(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password )) {
+			System.out.println( "Valid login" );
+		}
+		else
+		{
+			System.out.println( "Invalid login" );
 		}
 		response.getWriter().append("Served at: "+username+password);
 	}
