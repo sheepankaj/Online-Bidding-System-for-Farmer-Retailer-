@@ -17,4 +17,12 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/LoginForm</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>RegisterRetailerServlet</servlet-name>
+    <servlet-class>controlers.register.RegisterRetailer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterRetailerServlet</servlet-name>
+    <url-pattern>/RegisterRetailerForm</url-pattern>
+  </servlet-mapping>
 </web-app>
