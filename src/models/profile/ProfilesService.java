@@ -69,14 +69,22 @@ public class ProfilesService
 		return null;
 	}
 	
-	public boolean validLogin(String username, String password)
+	public String validLogin(String username, String password)
 	{
 		Profile profile = getProfile( username );
 		if(profile != null && profile.password.equals( password ))
 		{
-			return true;
+			return "{\"state\":\"Success\",\"message\":\"Login Successfull..!!\"}";
 		}
-		return false;
+		else if(profile == null)
+		{
+			return "{\"state\":\"Failed\",\"message\":\"Username not found..!\"}";
+		}
+		else if(profile != null && !profile.password.equals( password ))
+		{
+			return "{\"state\":\"Failed\",\"message\":\"Password incorrect!\"}";
+		}
+		return "{\"state\":\"Failed\",\"message\":\"Unknown Error..!\"}";
 	}
 	
 	public void loadProfiles() throws FileNotFoundException

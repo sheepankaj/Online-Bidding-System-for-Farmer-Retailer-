@@ -1,6 +1,8 @@
 package controlers.login;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,14 +40,12 @@ public class UserLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		if(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password )) {
-			System.out.println( "Valid login" );
-		}
-		else
-		{
-			System.out.println( "Invalid login" );
-		}
-		response.getWriter().append("Served at: "+username+password);
+		response.setContentType("application/json");
+		//response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
+		PrintWriter out = response.getWriter();
+		// Assuming your json object is **jsonObject**, perform the following, it will return your json object  
+		out.print(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
+		out.flush();
 	}
 
 }
