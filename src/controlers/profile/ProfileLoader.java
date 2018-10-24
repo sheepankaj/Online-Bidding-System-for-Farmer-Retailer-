@@ -1,4 +1,4 @@
-package controlers.login;
+package controlers.profile;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.profile.ProfilesService;
-
 /**
- * Servlet implementation class UserLogin
+ * Servlet implementation class ProfileLoader
  */
-@WebServlet("/UserLogin")
-public class UserLogin extends HttpServlet {
+@WebServlet("/ProfileLoader")
+public class ProfileLoader extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserLogin() {
+    public ProfileLoader() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,12 +34,8 @@ public class UserLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		if(ProfilesService.getProfileServiceInstance()) {
-			
-		}
-		response.getWriter().append("Served at: "+username+password);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
