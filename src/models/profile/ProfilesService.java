@@ -16,10 +16,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import models.entity.User;
+
 public class ProfilesService
 {
 	public static ProfilesService profilesService;
-	List<Profile> profiles = new ArrayList<>();
+	List<User> profiles = new ArrayList<>();
 	Gson gson;
 	Writer writer;
 	String filePath = "/WEB-INF/db/profile/Profile.json";
@@ -52,14 +54,14 @@ public class ProfilesService
 		writer.close();
 	}
 	
-	public void addProfile( Profile profile )
+	public void addProfile( User profile )
 	{
 		profiles.add( profile );
 	}
 	
-	public Profile getProfile( String username )
+	public User getProfile( String username )
 	{
-		for(Profile profile : profiles)
+		for(User profile : profiles)
 		{
 			if(profile.getUsername().equals( username ))
 			{
@@ -71,8 +73,8 @@ public class ProfilesService
 	
 	public String validLogin(String username, String password)
 	{
-		Profile profile = getProfile( username );
-		if(profile != null && profile.password.equals( password ))
+		User profile = getProfile( username );
+		if(profile != null && profile.getPassword().equals( password ))
 		{
 			return "{\"state\":\"Success\",\"message\":\"Login Successfull..!!\"}";
 		}
@@ -80,7 +82,7 @@ public class ProfilesService
 		{
 			return "{\"state\":\"Failed\",\"message\":\"Username not found..!\"}";
 		}
-		else if(profile != null && !profile.password.equals( password ))
+		else if(profile != null && !profile.getPassword().equals( password ))
 		{
 			return "{\"state\":\"Failed\",\"message\":\"Password incorrect!\"}";
 		}
@@ -91,8 +93,8 @@ public class ProfilesService
 	{
 		//List<Profile> profiles = gson.fromJson(new FileReader("D:\\file.json"), List<Profile>.class);
 		InputStream is = context.getResourceAsStream(filePath);
-		TypeToken<List<Profile>> token = new TypeToken<List<Profile>>() {};
-		List<Profile> profiles = gson.fromJson(new InputStreamReader(is), token.getType());
+		TypeToken<List<User>> token = new TypeToken<List<User>>() {};
+		List<User> profiles = gson.fromJson(new InputStreamReader(is), token.getType());
 
 	}
 }

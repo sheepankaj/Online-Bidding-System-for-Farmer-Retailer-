@@ -11,16 +11,13 @@
 <title>Register</title>
 </head>
 <body>
-
-
-<form class="form" action="../../RegisterRetailerForm" method="post" id="registerRetailer">
-   	<h1 class="form-title">Register</h1>
-    <input type="text" class="form-input" placeholder="Username" autofocus name="username">
-    <input type="password" class="form-input" placeholder="Password" name="username">
-    <input type="text" class="form-input" placeholder="Business Name" autofocus name="business_name">
-    <input type="text" class="form-input" placeholder="Business Address" autofocus name="business_address">
-    <input type="button" value="Submit" class="login-button" id="submitButton">
-</form>
-
+	<form class="form" action="../../RegisterRetailerForm" method="post" id="registerRetailer">
+	   	<h1 class="form-title">Register</h1>
+	    <input type="text" class="form-input" placeholder="Username" autofocus name="username">
+	    <input type="password" class="form-input" placeholder="Password" name="username">
+	    <input type="text" class="form-input" placeholder="Business Name" autofocus name="business_name">
+	    <input type="text" class="form-input" placeholder="Business Address" autofocus name="business_address">
+	    <input type="button" value="Submit" class="login-button" id="submitButton">
+	</form>
 </body>
 </html>

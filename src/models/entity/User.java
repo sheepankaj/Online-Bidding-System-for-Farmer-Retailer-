@@ -1,6 +1,6 @@
-package models.profile;
+package models.entity;
 
-public class Profile
+public class User
 {
 	String username;
 	String password;

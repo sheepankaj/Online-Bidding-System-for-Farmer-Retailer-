@@ -1,6 +1,6 @@
-package models.profile;
+package models.entity;
 
-public class Retailer extends Profile
+public class Retailer extends User
 {
 	String companyName;
 	String companyAddress;
