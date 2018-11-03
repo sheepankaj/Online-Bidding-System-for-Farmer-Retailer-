@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 	var form = $('#registerRetailer');
-	form.submit(function (e) 
+	/*form.submit(function (e) 
 	{	
 		$.ajax(
 		{
@@ -13,7 +13,7 @@ $( document ).ready(function() {
 			}
 		});		 
 		return false;
-	});
+	});*/
     $( "#submitButton" ).click(function() {
     	form.submit();
     });	

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.product.ProductService;
 import models.profile.ProfilesService;
 
 /**
@@ -41,6 +42,7 @@ public class UserLogin extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		response.setContentType("application/json");
+		ProductService.getProductServiceInstance( getServletContext() );		
 		response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
 	}
 
