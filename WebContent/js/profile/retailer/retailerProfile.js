@@ -1,20 +1,21 @@
+
 $( document ).ready(function() {
-	var form = $('#loginForm');
-	form.submit(function (e) 
-	{	
-		$.ajax(
-		{
-			type: form.attr('method'),
-			url: form.attr('action'),
-			data: form.serialize(),
-			success: function (data) 
-			{
-				alert(data.message);	   
-			}
-		});		 
-		return false;
-	});
-    $( "#submitButton" ).click(function() {
-    	form.submit();
-    });	
+	
+	// Get the element with id="defaultOpen" and click on it
+	document.getElementById("defaultOpen").click();
 });
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+
