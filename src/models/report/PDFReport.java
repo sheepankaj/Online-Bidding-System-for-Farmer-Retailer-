@@ -15,7 +15,8 @@ public class PDFReport implements IReport
 	public Document generateReport( StringBuilder builder,HttpServletResponse response )
 	{
 		Document document = null;
-		try {
+		try 
+		{
             document = new Document();
             PdfWriter.getInstance(document, response.getOutputStream());
             document.open();
