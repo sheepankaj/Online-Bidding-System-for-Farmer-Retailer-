@@ -16,50 +16,43 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-public class ProfilesService
+import models.entity.EntityService;
+import models.entity.User;
+
+public class ProfilesService extends EntityService
 {
 	public static ProfilesService profilesService;
-	List<Profile> profiles = new ArrayList<>();
-	Gson gson;
-	Writer writer;
-	String filePath = "/WEB-INF/db/profile/Profile.json";
+	List<User> profiles = new ArrayList<>();
+	
+	static String filePath = "/WEB-INF/db/profile/Profile.json";
 	ServletContext context;
 
 	
-	private ProfilesService()
+	private ProfilesService(ServletContext context,String filePath)
 	{
-		gson = new GsonBuilder().create();		
+		super( context,filePath );
 	}
 	
 	public static ProfilesService getProfileServiceInstance(ServletContext context) throws FileNotFoundException
 	{
 		if(profilesService == null)
 		{
-			profilesService = new ProfilesService();
-			profilesService.context = context;
-			profilesService.loadProfiles();
+			profilesService = new ProfilesService(context,filePath);
+			profilesService.loadEntities();
 		}
 		return profilesService;
 	}
 	
-	public void saveProfilesList() throws IOException
-	{
-		if(writer == null)
-        {
-        	writer = new FileWriter("Profile.json");
-        }
-		gson.toJson(profiles, writer);
-		writer.close();
-	}
 	
-	public void addProfile( Profile profile )
+	
+	public void addProfile( User profile )
 	{
 		profiles.add( profile );
 	}
 	
-	public Profile getProfile( String username )
+	public User getProfile( String username )
 	{
-		for(Profile profile : profiles)
+		for(User profile : profiles)
 		{
 			if(profile.getUsername().equals( username ))
 			{
@@ -71,28 +64,27 @@ public class ProfilesService
 	
 	public String validLogin(String username, String password)
 	{
-		Profile profile = getProfile( username );
-		if(profile != null && profile.password.equals( password ))
+		User user = getProfile( username );
+		if(user != null && user.getPassword().equals( password ))
 		{
 			return "{\"state\":\"Success\",\"message\":\"Login Successfull..!!\"}";
 		}
-		else if(profile == null)
+		else if(user == null)
 		{
 			return "{\"state\":\"Failed\",\"message\":\"Username not found..!\"}";
 		}
-		else if(profile != null && !profile.password.equals( password ))
+		else if(user != null && !user.getPassword().equals( password ))
 		{
 			return "{\"state\":\"Failed\",\"message\":\"Password incorrect!\"}";
 		}
 		return "{\"state\":\"Failed\",\"message\":\"Unknown Error..!\"}";
 	}
 	
-	public void loadProfiles() throws FileNotFoundException
+	public void loadEntities() throws FileNotFoundException
 	{
-		//List<Profile> profiles = gson.fromJson(new FileReader("D:\\file.json"), List<Profile>.class);
-		InputStream is = context.getResourceAsStream(filePath);
-		TypeToken<List<Profile>> token = new TypeToken<List<Profile>>() {};
-		List<Profile> profiles = gson.fromJson(new InputStreamReader(is), token.getType());
+		super.loadEntities();
+		TypeToken<List<User>> token = new TypeToken<List<User>>() {};
+		List<User> users = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
 
 	}
 }

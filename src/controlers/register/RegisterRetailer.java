@@ -1,6 +1,9 @@
 package controlers.register;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.profile.ProfilesService;
+import models.report.ReportService;
+import models.entity.Contract;
 
 /**
  * Servlet implementation class Register
@@ -38,8 +43,12 @@ public class RegisterRetailer extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		response.setContentType("application/json");
-		response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
+		response.setContentType("application/pdf");
+		List<Contract> contracts = new ArrayList<Contract>();
+		contracts.add(new Contract());
+		contracts.add(new Contract());
+		ReportService.getReportServiceInstance().generateContractReport( contracts, "PDF", response );
+		//response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
 	}
 
 }
