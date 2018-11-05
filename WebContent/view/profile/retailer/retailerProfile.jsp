@@ -21,8 +21,9 @@
 
 <div id="Account" class="tabcontent">
   <h3>Account</h3>
-  <p>Hello Retailer.</p>
-  <p>Hello rrtttttt.</p>
+  <p>Retailer name.</p>
+  <p>Retailer address.</p>
+  <p>Retailer phone number.</p>
 </div>
 
 <div id="View Product Catalogue" class="tabcontent">
