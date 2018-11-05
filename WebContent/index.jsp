@@ -11,7 +11,6 @@
 <body>
 
 <form class="form">
-<p>jjj<ps>
    	<h1 class="form-title">User Login</h1>
     <input type="text" class="form-input" placeholder="Username" autofocus>
     <input type="password" class="form-input" placeholder="Password">
