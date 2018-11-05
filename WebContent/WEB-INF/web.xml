@@ -25,4 +25,21 @@
     <servlet-name>RegisterRetailerServlet</servlet-name>
     <url-pattern>/RegisterRetailerForm</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>RegisterFarmerServlet</servlet-name>
+    <servlet-class>controlers.register.RegisterFarmer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterFarmerServlet</servlet-name>
+    <url-pattern>/RegisterFarmerForm</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FarmerProfileLoaderServlet</servlet-name>
+    <servlet-class>controlers.profile.FarmerProfileLoader</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FarmerProfileLoaderServlet</servlet-name>
+    <url-pattern>/FarmerProfileLoaderRequest</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
