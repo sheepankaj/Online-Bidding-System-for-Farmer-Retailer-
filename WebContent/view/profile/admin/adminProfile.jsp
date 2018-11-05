@@ -13,25 +13,41 @@
 <title>Admin Profile</title>
 </head>
 <body>
+<h1 class="form-title">Welcome System Admin</h1>
+
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+
+  <button class="tablinks" onclick="openCity(event, 'Generate Report')" id="defaultOpen">Generate Report</button>
+  <button class="tablinks" onclick="openCity(event, 'Spams')">Spam</button>
+  <button class="tablinks" onclick="openCity(event, 'Verify')">Verification</button>
+  
 </div>
 
-<div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
+<div id="Generate Report" class="tabcontent">
+  <h3>Report</h3>
+  <p>It will generate business reports on daily, weekly, monthly, quarterly and yearly basis.</p>
+  <button class="tablinks" onclick="">Contract Report</button>
+  <button class="tablinks" onclick="">Bidding Report</button>
+  
+  <button class="tablinks" onclick="">Daily</button>
+  <button class="tablinks" onclick="">Weekly</button>
+  <button class="tablinks" onclick="">Monthly</button>
+  <button class="tablinks" onclick="">Quarterly</button>
+  <button class="tablinks" onclick="">Yearly</button>
+  
 </div>
 
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
+<div id="Spams" class="tabcontent">
+  <h3>Remove Spams</h3>
+  <p>It will remove the spam farmers and retailers.</p> 
 </div>
 
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+<div id="Verify" class="tabcontent">
+  <h3>Verify Farmer</h3>
+  <p>Verification status of Farmers will display.</p>
+  <h3>Verify Retailer</h3>
+  <p>Verification status of Retailers will display.</p>
+  
 </div>
 </body>
 </html>

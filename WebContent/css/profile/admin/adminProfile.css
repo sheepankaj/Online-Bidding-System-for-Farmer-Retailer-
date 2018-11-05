@@ -9,14 +9,14 @@ body {font-family: "Lato", sans-serif;}
     border: 1px solid #ccc;
     background-color: #f1f1f1;
     width: 30%;
-    height: 300px;
+    height: 200px;
 }
 
 /* Style the buttons inside the tab */
 .tab button {
     display: block;
     background-color: inherit;
-    color: black;
+    color: blue;
     padding: 22px 16px;
     width: 100%;
     border: none;
@@ -29,7 +29,7 @@ body {font-family: "Lato", sans-serif;}
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-    background-color: #ddd;
+    background-color: #87ceeb;
 }
 
 /* Create an active/current "tab button" class */
@@ -44,5 +44,14 @@ body {font-family: "Lato", sans-serif;}
     border: 1px solid #ccc;
     width: 70%;
     border-left: none;
-    height: 300px;
+    height: 200px;
+    
+}
+
+/* Style the inside tab button content */
+.tablinks {
+    background-color: #90EE90;
+    border: 2px solid #1E90FF;
+    font-weight: bold;
+    
 }
