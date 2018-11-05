@@ -22,6 +22,7 @@
 <div id="Account" class="tabcontent">
   <h3>Account</h3>
   <p>Hello Retailer.</p>
+  <p>Hello rr.</p>
 </div>
 
 <div id="View Product Catalogue" class="tabcontent">
