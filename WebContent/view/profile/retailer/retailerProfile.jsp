@@ -36,17 +36,32 @@
   <li>Contact Details:</li>
   <li>Register Date:</li>
   <li>Spam</li>
-  <ul>
+  </ul>
 </div>
 
 <div id="View Product Catalogue" class="tabcontent">
   <h3>View Product Catalogue</h3>
-  <p>View Bids.</p> 
+  <ul style="list-style-type:circle">
+  <li>Vegetables.</li> 
+  <li>Fruits</li> 
+  <li>Dairy Products.</li> 
+  <li>Other Products.</li> 
+  </ul>
 </div>
 
 <div id="Agree and Sign Contract" class="tabcontent">
   <h3>Agree and Sign Contract</h3>
   <p>Terms and conditions agreed and signed the contract.</p>
 </div>
+
+<div id="Change Password" class="tabcontent">
+  <h3>Change Password</h3>
+  <p>The Password has been changed.</p>
+</div>
 </body>
+
+<div id="Logout" class="tabcontent">
+  <h3>Logout</h3>
+  <p>You have successfully logged out from the system.</p>
+</div>
 </html>
