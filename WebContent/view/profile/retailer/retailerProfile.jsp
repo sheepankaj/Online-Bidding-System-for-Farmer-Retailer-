@@ -17,13 +17,26 @@
   <button class="tablinks" onclick="openCity(event, 'Account')" id="defaultOpen">Account</button>
   <button class="tablinks" onclick="openCity(event, 'View Product Catalogue')">View Product Catalogue</button>
   <button class="tablinks" onclick="openCity(event, 'Agree and Sign Contract')">Agree and Sign Contract</button>
+  <button class="tablinks" onclick="openCity(event, 'Change Password')"id="defaultOpen">Change Password</button>
+  <button class="tablinks" onclick="openCity(event, 'Logout')"id="defaultOpen">Logout</button>
+
+   
+   
+   
 </div>
+
 
 <div id="Account" class="tabcontent">
   <h3>Account</h3>
-  <p>Retailer name.</p>
-  <p>Retailer address.</p>
-  <p>Retailer phone number.</p>
+  <ul style="list-style-type:circle">
+  <li>Hello Retailer</li>
+  <li>ID:</li>
+  <li>Name:</li>
+  <li>Address:</li>
+  <li>Contact Details:</li>
+  <li>Register Date:</li>
+  <li>Spam</li>
+  <ul>
 </div>
 
 <div id="View Product Catalogue" class="tabcontent">
