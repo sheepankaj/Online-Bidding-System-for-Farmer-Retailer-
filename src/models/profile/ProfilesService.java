@@ -80,11 +80,37 @@ public class ProfilesService extends EntityService
 		return "{\"state\":\"Failed\",\"message\":\"Unknown Error..!\"}";
 	}
 	
+	public boolean validLoginCheck(String username, String password)
+	{
+		User user = getProfile( username );
+		boolean vaild = false;
+		if(user != null && user.getPassword().equals( password ))
+		{
+			return true;
+		}
+		else if(user == null)
+		{
+			return false;
+		}
+		else if(user != null && !user.getPassword().equals( password ))
+		{
+			return false;
+		}
+		return vaild;
+	}
+	
+	
+	
 	public void loadEntities() throws FileNotFoundException
 	{
 		super.loadEntities();
 		TypeToken<List<User>> token = new TypeToken<List<User>>() {};
-		List<User> users = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
+		profiles = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
 
+	}
+	
+	public List<User> getUsers()
+	{
+		return profiles;
 	}
 }

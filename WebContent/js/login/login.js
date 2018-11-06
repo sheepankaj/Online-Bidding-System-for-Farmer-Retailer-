@@ -9,7 +9,18 @@ $( document ).ready(function() {
 			data: form.serialize(),
 			success: function (data) 
 			{
-				alert(data.message);	   
+				if(data.page == "FARMER")
+				{
+					window.location = 'view/profile/farmer/farmerProfile.jsp';
+				}
+				else if(data.page == "ADMIN")
+				{
+					window.location = 'view/profile/admin/adminProfile.jsp';
+				}
+				else if(data.page == "RETAILER")
+				{
+					window.location = 'view/profile/retailer/retailerProfile.jsp';
+				}
 			}
 		});		 
 		return false;

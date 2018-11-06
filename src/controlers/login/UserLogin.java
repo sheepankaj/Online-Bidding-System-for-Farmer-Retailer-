@@ -2,6 +2,7 @@ package controlers.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.entity.ProfileType;
+import models.entity.User;
 import models.product.ProductService;
 import models.profile.ProfilesService;
 
@@ -43,7 +46,16 @@ public class UserLogin extends HttpServlet {
 		String password = request.getParameter("password");
 		response.setContentType("application/json");
 		ProductService.getProductServiceInstance( getServletContext() );		
-		response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
+		User user = null;
+		if(ProfilesService.getProfileServiceInstance(getServletContext()).validLoginCheck( username, password ))
+		{
+			user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile(username);
+			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\""+":\""+user.getProfileType()+"\"}");
+		}
+		else
+		{
+			response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
+		}		
 	}
 
 }

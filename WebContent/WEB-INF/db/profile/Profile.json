@@ -1,1 +1,26 @@
-[{}]
+[
+	{
+		"username":"shamitha",
+		"password":"shamitha123",
+		"userID":101001,
+		"profileType":"ADMIN"
+	},
+	{
+		"username":"sulthan",
+		"password":"sulthan123",
+		"userID":101002,
+		"profileType":"RETAILER"
+	},
+	{
+		"username":"luksmi",
+		"password":"luksmi123",
+		"userID":101003,
+		"profileType":"FARMER"
+	},
+	{
+		"username":"pankaj",
+		"password":"pankaj123",
+		"userID":101004,
+		"profileType":"FARMER"
+	}
+]
