@@ -6,6 +6,15 @@ public class User
 	String username;
 	String password;
 	ProfileType profileType;
+	String type;
+	
+	public User(String username,String password,ProfileType profileType,String type)
+	{
+		this.username = username;
+		this.password = password;
+		this.profileType = profileType;
+		this.type = type;
+	}
 	
 	public String getUsername()
 	{

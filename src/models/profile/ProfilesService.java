@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Writer;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import models.entity.Admin;
 import models.entity.EntityService;
+import models.entity.Farmer;
+import models.entity.Retailer;
+import models.entity.RuntimeTypeAdapterFactory;
 import models.entity.User;
 
 public class ProfilesService extends EntityService
@@ -104,13 +109,42 @@ public class ProfilesService extends EntityService
 	public void loadEntities() throws FileNotFoundException
 	{
 		super.loadEntities();
-		TypeToken<List<User>> token = new TypeToken<List<User>>() {};
-		profiles = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
-
+//		TypeToken<List<User>> token = new TypeToken<List<User>>() {};
+//		profiles = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
+//		testGSON();
+		RuntimeTypeAdapterFactory<User> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
+			    .of(User.class, "type")
+			    .registerSubtype(Farmer.class, "farmer")
+			    .registerSubtype(Admin.class, "admin")
+			    .registerSubtype(Retailer.class, "retailer");
+		Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create();
+		Type listType = new TypeToken<List<User>>(){}.getType();
+		profiles = gson.fromJson(new InputStreamReader(getIs()), listType);
 	}
 	
 	public List<User> getUsers()
 	{
 		return profiles;
+	}
+	
+	public void testGSON()
+	{
+		List<User> animals = new ArrayList<>();
+		animals.add(new Farmer("sulthan","sulthan123","Address1","+353894855578","farmer"));
+		animals.add(new Retailer("luksmi","luksmi123","Lux","Address12","fax1","+353894855578","retailer"));
+		animals.add(new Retailer("pankaj","pankaj123","Punk","Address123","fax12","+432342332","retailer"));
+		animals.add(new Admin("shamitha","shamitha123","AdminName123","example@gmail.com","admin"));
+		
+		RuntimeTypeAdapterFactory<User> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
+			    .of(User.class, "type")
+			    .registerSubtype(Farmer.class, "farmer")
+			    .registerSubtype(Admin.class, "admin")
+			    .registerSubtype(Retailer.class, "retailer");
+			Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create();
+
+			String json = gson.toJson(animals);
+			System.out.println( json );
+			Type listType = new TypeToken<List<User>>(){}.getType();
+			List<User> fromJson = gson.fromJson(json, listType);
 	}
 }
