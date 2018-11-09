@@ -45,8 +45,7 @@ public class RegisterRetailer extends HttpServlet {
 		String password = request.getParameter("password");
 		response.setContentType("application/pdf");
 		List<Contract> contracts = new ArrayList<Contract>();
-//		contracts.add(new Contract());
-//		contracts.add(new Contract());
+
 		ReportService.getReportServiceInstance().generateContractReport( contracts, "PDF", response );
 		//response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
 	}
