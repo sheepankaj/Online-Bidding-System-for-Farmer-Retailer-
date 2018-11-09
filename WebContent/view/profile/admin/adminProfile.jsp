@@ -1,39 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 
-<link rel="stylesheet" type="text/css"
-	href="../../../css/profile/admin/adminProfile.css">
+<link rel="stylesheet" type="text/css" href="../../../css/profile/admin/adminProfile.css">
 
 <script src="../../../js/jquery-2.2.4.min.js"></script>
 <!-- <script src="js/jquery.mobile-1.4.5.min.js"></script>  -->
-<script src="../../../js/profile/admin/adminProfile.js"></script>
+<script src="../../../js/profile/admin/adminProfile.js"></script> 
 <title>Admin Profile</title>
 </head>
 <body>
-	<div class="tab">
-		<button class="tablinks" onclick="openCity(event, 'London')"
-			id="defaultOpen">London</button>
-		<button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-		<button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-	</div>
+<h1 class="form-title">Welcome System Admin</h1>
 
-	<div id="London" class="tabcontent">
-		<h3>London</h3>
-		<p>London is the capital city of England.</p>
-	</div>
+<div class="tab">
 
-	<div id="Paris" class="tabcontent">
-		<h3>Paris</h3>
-		<p>Paris is the capital of France.</p>
-	</div>
+  <button class="tablinks" onclick="openCity(event, 'Generate Report')" id="defaultOpen">Generate Report</button>
+  <button class="tablinks" onclick="openCity(event, 'Spams')">Spam</button>
+  <button class="tablinks" onclick="openCity(event, 'Verify')">Verification</button>
+  
+</div>
 
-	<div id="Tokyo" class="tabcontent">
-		<h3>Tokyo</h3>
-		<p>Tokyo is the capital of Japan.</p>
-	</div>
+<div id="Generate Report" class="tabcontent">
+  <h3>Report</h3>
+  <p>It will generate business reports on daily, weekly, monthly, quarterly and yearly basis.</p>
+  <button class="tablinks" onclick="">Contract Report</button>
+  <button class="tablinks" onclick="">Bidding Report</button>
+  
+  <button class="tablinks" onclick="">Daily</button>
+  <button class="tablinks" onclick="">Weekly</button>
+  <button class="tablinks" onclick="">Monthly</button>
+  <button class="tablinks" onclick="">Quarterly</button>
+  <button class="tablinks" onclick="">Yearly</button>
+  
+</div>
+
+<div id="Spams" class="tabcontent">
+  <h3>Remove Spams</h3>
+  <p>It will remove the spam farmers and retailers.</p> 
+</div>
+
+<div id="Verify" class="tabcontent">
+  <h3>Verify Farmer</h3>
+  <p>Verification status of Farmers will display.</p>
+  <h3>Verify Retailer</h3>
+  <p>Verification status of Retailers will display.</p>
+  
+</div>
 </body>
 </html>
