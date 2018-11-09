@@ -1,1 +1,41 @@
-[{}]
+[  
+   {  
+      "farmAddress":"Address1",
+      "telephone":"+353894855578",
+      "userID":100101,
+      "username":"sulthan",
+      "password":"sulthan123",
+      "profileType":"FARMER",
+      "type":"farmer",
+      "spam":false
+   },
+   {  
+      "farmAddress":"Address44",
+      "telephone":"+353834555578",
+      "userID":100105,
+      "username":"farmer",
+      "password":"farmer123",
+      "profileType":"FARMER",
+      "type":"farmer",
+      "spam":false
+   },
+   {  
+      "fax":"fax12",
+      "tel":"+432342332",
+      "userID":100103,
+      "username":"pankaj",
+      "password":"pankaj123",
+      "profileType":"RETAILER",
+      "type":"retailer",
+      "spam":false
+   },
+   {  
+	   "adminName":"AdminName123",
+	   "email":"example@gmail.com",
+	   "userID":100104,
+	   "username":"shamitha",
+	   "password":"shamitha123",
+	   "profileType":"ADMIN",
+	   "type":"admin"
+	}   
+]

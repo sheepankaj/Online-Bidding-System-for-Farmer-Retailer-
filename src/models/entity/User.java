@@ -5,6 +5,16 @@ public class User
 	long userID;
 	String username;
 	String password;
+	ProfileType profileType;
+	String type;
+	
+	public User(String username,String password,ProfileType profileType,String type)
+	{
+		this.username = username;
+		this.password = password;
+		this.profileType = profileType;
+		this.type = type;
+	}
 	
 	public String getUsername()
 	{
@@ -29,6 +39,12 @@ public class User
 	public void setUserID( long userID )
 	{
 		this.userID = userID;
+	}
+	public ProfileType getProfileType() {
+		return profileType;
+	}
+	public void setProfileType(ProfileType profileType) {
+		this.profileType = profileType;
 	}
 	
 	
