@@ -12,10 +12,10 @@ public class Bid
 		
 	}
 	
-	public Bid( ProductStock productStock, double price, User retailer, User farmer )
+	public Bid( ProductStock productStock, double unitPrice, User retailer, User farmer )
 	{
 		this.productStock = productStock;
-		this.price = price;
+		this.unitPrice = unitPrice;
 		this.retailer = retailer;
 		this.farmer = farmer;
 	}
@@ -30,14 +30,14 @@ public class Bid
 		this.productStock = productStock;
 	}
 
-	public double getPrice()
+	public double getUnitPrice()
 	{
-		return price;
+		return unitPrice;
 	}
 
-	public void setPrice( double price )
+	public void setUnitPrice( double unitPrice )
 	{
-		this.price = price;
+		this.unitPrice = unitPrice;
 	}
 
 	public User getRetailer()

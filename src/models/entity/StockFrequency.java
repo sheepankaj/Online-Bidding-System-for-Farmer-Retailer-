@@ -1,6 +1,6 @@
 package models.entity;
 
-public enum ContractFrequency
+public enum StockFrequency
 {
 	DAILY,WEEKLY,MONTHLY,YEARLY
 }
