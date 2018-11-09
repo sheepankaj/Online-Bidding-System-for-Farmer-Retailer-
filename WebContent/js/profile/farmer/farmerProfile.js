@@ -25,7 +25,14 @@ function openCity(evt, eventName) {
     				data: 'l',
     				success: function (data) 
     				{
-    					alert(data.message);	   
+    					if(data.page=="farmer")   {
+//    						var obj = JSON.parse(data.page);
+//
+//    						document.getElementById("Account Details").innerHTML =
+//    						"Name: " + obj.username;
+    						$('#username').val(data.page);
+    						$('#ID').val(data.id);
+    					}
     				}
     			});		
     	}
@@ -39,7 +46,7 @@ function openCity(evt, eventName) {
     	}
     else
     	{
-    	
+    	z
     	}
     evt.currentTarget.className += " active";
 }

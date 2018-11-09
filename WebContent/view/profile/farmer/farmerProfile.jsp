@@ -24,9 +24,8 @@
 
 	<div id="Account Details" class="tabcontent">
 		<h3>Account Details</h3>
-		<p>Hello Farmer</p>
-		<p>   </p>
-		<p>ID:</p>
+		<p>User Name : <input type="text" id="username"></p><br/>
+		<p>User ID : <input type="text" id="ID"></p><br/>
 		<p>Name:</p>
 		<p>Address:</p>
 		<p>Contact Number:</p>
