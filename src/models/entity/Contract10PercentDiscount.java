@@ -1,28 +1,22 @@
 package models.entity;
 
-public class Contract10PercentDiscount extends Contract
-{	
-	private Contract contract;
-	
+public class Contract10PercentDiscount extends ContractDecorator
+{		
 	public Contract10PercentDiscount(Contract contract)
 	{
-		super();
-		this.contract = contract;
+		super(contract);
 	}
 
 	@Override
 	public double getPriceOnFrequency()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getPriceOnFrequency()*90/100;
 	}
 
 	@Override
 	public StringBuilder getContractConstraints()
 	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+		return super.getContractConstraints().append( "In this retailer will receive 10 percent discount.\n" );
+	}	
 	
 }
