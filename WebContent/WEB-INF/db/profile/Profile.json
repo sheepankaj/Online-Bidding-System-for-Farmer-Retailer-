@@ -5,9 +5,10 @@
       "userID":100101,
       "username":"sulthan",
       "password":"sulthan123",
-      "profileType":"FARMER",
-      "type":"farmer",
-      "spam":false
+      "profileType":"RETAILER",
+      "type":"retailer",
+      "spam":false,
+      "successfullyClosedContracts":105
    },
    {  
       "farmAddress":"Address44",

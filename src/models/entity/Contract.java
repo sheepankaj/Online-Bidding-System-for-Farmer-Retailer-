@@ -6,7 +6,7 @@ public class Contract
 {
 	long farmerUserID;
 	long retailerUserID;
-	Bid agreedBid = new Bid();
+	Bid agreedBid;
 	Date signdate = new Date();
 	
 	@Override

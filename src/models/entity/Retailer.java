@@ -7,6 +7,7 @@ public class Retailer extends User
 	String fax;
 	String tel;
 	boolean spam;
+	int successfullyClosedContracts;
 	
 	public Retailer(String username,String password,String companyName,String companyAddress,String fax, String tel,String type)
 	{
