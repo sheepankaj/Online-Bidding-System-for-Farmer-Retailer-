@@ -25,8 +25,8 @@
       "userID":100103,
       "username":"pankaj",
       "password":"pankaj123",
-      "profileType":"RETAILER",
-      "type":"retailer",
+      "profileType":"ADMIN",
+      "type":"admin",
       "spam":false
    },
    {  
