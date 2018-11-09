@@ -24,8 +24,19 @@ function openCity(evt, eventName) {
 
 function loadGenerateReportTab()
 {
-	//
-	alert('pankaj + chunyun');
+	
+	$.ajax(
+			{
+				type: 'POST',
+				
+				url: '../../../AdminProfileLoaderRequest',
+				data: 'l',
+				success: function (data) 
+				{
+					alert(data.message);	   
+				}
+			});		
+	
 }
 
 

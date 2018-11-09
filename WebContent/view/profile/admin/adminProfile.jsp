@@ -20,6 +20,9 @@
   <button class="tablinks" onclick="openCity(event, 'Generate Report')" id="defaultOpen">Generate Report</button>
   <button class="tablinks" onclick="openCity(event, 'Spams')">Spam</button>
   <button class="tablinks" onclick="openCity(event, 'Verify')">Verification</button>
+  <button class ="tablinks" onclick="openCity(event, 'Password Change')">Password Change</button>
+  <button class="tablinks" onclick="openCity(event, 'Logout')">Logout</button>
+  
   
 </div>
 
@@ -47,6 +50,15 @@
   <p>Verification status of Farmers will display.</p>
   <h3>Verify Retailer</h3>
   <p>Verification status of Retailers will display.</p>
+  </div>
+  
+  <div id="Password Change" class="tabcontent">
+  <h3>Password Changed</h3>
+  </div>
+  
+  <div id="Logout" class="tabcontent">
+  <h3>Logout</h3>
+  <p>You have successfully logged out from the system. change</p>
   
 </div>
 </body>
