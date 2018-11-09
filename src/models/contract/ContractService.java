@@ -35,4 +35,9 @@ public class ContractService
 		}
 		return contract;
 	}
+	
+	public static String testing()
+	{
+		return "test123";
+	}
 }
