@@ -2,7 +2,7 @@ package models.contract;
 
 import models.entity.Bid;
 import models.entity.Contract;
-import models.entity.User;
+import models.entity.Retailer;
 
 public class ContractService
 {
@@ -25,7 +25,12 @@ public class ContractService
 	public Contract createContract(Bid bid)
 	{
 		Contract contract = null;
-		User reatiler = bid.getRetailer();
+		Retailer retailer = (Retailer)bid.getRetailer();
+		if(retailer.getSuccessfullyClosedContracts() > 100)
+		{
+			// we provide a 10% of discount
+			
+		}
 		return contract;
 	}
 }

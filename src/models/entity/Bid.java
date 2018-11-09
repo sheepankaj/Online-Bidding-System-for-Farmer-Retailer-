@@ -3,7 +3,7 @@ package models.entity;
 public class Bid
 {
 	private ProductStock productStock;
-	private double price;
+	private double unitPrice;
 	private User retailer;
 	private User farmer;
 	

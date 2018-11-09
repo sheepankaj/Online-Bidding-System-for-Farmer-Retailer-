@@ -67,6 +67,16 @@ public class Retailer extends User
 	{
 		this.spam = spam;
 	}
+
+	public int getSuccessfullyClosedContracts()
+	{
+		return successfullyClosedContracts;
+	}
+
+	public void setSuccessfullyClosedContracts( int successfullyClosedContracts )
+	{
+		this.successfullyClosedContracts = successfullyClosedContracts;
+	}
 	
 	
 	
