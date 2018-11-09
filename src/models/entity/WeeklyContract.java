@@ -3,10 +3,9 @@ package models.entity;
 public class WeeklyContract extends Contract
 {
 
-	public WeeklyContract(StockFrequency stockFrequency )
+	public WeeklyContract()
 	{
-		super( stockFrequency );
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
