@@ -3,6 +3,7 @@ package models.contract;
 import models.entity.Bid;
 import models.entity.Contract;
 import models.entity.Retailer;
+import models.entity.StockFrequency;
 
 public class ContractService
 {
@@ -26,11 +27,8 @@ public class ContractService
 	{
 		Contract contract = null;
 		Retailer retailer = (Retailer)bid.getRetailer();
-		if(retailer.getSuccessfullyClosedContracts() > 100)
-		{
-			// we provide a 10% of discount
-			
-		}
+		StockFrequency frequency = bid.getProductStock().getFrequency();
+		contract = ContractFactory.createContract( frequency ); 
 		return contract;
 	}
 }

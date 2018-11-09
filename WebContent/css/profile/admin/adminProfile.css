@@ -37,7 +37,7 @@ body {
     font-size: 17px;
 	display: block;
 	background-color: inherit;
-	color: black;
+	color: blue;
 	padding: 22px 16px;
 	width: 100%;
 	border: none;
@@ -50,8 +50,8 @@ body {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-    background-color: #87ceeb;
-	background-color: #ddd;
+    background-color: #ccc;
+	background-color: #87ceeb;
 }
 
 /* Create an active/current "tab button" class */

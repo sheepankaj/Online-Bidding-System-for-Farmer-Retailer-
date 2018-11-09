@@ -1,9 +1,9 @@
 package models.entity;
 
-public class WeeklyContract extends Contract
+public class YearlyContract extends Contract
 {
-
-	public WeeklyContract(StockFrequency stockFrequency )
+	
+	public YearlyContract( StockFrequency stockFrequency )
 	{
 		super( stockFrequency );
 		// TODO Auto-generated constructor stub
@@ -20,7 +20,7 @@ public class WeeklyContract extends Contract
 	public StringBuilder getContractConstraints()
 	{
 		StringBuilder builder = getContractConstraints();
-		builder.append( "This contract roles out in weekly basis\n");
+		builder.append( "This contract roles out in yearly basis\n");
 		return builder;
 	}
 
