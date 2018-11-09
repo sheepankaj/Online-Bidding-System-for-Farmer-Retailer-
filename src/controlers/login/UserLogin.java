@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import models.entity.ProfileType;
 import models.entity.User;
@@ -44,6 +45,14 @@ public class UserLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		HttpSession session = request.getSession(true);
+
+		session.setAttribute("username", request.getParameter("username"));
+		session.setAttribute("password", request.getParameter("password"));
+		
+		// to get the username and password
+//		String userName = session.getAttribute("username");
+//		String password = session.getAttribute("password");
 		response.setContentType("application/json");
 		ProductService.getProductServiceInstance( getServletContext() );		
 		User user = null;
