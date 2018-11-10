@@ -33,11 +33,7 @@ public class ContractService
 		{
 			contract = new Contract10PercentDiscount( ContractFactory.createContract( frequency ) );
 		}
+		contract = new Contract10PercentDiscount( ContractFactory.createContract( StockFrequency.DAILY ) );
 		return contract;
-	}
-	
-	public static String testing()
-	{
-		return "test123";
 	}
 }

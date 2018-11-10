@@ -14,19 +14,19 @@ public class ContractFactory
 		Contract contract = null;
 		if(stockFrequency.equals( StockFrequency.DAILY ))
 		{
-			new DailyContract() ;
+			contract = new DailyContract() ;
 		}
 		else if(stockFrequency.equals( StockFrequency.WEEKLY))
 		{
-			new WeeklyContract();
+			contract = new WeeklyContract();
 		}
 		else if(stockFrequency.equals( StockFrequency.MONTHLY))
 		{
-			new MonthlyContract();
+			contract = new MonthlyContract();
 		}
 		else if(stockFrequency.equals( StockFrequency.YEARLY))
 		{
-			new YearlyContract();
+			contract = new YearlyContract();
 		}
 		return contract;
 	}

@@ -6,6 +6,11 @@ public class ProductStock
 	private int quantitiy;
 	private StockFrequency frequency;
 	
+	public ProductStock()
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
 	public ProductStock( Product product, int quantitiy, StockFrequency frequency )
 	{
 		this.product = product;

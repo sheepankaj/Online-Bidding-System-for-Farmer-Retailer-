@@ -9,6 +9,11 @@ public class Retailer extends User
 	boolean spam;
 	int successfullyClosedContracts;
 	
+	public Retailer()
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Retailer(String username,String password,String companyName,String companyAddress,String fax, String tel,String type)
 	{
 		super(username,password,ProfileType.RETAILER,type);
