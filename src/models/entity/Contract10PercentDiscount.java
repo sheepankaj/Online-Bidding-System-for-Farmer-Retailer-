@@ -16,7 +16,7 @@ public class Contract10PercentDiscount extends ContractDecorator
 	@Override
 	public StringBuilder getContractConstraints()
 	{
-		return super.getContractConstraints().append( "In this retailer will receive 10 percent discount.\n" );
+		return super. getContractConstraints().append( "In this retailer will receive 10 percent discount.\n" );
 	}	
 	
 }
