@@ -2,9 +2,9 @@ package models.entity;
 
 public class DailyContract extends Contract
 {
-	public DailyContract(StockFrequency stockFrequency)
+	public DailyContract()
 	{
-		super(stockFrequency);
+		
 	}
 
 	@Override

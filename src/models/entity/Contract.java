@@ -11,9 +11,8 @@ public abstract class Contract
 	private StockFrequency stockFrequency;
 	private StringBuilder contractConstraints = new StringBuilder();
 	
-	public Contract(StockFrequency stockFrequency)
+	public Contract()
 	{
-		this.stockFrequency = stockFrequency;
 	}
 	
 	public abstract double getPriceOnFrequency();

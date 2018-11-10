@@ -8,6 +8,11 @@ public class User
 	ProfileType profileType;
 	String type;
 	
+	public User()
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
 	public User(String username,String password,ProfileType profileType,String type)
 	{
 		this.username = username;
