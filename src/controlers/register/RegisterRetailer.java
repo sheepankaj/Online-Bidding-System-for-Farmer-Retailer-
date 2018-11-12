@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.profile.ProfilesService;
-import models.report.ReportService;
 import models.entity.Contract;
+import models.report.ReportService;
 
 /**
  * Servlet implementation class Register

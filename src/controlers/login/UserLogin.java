@@ -1,8 +1,6 @@
 package controlers.login;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import models.entity.ProfileType;
 import models.entity.User;
 import models.payment.PaymentService;
 import models.product.ProductService;

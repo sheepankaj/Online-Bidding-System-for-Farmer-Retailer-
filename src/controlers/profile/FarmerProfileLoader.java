@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import models.entity.Farmer;
-import models.entity.User;
 import models.profile.ProfilesService;
 
 /**

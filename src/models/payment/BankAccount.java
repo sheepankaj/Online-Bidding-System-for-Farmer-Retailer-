@@ -8,6 +8,8 @@ public abstract class BankAccount implements IBankAccount
 	long userID;
 	String emailID;
 	String type;
+	StringBuilder receipt;
+	boolean cardDetailsExpired = false;
 	
 	
 	
@@ -21,6 +23,7 @@ public abstract class BankAccount implements IBankAccount
 		this.type = type;
 	}
 
+	
 	@Override
 	public abstract boolean validateAccount();
 
@@ -94,6 +97,14 @@ public abstract class BankAccount implements IBankAccount
 	public void setType( String type )
 	{
 		this.type = type;
+	}
+
+	public StringBuilder getReceipt() {
+		return receipt;
+	}
+
+	public void setReceipt(StringBuilder receipt) {
+		this.receipt = receipt;
 	}
 	
 	

@@ -19,6 +19,7 @@ import models.entity.RuntimeTypeAdapterFactory;
 public class PaymentService extends EntityService{
 	
 	public static PaymentService paymentService;	
+	public static String EXPIRED_PAYMENT_DETAILS = "Payment Details are expired";
 	static String filePath = "/WEB-INF/db/bankaccounts/Bankaccounts.json";
 	ServletContext context;
 	List<BankAccount> accounts =  new ArrayList<>();
@@ -38,11 +39,15 @@ public class PaymentService extends EntityService{
 		return paymentService;
 	}
 
-	void makePayment(Contract contract)
+	void makePayment(Contract contract) throws PamentDetailsNotUpdatedException
 	{
 		long retailerID = contract.getRetailerUserID();
-		double finalCost = contract.getPriceOnFrequency();
-		
+		BankAccount account = getBankAccount(retailerID);
+		if(account.validateAccount())
+		{
+			throw new PamentDetailsNotUpdatedException(EXPIRED_PAYMENT_DETAILS);
+		}
+		account.makePayment(contract.getPriceOnFrequency());
 	}
 	
 	BankAccount getBankAccount(long userID)

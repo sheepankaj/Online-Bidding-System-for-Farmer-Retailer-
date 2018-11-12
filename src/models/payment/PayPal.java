@@ -9,14 +9,12 @@ public class PayPal extends BankAccount {
 
 	@Override
 	public boolean validateAccount() {
-		// TODO Auto-generated method stub
-		return false;
+		return cardDetailsExpired;
 	}
 
 	@Override
 	public void makePayment(double amount) {
-		// TODO Auto-generated method stub
-
+		balance =  balance - (amount + amount*0.02);
 	}
 
 	@Override
