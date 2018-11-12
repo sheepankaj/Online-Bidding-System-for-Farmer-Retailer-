@@ -21,7 +21,7 @@ public class PaymentService extends EntityService{
 	public static PaymentService paymentService;	
 	static String filePath = "/WEB-INF/db/bankaccounts/Bankaccounts.json";
 	ServletContext context;
-	List<IBankAccount> accounts =  new ArrayList<>();
+	List<BankAccount> accounts =  new ArrayList<>();
 
 	public PaymentService( ServletContext context, String filePath )
 	{
@@ -45,6 +45,17 @@ public class PaymentService extends EntityService{
 		
 	}
 	
+	BankAccount getBankAccount(long userID)
+	{
+		BankAccount bankAccount = null;
+		for(BankAccount account : accounts)
+		{
+			if(account.getUserID() == userID)
+			bankAccount = account;
+		}
+		return bankAccount;
+	}
+	
 	public void loadEntities() throws FileNotFoundException
 	{
 		super.loadEntities();
@@ -58,7 +69,7 @@ public class PaymentService extends EntityService{
 		accounts = gson.fromJson(new InputStreamReader(getIs()), listType);
 	}
 	
-	public List<IBankAccount> getUsers()
+	public List<BankAccount> getBankAccoutns()
 	{
 		return accounts;
 	}
