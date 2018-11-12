@@ -1,6 +1,12 @@
 package models.payment;
 
-public class Venmo implements IBankAccount {
+public class Venmo extends BankAccount {	
+
+	public Venmo( double balance, String swiftCode, String accountNumber, long userID, String emailID )
+	{
+		super( balance, swiftCode, accountNumber, userID, emailID,"venmo" );
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public boolean validateAccount() {

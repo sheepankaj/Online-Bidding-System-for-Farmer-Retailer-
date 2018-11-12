@@ -1,6 +1,11 @@
 package models.payment;
 
-public class PayPal implements IBankAccount {
+public class PayPal extends BankAccount {	
+
+	public PayPal( double balance, String swiftCode, String accountNumber, long userID, String emailID )
+	{
+		super( balance, swiftCode, accountNumber, userID, emailID,"paypal" );
+	}
 
 	@Override
 	public boolean validateAccount() {

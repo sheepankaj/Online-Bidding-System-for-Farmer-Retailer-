@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import models.entity.ProfileType;
 import models.entity.User;
+import models.payment.PaymentService;
 import models.product.ProductService;
 import models.profile.ProfilesService;
 
@@ -49,6 +50,7 @@ public class UserLogin extends HttpServlet {
 
 		session.setAttribute("username", request.getParameter("username"));
 		session.setAttribute("password", request.getParameter("password"));
+		PaymentService.getPaymentServiceInstance( getServletContext() );
 		
 		// to get the username and password
 //		String userName = session.getAttribute("username");

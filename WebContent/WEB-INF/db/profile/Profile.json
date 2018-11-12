@@ -38,5 +38,49 @@
 	   "password":"shamitha123",
 	   "profileType":"ADMIN",
 	   "type":"admin"
-	}   
+	},
+	{  
+      "farmAddress":"Address1",
+      "telephone":"+353894855578",
+      "userID":100106,
+      "username":"retailer1",
+      "password":"retailer1",
+      "profileType":"RETAILER",
+      "type":"retailer",
+      "spam":false,
+      "successfullyClosedContracts":105
+   },
+   {  
+      "farmAddress":"Address1",
+      "telephone":"+353894855578",
+      "userID":100107,
+      "username":"retailer2",
+      "password":"retailer2",
+      "profileType":"RETAILER",
+      "type":"retailer",
+      "spam":false,
+      "successfullyClosedContracts":105
+   },
+   {  
+      "farmAddress":"Address1",
+      "telephone":"+353894855578",
+      "userID":100108,
+      "username":"retailer3",
+      "password":"retailer3",
+      "profileType":"RETAILER",
+      "type":"retailer",
+      "spam":false,
+      "successfullyClosedContracts":105
+   },
+   {  
+      "farmAddress":"Address1",
+      "telephone":"+353894855578",
+      "userID":100109,
+      "username":"retailer3",
+      "password":"retailer3",
+      "profileType":"RETAILER",
+      "type":"retailer",
+      "spam":false,
+      "successfullyClosedContracts":105
+   }     
 ]

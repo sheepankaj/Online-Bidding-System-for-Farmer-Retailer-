@@ -1,0 +1,34 @@
+[
+   {
+      "balance":4000.0,
+      "swiftCode":"PP3784",
+      "accountNumber":"PA7748849393",
+      "userID":100106,
+      "emailID":"100106@paypal.com",
+      "type":"paypal"
+   },
+   {
+      "balance":8000.0,
+      "swiftCode":"AP5467",
+      "accountNumber":"PA7748849393",
+      "userID":100107,
+      "emailID":"100106@amazon.com",
+      "type":"amazonpayments"
+   },
+   {
+      "balance":6000.0,
+      "swiftCode":"VO2334",
+      "accountNumber":"VO34342232",
+      "userID":100108,
+      "emailID":"100106@venmo.com",
+      "type":"venmo"
+   },
+   {
+      "balance":9000.0,
+      "swiftCode":"PP7895",
+      "accountNumber":"PA7748849393",
+      "userID":100109,
+      "emailID":"100106@paypal.com",
+      "type":"paypal"
+   }
+]

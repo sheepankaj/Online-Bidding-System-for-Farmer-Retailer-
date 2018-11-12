@@ -1,6 +1,11 @@
 package models.payment;
 
-public class AmazonPayments implements IBankAccount {
+public class AmazonPayments extends BankAccount {
+	
+	public AmazonPayments( double balance, String swiftCode, String accountNumber, long userID, String emailID )
+	{
+		super( balance, swiftCode, accountNumber, userID, emailID,"amazonpayments" );
+	}
 
 	@Override
 	public boolean validateAccount() {
