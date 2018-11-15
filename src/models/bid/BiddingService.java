@@ -58,5 +58,10 @@ public class BiddingService extends EntityService
 		return bids;
 	}
 	
+	public String getBidsAsJSON()
+	{
+		return getGson().toJson(bids);
+	}
+	
 	
 }

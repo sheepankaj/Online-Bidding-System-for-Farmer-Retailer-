@@ -46,6 +46,11 @@ public class ProductService extends EntityService
 		getWriter().close();
 	}
 	
+	public String getProductsAsJSON()
+	{
+		return getGson().toJson(products);
+	}
+	
 	public void addProduct( Product profile )
 	{
 		products.add( profile );

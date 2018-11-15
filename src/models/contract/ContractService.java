@@ -56,7 +56,8 @@ public class ContractService extends EntityService
 		}
 		contract = new Contract10PercentDiscount( ContractFactory.createContract( StockFrequency.DAILY ) );
 		return contract;
-	}
+	}	
+	
 	
 	public void testGSON()
 	{
