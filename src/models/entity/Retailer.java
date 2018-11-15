@@ -14,9 +14,9 @@ public class Retailer extends User
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Retailer(String username,String password,String companyName,String companyAddress,String fax, String tel,String type)
+	public Retailer(String username,long userID,String password,String companyName,String companyAddress,String fax, String tel,String type)
 	{
-		super(username,password,ProfileType.RETAILER,type);
+		super(username,userID,password,ProfileType.RETAILER,type);
 		this.fax = fax;
 		this.tel = tel;
 		this.companyAddress = companyAddress;

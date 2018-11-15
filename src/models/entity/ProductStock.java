@@ -5,17 +5,19 @@ public class ProductStock
 	private Product product;
 	private int quantitiy;
 	private StockFrequency frequency;
+	private double unitPrice;
 	
 	public ProductStock()
 	{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ProductStock( Product product, int quantitiy, StockFrequency frequency )
+	public ProductStock( Product product, int quantitiy, StockFrequency frequency, double unitPrice )
 	{
 		this.product = product;
 		this.quantitiy = quantitiy;
 		this.frequency = frequency;
+		this.unitPrice = unitPrice;
 	}
 
 	public Product getProduct()
@@ -47,6 +49,17 @@ public class ProductStock
 	{
 		this.frequency = frequency;
 	}
+
+	public double getUnitPrice()
+	{
+		return unitPrice;
+	}
+
+	public void setUnitPrice( double unitPrice )
+	{
+		this.unitPrice = unitPrice;
+	}
+	
 	
 	
 }

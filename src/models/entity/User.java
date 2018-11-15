@@ -13,9 +13,10 @@ public class User
 		// TODO Auto-generated constructor stub
 	}
 	
-	public User(String username,String password,ProfileType profileType,String type)
+	public User(String username,long userID,String password,ProfileType profileType,String type)
 	{
 		this.username = username;
+		this.userID = userID;
 		this.password = password;
 		this.profileType = profileType;
 		this.type = type;

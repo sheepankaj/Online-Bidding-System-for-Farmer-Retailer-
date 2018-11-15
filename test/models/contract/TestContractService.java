@@ -27,7 +27,7 @@ class TestContractService
 		Retailer retailer = mock(Retailer.class);
 		ProductStock stock = mock(ProductStock.class);
 		ContractFactory contractFactory = mock(ContractFactory.class);
-		PowerMockito.when(bid.getRetailer()).thenReturn(new Retailer());
+		PowerMockito.when(bid.getRetailerID()).thenReturn((long)38893839);
 		PowerMockito.when(bid.getProductStock()).thenReturn(new ProductStock());
 		ContractService contractService = mock(ContractService.class);
 		Contract10PercentDiscount discount = mock(Contract10PercentDiscount.class);

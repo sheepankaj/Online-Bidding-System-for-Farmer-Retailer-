@@ -10,7 +10,7 @@ public class DailyContract extends Contract
 	@Override
 	public double getPriceOnFrequency()
 	{
-		return getAgreedBid().getUnitPrice();
+		return getAgreedBid().getAgreedFinalPrice();
 	}
 
 	@Override

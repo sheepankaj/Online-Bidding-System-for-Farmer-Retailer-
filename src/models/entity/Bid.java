@@ -3,21 +3,21 @@ package models.entity;
 public class Bid
 {
 	private ProductStock productStock;
-	private double unitPrice;
-	private User retailer;
-	private User farmer;
+	private double agreedFinalPrice;
+	private long retailerID;
+	private long farmerID;
 	
 	public Bid()
 	{
 		
 	}
 	
-	public Bid( ProductStock productStock, double unitPrice, User retailer, User farmer )
+	public Bid( ProductStock productStock, double agreedFinalPrice, long retailerID, long farmerID )
 	{
 		this.productStock = productStock;
-		this.unitPrice = unitPrice;
-		this.retailer = retailer;
-		this.farmer = farmer;
+		this.agreedFinalPrice = agreedFinalPrice;
+		this.retailerID = retailerID;
+		this.farmerID = farmerID;
 	}
 
 	public ProductStock getProductStock()
@@ -30,33 +30,33 @@ public class Bid
 		this.productStock = productStock;
 	}
 
-	public double getUnitPrice()
+	public double getAgreedFinalPrice()
 	{
-		return unitPrice;
+		return agreedFinalPrice;
 	}
 
-	public void setUnitPrice( double unitPrice )
+	public void setAgreedFinalPrice( double unitPrice )
 	{
-		this.unitPrice = unitPrice;
+		this.agreedFinalPrice = unitPrice;
 	}
 
-	public User getRetailer()
+	public long getRetailerID()
 	{
-		return retailer;
+		return retailerID;
 	}
 
-	public void setRetailer( User retailer )
+	public void setRetailerID( long retailerID )
 	{
-		this.retailer = retailer;
+		this.retailerID = retailerID;
 	}
 
-	public User getFarmer()
+	public long getFarmerID()
 	{
-		return farmer;
+		return farmerID;
 	}
 
-	public void setFarmer( User farmer )
+	public void setFarmerID( long farmerID )
 	{
-		this.farmer = farmer;
+		this.farmerID = farmerID;
 	}	
 }

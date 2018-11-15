@@ -5,9 +5,9 @@ public class Admin extends User
 	String adminName;
 	String email;
 	
-	public Admin(String username,String password,String adminName,String email,String type)
+	public Admin(String username,long userID,String password,String adminName,String email,String type)
 	{
-		super(username,password,ProfileType.ADMIN,type);
+		super(username,userID,password,ProfileType.ADMIN,type);
 		this.adminName = adminName;
 		this.email = email;
 	}

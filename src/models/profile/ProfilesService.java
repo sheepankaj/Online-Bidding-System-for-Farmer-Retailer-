@@ -22,7 +22,7 @@ import models.entity.User;
 public class ProfilesService extends EntityService
 {
 	public static ProfilesService profilesService;
-	List<User> profiles = new ArrayList<>();
+	private static List<User> profiles = new ArrayList<>();
 	
 	static String filePath = "/WEB-INF/db/profile/Profile.json";
 	ServletContext context;
@@ -55,6 +55,18 @@ public class ProfilesService extends EntityService
 		for(User profile : profiles)
 		{
 			if(profile.getUsername().equals( username ))
+			{
+				return profile;
+			}
+		}
+		return null;
+	}
+	
+	public static User getProfile( long userID )
+	{
+		for(User profile : profiles)
+		{
+			if(profile.getUserID() ==  userID)
 			{
 				return profile;
 			}
@@ -125,10 +137,10 @@ public class ProfilesService extends EntityService
 	public void testGSON()
 	{
 		List<User> animals = new ArrayList<>();
-		animals.add(new Farmer("sulthan","sulthan123","Address1","+353894855578","farmer"));
-		animals.add(new Retailer("luksmi","luksmi123","Lux","Address12","fax1","+353894855578","retailer"));
-		animals.add(new Retailer("pankaj","pankaj123","Punk","Address123","fax12","+432342332","retailer"));
-		animals.add(new Admin("shamitha","shamitha123","AdminName123","example@gmail.com","admin"));
+		animals.add(new Farmer("sulthan",38329939,"sulthan123","Address1","+353894855578","farmer"));
+		animals.add(new Retailer("luksmi",38382939,"luksmi123","Lux","Address12","fax1","+353894855578","retailer"));
+		animals.add(new Retailer("pankaj",48498348,"pankaj123","Punk","Address123","fax12","+432342332","retailer"));
+		animals.add(new Admin("shamitha",3938493,"shamitha123","AdminName123","example@gmail.com","admin"));
 		
 		RuntimeTypeAdapterFactory<User> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
 			    .of(User.class, "type")
