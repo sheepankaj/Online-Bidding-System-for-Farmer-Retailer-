@@ -1,6 +1,9 @@
 package models.entity;
 
-public class User
+import models.notification.Notification;
+import models.notification.NotificationListener;
+
+public class User implements NotificationListener
 {
 	long userID;
 	String username;
@@ -51,6 +54,13 @@ public class User
 	}
 	public void setProfileType(ProfileType profileType) {
 		this.profileType = profileType;
+	}
+
+	@Override
+	public void update( Notification notification )
+	{
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

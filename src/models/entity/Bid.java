@@ -1,6 +1,9 @@
 package models.entity;
 
-public class Bid
+import models.notification.Notification;
+import models.notification.NotificationListener;
+
+public class Bid implements Notification
 {
 	private ProductStock productStock;
 	private double agreedFinalPrice;
@@ -58,5 +61,28 @@ public class Bid
 	public void setFarmerID( long farmerID )
 	{
 		this.farmerID = farmerID;
+	}
+
+	@Override
+	public void attach( NotificationListener listener )
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void detach( NotificationListener listener )
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void notifyNotificationListeners()
+	{
+		// TODO Auto-generated method stub
+		
 	}	
+	
+	
 }
