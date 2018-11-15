@@ -9,26 +9,36 @@ import java.util.Map;
 public class NotificationManager
 {
     Map<Notification, List<NotificationListener>> mapping;
+    private static NotificationManager instance;
+    
+    public static NotificationManager getNotificationManagerInstance()
+    {
+    	if(instance == null)
+    	{
+    		instance = new NotificationManager();
+    	}
+    	return instance;
+    }
 	
-	public NotificationManager(){
+	private NotificationManager(){
 		mapping = new HashMap<Notification, List<NotificationListener>>();
 	}
 	
 	
-	public void register(Notification subject, NotificationListener listener){
-		if(mapping.containsKey(subject)){
-			mapping.get(subject).add(listener);
+	public void register(Notification notification, NotificationListener listener){
+		if(mapping.containsKey(notification)){
+			mapping.get(notification).add(listener);
 		}
 		else{
-			mapping.put(subject, new ArrayList<NotificationListener>(Arrays.asList(listener)));
+			mapping.put(notification, new ArrayList<NotificationListener>(Arrays.asList(listener)));
 		}
 	}
 	
 	
-	public void unregister(Notification subject, NotificationListener listener){
-		if(mapping.containsKey(subject)){
-			if(mapping.get(subject).contains(listener)){
-				mapping.get(subject).remove(listener);
+	public void unregister(Notification notification, NotificationListener listener){
+		if(mapping.containsKey(notification)){
+			if(mapping.get(notification).contains(listener)){
+				mapping.get(notification).remove(listener);
 			}
 		}
 	}
