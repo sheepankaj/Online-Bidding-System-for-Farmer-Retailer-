@@ -6,6 +6,7 @@ public class ProductStock
 	private int quantitiy;
 	private StockFrequency frequency;
 	private double unitPrice;
+	private long productStockID;
 	
 	public ProductStock()
 	{

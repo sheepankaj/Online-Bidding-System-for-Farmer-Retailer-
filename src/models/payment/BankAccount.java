@@ -21,6 +21,7 @@ public abstract class BankAccount implements IBankAccount
 		this.userID = userID;
 		this.emailID = emailID;
 		this.type = type;
+		receipt = new StringBuilder();
 	}
 
 	
@@ -37,7 +38,7 @@ public abstract class BankAccount implements IBankAccount
 	public abstract double checkBalance();
 
 	@Override
-	public abstract void addCash();
+	public abstract void addCash(double amount);
 
 	public double getBalance()
 	{

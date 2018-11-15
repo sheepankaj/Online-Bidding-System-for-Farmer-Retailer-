@@ -32,7 +32,7 @@ public class AmazonPayments extends BankAccount {
 	}
 
 	@Override
-	public void addCash() {
+	public void addCash(double amount) {
 		// TODO Auto-generated method stub
 
 	}

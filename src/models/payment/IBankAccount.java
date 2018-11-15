@@ -6,6 +6,6 @@ public interface IBankAccount {
 	void makePayment(double amount);
 	StringBuilder printReceipt();
 	double checkBalance();
-	void addCash();
+	void addCash(double amount);
 	
 }

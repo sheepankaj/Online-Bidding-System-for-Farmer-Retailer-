@@ -49,7 +49,7 @@ public class UserLogin extends HttpServlet {
 		session.setAttribute("username", request.getParameter("username"));
 		session.setAttribute("password", request.getParameter("password"));
 		PaymentService.getPaymentServiceInstance( getServletContext() );
-		BiddingService.getContractServiceInstance( getServletContext());
+		BiddingService.getBiddingServiceInstance( getServletContext()).getBids();
 		
 		// to get the username and password
 //		String userName = session.getAttribute("username");

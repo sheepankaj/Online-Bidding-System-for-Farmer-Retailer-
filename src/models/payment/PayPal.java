@@ -19,20 +19,18 @@ public class PayPal extends BankAccount {
 
 	@Override
 	public StringBuilder printReceipt() {
-		// TODO Auto-generated method stub
-		return null;
+		return receipt.append( "Paypal Inc. \n" );
 	}
 
 	@Override
 	public double checkBalance() {
 		// TODO Auto-generated method stub
-		return 0;
+		return balance;
 	}
 
 	@Override
-	public void addCash() {
-		// TODO Auto-generated method stub
-
+	public void addCash(double amount) {
+		
 	}
 
 }

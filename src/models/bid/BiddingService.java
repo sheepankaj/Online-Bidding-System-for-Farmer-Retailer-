@@ -26,7 +26,7 @@ public class BiddingService extends EntityService
 		super(context,filePath);
 	}
 	
-	public static BiddingService getContractServiceInstance(ServletContext context) throws FileNotFoundException
+	public static BiddingService getBiddingServiceInstance(ServletContext context) throws FileNotFoundException
 	{
 		if(instance == null)
 		{
@@ -52,4 +52,11 @@ public class BiddingService extends EntityService
 		
 		System.out.println( getGson().toJson(bids)); 
 	}
+
+	public List<Bid> getBids()
+	{
+		return bids;
+	}
+	
+	
 }
