@@ -22,8 +22,7 @@ public class NotificationManager
 	
 	private NotificationManager(){
 		mapping = new HashMap<Notification, List<NotificationListener>>();
-	}
-	
+	}	
 	
 	public void register(Notification notification, NotificationListener listener){
 		if(mapping.containsKey(notification)){
@@ -32,8 +31,7 @@ public class NotificationManager
 		else{
 			mapping.put(notification, new ArrayList<NotificationListener>(Arrays.asList(listener)));
 		}
-	}
-	
+	}	
 	
 	public void unregister(Notification notification, NotificationListener listener){
 		if(mapping.containsKey(notification)){
@@ -41,8 +39,7 @@ public class NotificationManager
 				mapping.get(notification).remove(listener);
 			}
 		}
-	}
-	
+	}	
 	
 	public void notifyNotificationListeners(Notification notification){
 		for (NotificationListener listener : mapping.get(notification)) {
