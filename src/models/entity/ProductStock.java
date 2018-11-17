@@ -19,6 +19,7 @@ public class ProductStock
 		this.quantitiy = quantitiy;
 		this.frequency = frequency;
 		this.unitPrice = unitPrice;
+		
 	}
 
 	public Product getProduct()
