@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import models.bid.BiddingService;
+import models.entity.Contract;
 import models.entity.User;
 import models.payment.PaymentService;
 import models.product.ProductService;
 import models.profile.ProfilesService;
+import models.report.ReportService;
 
 /**
  * Servlet implementation class UserLogin
@@ -50,6 +52,7 @@ public class UserLogin extends HttpServlet {
 		session.setAttribute("password", request.getParameter("password"));
 		PaymentService.getPaymentServiceInstance( getServletContext() );
 		BiddingService.getBiddingServiceInstance( getServletContext()).getBids();
+		//ReportService.getReportServiceInstance().printContract(new Contract, docType, response);
 		
 		// to get the username and password
 //		String userName = session.getAttribute("username");

@@ -1,18 +1,15 @@
 package models.report;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletResponse;
 
 import com.itextpdf.text.Document;
-import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public class PDFReport implements IReport
 {
 
 	@Override
-	public Document generateReport( StringBuilder builder,HttpServletResponse response )
+	public Document generateReport( Object table,HttpServletResponse response )
 	{
 		Document document = null;
 		try 
@@ -20,8 +17,7 @@ public class PDFReport implements IReport
             document = new Document();
             PdfWriter.getInstance(document, response.getOutputStream());
             document.open();
-            document.add(new Paragraph(builder.toString()));
-            document.add(new Paragraph(new Date().toString()));
+            document.add(((PDFTable)table).getpTable());
             document.close();
         } catch (Exception de) {
             de.printStackTrace();
