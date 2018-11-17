@@ -7,6 +7,7 @@ public class Retailer extends User
 	String fax;
 	String tel;
 	boolean spam;
+	private String statusType;
 	int successfullyClosedContracts;
 	
 	public Retailer()
@@ -22,7 +23,15 @@ public class Retailer extends User
 		this.companyAddress = companyAddress;
 		this.companyName = companyName;
 	}
+	
+	public String getStatusType() {
+		return statusType;
+	}
 
+	public void setStatusType(String statusType) {
+		this.statusType = statusType;
+	}
+	
 	public String getCompanyName()
 	{
 		return companyName;

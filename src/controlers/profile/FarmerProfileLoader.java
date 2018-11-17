@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import models.entity.Farmer;
+import models.entity.StockFrequency;
+import models.product.ProductService;
 import models.profile.ProfilesService;
 
 /**
@@ -40,12 +42,24 @@ public class FarmerProfileLoader extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
-		HttpSession session = request.getSession(true);
-		Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
-		
+		String event =  request.getParameter("tabEvent");
 		response.setContentType("application/json");
-		response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"}");
 		
+		if(event != null &&  event.equals("Add Products"))
+		{
+			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());
+			int quant = Integer.parseInt(request.getParameter("quantity"));
+		 	double price =Double.parseDouble(request.getParameter("price"));
+		 	
+		    
+		}
+		else
+		{
+			HttpSession session = request.getSession(true);
+			Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));		
+			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"}");
+			
+		}		
 	}
 
 }

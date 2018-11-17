@@ -10,6 +10,7 @@ public class User implements NotificationListener
 	String password;
 	ProfileType profileType;
 	String type;
+	private Priority priority;
 	
 	public User()
 	{
@@ -55,11 +56,24 @@ public class User implements NotificationListener
 	public void setProfileType(ProfileType profileType) {
 		this.profileType = profileType;
 	}
+	public Priority getDiscountType() {
+		return priority;
+	}
+	public void setDiscountType(Priority discountType) {
+		this.priority = discountType;
+		
+	}
 
 	@Override
 	public void update( Notification notification )
 	{
 		// TODO Auto-generated method stub
+		
+	}
+	
+	public double getPriority() {
+		
+		return priority.getPriority();
 		
 	}
 	

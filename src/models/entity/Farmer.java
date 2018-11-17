@@ -5,6 +5,7 @@ public class Farmer extends User
 	String farmAddress;
 	String telephone;
 	boolean spam;
+	private String statusType;
 	
 	public Farmer(String username,long userID,String password,String farmAddress,String telephone,String type)
 	{
@@ -13,6 +14,14 @@ public class Farmer extends User
 		this.telephone = telephone;
 	}
 
+	public String getStatusType() {
+		return statusType;
+	}
+
+	public void setStatusType(String statusType) {
+		this.statusType = statusType;
+	}
+	
 	public String getFarmAddress()
 	{
 		return farmAddress;
