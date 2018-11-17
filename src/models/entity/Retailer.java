@@ -81,8 +81,5 @@ public class Retailer extends User
 	public void setSuccessfullyClosedContracts( int successfullyClosedContracts )
 	{
 		this.successfullyClosedContracts = successfullyClosedContracts;
-	}
-	
-	
-	
+	}	
 }
