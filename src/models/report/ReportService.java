@@ -27,14 +27,21 @@ public class ReportService
 	
 	public void generateContractReport(List<Contract> contracts,String docType,HttpServletResponse response) throws IOException
 	{
+//		IReport report = createDoc( docType );
+//		StringBuilder builder = new StringBuilder();
+//		for(Contract contract : contracts)
+//		{
+//			builder.append( contract.toString() );
+//			builder.append( "\n" );
+//		}
+//		report.generateReport( builder, response );
+	}
+	
+	public void printContract(Contract contract,String docType,HttpServletResponse response) throws IOException
+	{
+		PDFTable table = new PDFTable(3, 5);
 		IReport report = createDoc( docType );
-		StringBuilder builder = new StringBuilder();
-		for(Contract contract : contracts)
-		{
-			builder.append( contract.toString() );
-			builder.append( "\n" );
-		}
-		report.generateReport( builder, response );
+		report.generateReport(PDFBuilder.getCompleteTable(contract, table), response);
 	}
 	
 	private IReport createDoc(String docType)
