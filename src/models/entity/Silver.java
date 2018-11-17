@@ -1,10 +1,13 @@
 package models.entity;
 
-public class Silver implements Discount{
-	
-	public double addDiscount() {
+public class Silver implements Priority{
+
+	@Override
+	public int getPriority() {
+		// TODO Auto-generated method stub
 		return 0;
-		
 	}
+	
+	
 
 }

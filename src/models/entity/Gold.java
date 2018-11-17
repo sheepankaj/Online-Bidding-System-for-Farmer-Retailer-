@@ -1,9 +1,12 @@
 package models.entity;
 
-public class Gold implements Discount{
-	
-	public double addDiscount() {
+public class Gold implements Priority{
+
+	@Override
+	public int getPriority() {
+		// TODO Auto-generated method stub
 		return 0;
-		
 	}
+	
+	
 }

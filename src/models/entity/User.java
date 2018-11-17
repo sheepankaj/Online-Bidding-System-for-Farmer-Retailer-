@@ -10,7 +10,7 @@ public class User implements NotificationListener
 	String password;
 	ProfileType profileType;
 	String type;
-	private Discount discountType;
+	private Priority priority;
 	
 	public User()
 	{
@@ -56,11 +56,11 @@ public class User implements NotificationListener
 	public void setProfileType(ProfileType profileType) {
 		this.profileType = profileType;
 	}
-	public Discount getDiscountType() {
-		return discountType;
+	public Priority getDiscountType() {
+		return priority;
 	}
-	public void setDiscountType(Discount discountType) {
-		this.discountType = discountType;
+	public void setDiscountType(Priority discountType) {
+		this.priority = discountType;
 		
 	}
 
@@ -71,9 +71,9 @@ public class User implements NotificationListener
 		
 	}
 	
-	public double afterDiscount() {
+	public double getPriority() {
 		
-		return discountType.addDiscount();
+		return priority.getPriority();
 		
 	}
 	

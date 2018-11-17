@@ -1,10 +1,12 @@
 package models.entity;
 
-public class Platinum implements Discount{
-	
-	public double addDiscount() {
-		return 0;
-		
-	}
+public class Platinum implements Priority{
 
+	@Override
+	public int getPriority() {
+		
+		return 0;
+	}
+	
+	
 }
