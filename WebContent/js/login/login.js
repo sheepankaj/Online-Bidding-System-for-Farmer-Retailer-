@@ -9,6 +9,9 @@ $( document ).ready(function() {
 			data: form.serialize(),
 			success: function (data) 
 			{
+				//console.log(data);
+				//return false;
+				
 				if(data.page == "FARMER")
 				{
 					window.location = 'view/profile/farmer/farmerProfile.jsp';

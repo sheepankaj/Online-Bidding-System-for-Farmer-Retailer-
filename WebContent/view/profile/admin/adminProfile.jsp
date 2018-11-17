@@ -13,7 +13,15 @@
 <title>Admin Profile</title>
 </head>
 <body>
-<h1 class="form-title">Welcome System Admin</h1>
+
+
+
+<!--  <h1 class="form-title">Welcome System Admin</h1>-->
+
+
+
+<h1 class="form-title">Welcome <span id = "username" > <%= session.getAttribute("username") %> </span></h1>
+
 
 <div class="tab">
 

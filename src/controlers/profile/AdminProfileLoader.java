@@ -1,6 +1,9 @@
 package controlers.profile;
 
+import java.awt.print.PrinterAbortException;
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,8 +52,11 @@ public class AdminProfileLoader extends HttpServlet {
 		response.setContentType("application/json");
 		ProductService.getProductServiceInstance( getServletContext() );		
 		User user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile(username);
-		response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\""+":\""+user.getProfileType()+"\"}");
+		response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"}");
+		
+		
 			
+		
 	}
 
 }
