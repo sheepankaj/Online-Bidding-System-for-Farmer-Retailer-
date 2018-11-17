@@ -1,12 +1,16 @@
 package models.entity;
 
-public class User
+import models.notification.Notification;
+import models.notification.NotificationListener;
+
+public class User implements NotificationListener
 {
 	long userID;
 	String username;
 	String password;
 	ProfileType profileType;
 	String type;
+	private Discount discountType;
 	
 	public User()
 	{
@@ -51,6 +55,26 @@ public class User
 	}
 	public void setProfileType(ProfileType profileType) {
 		this.profileType = profileType;
+	}
+	public Discount getDiscountType() {
+		return discountType;
+	}
+	public void setDiscountType(Discount discountType) {
+		this.discountType = discountType;
+		
+	}
+
+	@Override
+	public void update( Notification notification )
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public double afterDiscount() {
+		
+		return discountType.addDiscount();
+		
 	}
 	
 	

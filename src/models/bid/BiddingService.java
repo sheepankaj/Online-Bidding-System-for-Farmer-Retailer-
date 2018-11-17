@@ -46,9 +46,9 @@ public class BiddingService extends EntityService
 	private void testGSON()
 	{
 		List<Bid> bids = new ArrayList<>();
-		bids.add( new Bid(new ProductStock( new Product("Carrots",3893930), 1000, StockFrequency.DAILY, 560000 ),550000,10020,38839) );
-		bids.add( new Bid(new ProductStock( new Product("Onions",5453434), 1500, StockFrequency.MONTHLY, 4000 ),3900,13430,43434) );
-		bids.add( new Bid(new ProductStock( new Product("Cabage",563354), 125000, StockFrequency.WEEKLY, 6000 ),5500,23534,57688) );
+		bids.add( new Bid(new ProductStock( new Product("Carrots",3893930), 1000, StockFrequency.DAILY, 560000,999003 ),550000,10020,38839) );
+		bids.add( new Bid(new ProductStock( new Product("Onions",5453434), 1500, StockFrequency.MONTHLY, 4000,999002 ),3900,13430,43434) );
+		bids.add( new Bid(new ProductStock( new Product("Cabage",563354), 125000, StockFrequency.WEEKLY, 6000,999001 ),5500,23534,57688) );
 		
 		System.out.println( getGson().toJson(bids)); 
 	}

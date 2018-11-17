@@ -26,20 +26,30 @@ function openCity(evt, eventName) {
     				success: function (data) 
     				{
     					if(data.page=="farmer")   {
-//    						var obj = JSON.parse(data.page);
-//
-//    						document.getElementById("Account Details").innerHTML =
-//    						"Name: " + obj.username;
+    						
     						$('#username').val(data.page);
     						$('#ID').val(data.id);
+    						$('#address').val(data.address);
     					}
     				}
     			});		
     	}
-    else if(eventName=="Add Products")
-    	{
+    else if(eventName=="Add Products"){
     	
-    	}
+    	$.post('../../../FarmerProfileLoaderRequest',
+    		    {
+    		        tabEvent: eventName
+    		    },
+    		    function(data, status){
+    		        alert("Data: " + data + "\nStatus: " + status);
+    		        $.each(data,function(key,value)
+    		                {
+    		                    var option = $('<option />').val(value.productID).text(value.name);
+    		               $("#product-dropdown").append(option);
+    		                });
+    		        
+    		    });
+    }	
     else if(eventName=="Bids")
     	{
     	

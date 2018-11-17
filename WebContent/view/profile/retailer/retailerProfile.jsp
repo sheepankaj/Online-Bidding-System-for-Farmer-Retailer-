@@ -13,6 +13,8 @@
 <title>Retailer Profile</title>
 </head>
 <body>
+
+<h1 class="form-title">Welcome <span id = "username" > <%= session.getAttribute("username") %> </span></h1>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Account Details')" id="defaultOpen">Account Details</button>
   <button class="tablinks" onclick="openCity(event, 'View Product Catalogue')">View Product Catalogue</button>

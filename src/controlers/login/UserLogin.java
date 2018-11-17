@@ -60,7 +60,8 @@ public class UserLogin extends HttpServlet {
 		if(ProfilesService.getProfileServiceInstance(getServletContext()).validLoginCheck( username, password ))
 		{
 			user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile(username);
-			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\""+":\""+user.getProfileType()+"\"}");
+			//response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\""+":\""+user.getProfileType()+"\"}");
+			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\""+":\""+user.getProfileType()+"\",\"name\":\""+user.getUsername()+"\"}");
 		}
 		else
 		{
