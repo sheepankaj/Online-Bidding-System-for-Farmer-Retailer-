@@ -5,7 +5,7 @@ public class Platinum implements Priority{
 	@Override
 	public int getPriority() {
 		
-		return 0;
+		return 1;
 	}
 	
 	
