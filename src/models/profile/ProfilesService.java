@@ -15,8 +15,13 @@ import com.google.gson.reflect.TypeToken;
 import models.entity.Admin;
 import models.entity.EntityService;
 import models.entity.Farmer;
+import models.entity.Gold;
+import models.entity.NoPriority;
+import models.entity.Platinum;
+import models.entity.Priority;
 import models.entity.Retailer;
 import models.entity.RuntimeTypeAdapterFactory;
+import models.entity.Silver;
 import models.entity.User;
 
 public class ProfilesService extends EntityService
@@ -38,7 +43,8 @@ public class ProfilesService extends EntityService
 		if(profilesService == null)
 		{
 			profilesService = new ProfilesService(context,filePath);
-			profilesService.loadEntities();
+			//profilesService.loadEntities();
+			profilesService.testGSON();
 		}
 		return profilesService;
 	}
@@ -137,17 +143,23 @@ public class ProfilesService extends EntityService
 	public void testGSON()
 	{
 		List<User> animals = new ArrayList<>();
-		animals.add(new Farmer("sulthan",38329939,"sulthan123","Address1","+353894855578","farmer"));
-		animals.add(new Retailer("luksmi",38382939,"luksmi123","Lux","Address12","fax1","+353894855578","retailer"));
-		animals.add(new Retailer("pankaj",48498348,"pankaj123","Punk","Address123","fax12","+432342332","retailer"));
-		animals.add(new Admin("shamitha",3938493,"shamitha123","AdminName123","example@gmail.com","admin"));
+		animals.add(new Farmer("sulthan",38329939,"sulthan123","Address1","+353894855578",new Gold("gold"),"farmer"));
+		animals.add(new Retailer("luksmi",38382939,"luksmi123","Lux","Address12","fax1","+353894855578",new NoPriority("nopriority"),"retailer"));
+		animals.add(new Retailer("pankaj",48498348,"pankaj123","Punk","Address123","fax12","+432342332",new NoPriority("nopriority"),"retailer"));
+		animals.add(new Admin("shamitha",3938493,"shamitha123","AdminName123","example@gmail.com",new NoPriority("nopriority"),"admin"));
 		
 		RuntimeTypeAdapterFactory<User> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
 			    .of(User.class, "type")
 			    .registerSubtype(Farmer.class, "farmer")
 			    .registerSubtype(Admin.class, "admin")
 			    .registerSubtype(Retailer.class, "retailer");
-			Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create();
+		RuntimeTypeAdapterFactory<Priority> runtimeTypeAdapterFactory2 = RuntimeTypeAdapterFactory
+			    .of(Priority.class, "priorityType")
+			    .registerSubtype(Gold.class, "gold")
+			    .registerSubtype(Silver.class, "silver")
+			    .registerSubtype(Platinum.class, "platinum")
+		        .registerSubtype(Platinum.class, "nopriority");
+			Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).registerTypeAdapterFactory(runtimeTypeAdapterFactory2).create();
 
 			String json = gson.toJson(animals);
 			System.out.println( json );

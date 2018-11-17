@@ -17,13 +17,14 @@ public class User implements NotificationListener
 		// TODO Auto-generated constructor stub
 	}
 	
-	public User(String username,long userID,String password,ProfileType profileType,String type)
+	public User(String username,long userID,String password,ProfileType profileType,Priority priority,String type)
 	{
 		this.username = username;
 		this.userID = userID;
 		this.password = password;
 		this.profileType = profileType;
 		this.type = type;
+		this.priority = priority;
 	}
 	
 	public String getUsername()
@@ -56,11 +57,11 @@ public class User implements NotificationListener
 	public void setProfileType(ProfileType profileType) {
 		this.profileType = profileType;
 	}
-	public Priority getDiscountType() {
+	public Priority getPriority() {
 		return priority;
 	}
-	public void setDiscountType(Priority discountType) {
-		this.priority = discountType;
+	public void setPriority(Priority priority) {
+		this.priority = priority;
 		
 	}
 
@@ -71,7 +72,7 @@ public class User implements NotificationListener
 		
 	}
 	
-	public double getPriority() {
+	public int getPriorityLevel() {
 		
 		return priority.getPriority();
 		
