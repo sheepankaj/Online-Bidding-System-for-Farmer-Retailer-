@@ -43,8 +43,8 @@ public class ProfilesService extends EntityService
 		if(profilesService == null)
 		{
 			profilesService = new ProfilesService(context,filePath);
-			//profilesService.loadEntities();
-			profilesService.testGSON();
+			profilesService.loadEntities();
+			//profilesService.testGSON();
 		}
 		return profilesService;
 	}
@@ -132,7 +132,15 @@ public class ProfilesService extends EntityService
 			    .registerSubtype(Farmer.class, "farmer")
 			    .registerSubtype(Admin.class, "admin")
 			    .registerSubtype(Retailer.class, "retailer");
-		Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create();
+		RuntimeTypeAdapterFactory<Priority> runtimeTypeAdapterFactory2 = RuntimeTypeAdapterFactory
+				.of(Priority.class, "priorityType")
+				.registerSubtype(Gold.class, "gold")
+				.registerSubtype(Silver.class, "silver")
+				.registerSubtype(Platinum.class, "platinum")
+				.registerSubtype(NoPriority.class, "nopriority");
+		Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).registerTypeAdapterFactory(runtimeTypeAdapterFactory2).create();
+		
+		
 		Type listType = new TypeToken<List<User>>(){}.getType();
 		profiles = gson.fromJson(new InputStreamReader(getIs()), listType);
 	}
@@ -160,7 +168,7 @@ public class ProfilesService extends EntityService
 			    .registerSubtype(Gold.class, "gold")
 			    .registerSubtype(Silver.class, "silver")
 			    .registerSubtype(Platinum.class, "platinum")
-		        .registerSubtype(Platinum.class, "nopriority");
+		        .registerSubtype(NoPriority.class, "nopriority");
 		// stamping file
 			Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).registerTypeAdapterFactory(runtimeTypeAdapterFactory2).create();
 

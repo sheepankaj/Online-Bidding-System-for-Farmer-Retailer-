@@ -10,6 +10,7 @@
       "spam":false,
       "successfullyClosedContracts":105,
       "priority":{  
+         "priorityType":"nopriority",
          "priority":-1
       }
    },
@@ -23,6 +24,7 @@
       "type":"farmer",
       "spam":false,
       "priority":{  
+         "priorityType":"platinum",
          "priority":1
       }
    },
@@ -36,6 +38,7 @@
       "type":"farmer",
       "spam":false,
       "priority":{  
+         "priorityType":"gold",
          "priority":2
       }
    },
@@ -49,7 +52,8 @@
       "type":"farmer",
       "spam":false,
       "priority":{  
-         "priority":2
+         "priorityType":"silver",
+         "priority":3
       }
    },
    {  
@@ -62,6 +66,7 @@
       "type":"admin",
       "spam":false,
       "priority":{  
+         "priorityType":"nopriority",
          "priority":-1
       }
    },
@@ -74,6 +79,7 @@
 	   "profileType":"ADMIN",
 	   "type":"admin",
 	   "priority":{  
+         "priorityType":"nopriority",
          "priority":-1
       }
 	},
@@ -88,6 +94,7 @@
       "spam":false,
       "successfullyClosedContracts":105,
       "priority":{  
+         "priorityType":"nopriority",
          "priority":-1
       }
    },
@@ -102,6 +109,7 @@
       "spam":false,
       "successfullyClosedContracts":105,
       "priority":{  
+         "priorityType":"nopriority",
          "priority":-1
       }
    },
@@ -116,6 +124,7 @@
       "spam":false,
       "successfullyClosedContracts":105,
       "priority":{  
+         "priorityType":"nopriority",
          "priority":-1
       }
    },
@@ -130,6 +139,7 @@
       "spam":false,
       "successfullyClosedContracts":105,
       "priority":{  
+         "priorityType":"nopriority",
          "priority":-1
       }
    }     
