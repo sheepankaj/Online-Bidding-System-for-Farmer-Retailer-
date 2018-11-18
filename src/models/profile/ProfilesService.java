@@ -125,6 +125,8 @@ public class ProfilesService extends EntityService
 //		TypeToken<List<User>> token = new TypeToken<List<User>>() {};
 //		profiles = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
 //		testGSON();
+		
+		
 		RuntimeTypeAdapterFactory<User> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
 			    .of(User.class, "type")
 			    .registerSubtype(Farmer.class, "farmer")
