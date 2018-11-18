@@ -161,6 +161,7 @@ public class ProfilesService extends EntityService
 			    .registerSubtype(Silver.class, "silver")
 			    .registerSubtype(Platinum.class, "platinum")
 		        .registerSubtype(Platinum.class, "nopriority");
+		// stamping file
 			Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).registerTypeAdapterFactory(runtimeTypeAdapterFactory2).create();
 
 			String json = gson.toJson(animals);
