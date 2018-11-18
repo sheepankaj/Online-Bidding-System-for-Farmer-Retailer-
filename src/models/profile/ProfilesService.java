@@ -152,11 +152,11 @@ public class ProfilesService extends EntityService
 	
 	public void testGSON()
 	{
-		List<User> animals = new ArrayList<>();
-		animals.add(new Farmer("sulthan",38329939,"sulthan123","Address1","+353894855578",new Gold("gold"),"farmer"));
-		animals.add(new Retailer("luksmi",38382939,"luksmi123","Lux","Address12","fax1","+353894855578",new NoPriority("nopriority"),"retailer"));
-		animals.add(new Retailer("pankaj",48498348,"pankaj123","Punk","Address123","fax12","+432342332",new NoPriority("nopriority"),"retailer"));
-		animals.add(new Admin("shamitha",3938493,"shamitha123","AdminName123","example@gmail.com",new NoPriority("nopriority"),"admin"));
+		List<User> users = new ArrayList<>();
+		users.add(new Farmer("sulthan",38329939,"sulthan123","Address1","+353894855578",new Gold("gold"),"farmer"));
+		users.add(new Retailer("luksmi",38382939,"luksmi123","Lux","Address12","fax1","+353894855578",new NoPriority("nopriority"),"retailer"));
+		users.add(new Retailer("pankaj",48498348,"pankaj123","Punk","Address123","fax12","+432342332",new NoPriority("nopriority"),"retailer"));
+		users.add(new Admin("shamitha",3938493,"shamitha123","AdminName123","example@gmail.com",new NoPriority("nopriority"),"admin"));
 		
 		RuntimeTypeAdapterFactory<User> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
 			    .of(User.class, "type")
@@ -172,7 +172,7 @@ public class ProfilesService extends EntityService
 		// stamping file
 			Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).registerTypeAdapterFactory(runtimeTypeAdapterFactory2).create();
 
-			String json = gson.toJson(animals);
+			String json = gson.toJson(users);
 			System.out.println( json );
 			Type listType = new TypeToken<List<User>>(){}.getType();
 			List<User> fromJson = gson.fromJson(json, listType);
