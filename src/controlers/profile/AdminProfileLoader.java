@@ -54,9 +54,28 @@ public class AdminProfileLoader extends HttpServlet {
 		User user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile(username);
 		response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"}");
 		
-		
 			
 		
+	}
+	
+	
+	@SuppressWarnings("serial")
+	@WebServlet("/logout")
+	public class LogoutServlet extends HttpServlet {
+
+	    @Override
+	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    	HttpSession session = request.getSession();
+	    	session.removeAttribute("username");
+	    	session.invalidate();
+	        //request.getSession().invalidate();
+	        //response.sendRedirect(request.getContextPath() + "../index.jsp");
+	    	
+	    response.sendRedirect("../index.jsp");
+	  	  
+	    
+	    }
+
 	}
 
 }
