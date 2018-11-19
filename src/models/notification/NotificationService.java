@@ -12,6 +12,7 @@ public class NotificationService
 	}
 	void createBidNotification(Bid bid)
 	{
+		long productId = bid.getProductStock().getProduct().getProductID();
 		
 	}
 }
