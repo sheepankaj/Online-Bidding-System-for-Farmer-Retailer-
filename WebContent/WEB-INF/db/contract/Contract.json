@@ -3,18 +3,72 @@
       "farmerUserID":100105,
       "retailerUserID":100101,
       "contractConstraints":"",
-      "type":"dailycontract"
+      "type":"dailycontract",
+      "agreedBid":{
+      "productStock":{
+         "product":{
+            "name": "Carrot",
+		    "productID": 111001
+         },
+         "quantitiy":1000,
+         "frequency":"DAILY",
+         "unitPrice":560000.0,
+         "productStockID":999001
+      },
+      "agreedFinalPrice":550000.0,
+      "retailerID":100101,
+      "farmerID":100105,
+      "signedByFarmer":true,
+      "signedByRetailer":false
+   },
+   "stockFrequency":"DAILY"
    },
    {
       "farmerUserID":100105,
       "retailerUserID":100101,
       "contractConstraints":"",
-       "type":"weeklycontract"
+       "type":"weeklycontract",
+       "agreedBid":{
+      "productStock":{
+         "product":{
+            "name": "Onion",
+		    "productID": 111002
+         },
+         "quantitiy":1500,
+         "frequency":"MONTHLY",
+         "unitPrice":4000.0,
+         "productStockID":999002
+      },
+      "agreedFinalPrice":3900.0,
+      "retailerID":100101,
+      "farmerID":100105,
+      "signedByFarmer":true,
+      "signedByRetailer":false
+   },
+   "stockFrequency":"MONTHLY"
    },
    {
       "farmerUserID":100105,
       "retailerUserID":100101,
       "contractConstraints":"",
-      "type":"yearlycontract"
+      "type":"yearlycontract",
+      "agreedBid":{
+      "productStock":{
+         "product":{
+            "name": "Cabage",
+		    "productID": 111003
+         },
+         "quantitiy":125000,
+         "frequency":"WEEKLY",
+         "unitPrice":6000.0,
+         "productStockID":999003
+      },
+      "agreedFinalPrice":5500.0,
+      "retailerID":100101,
+      "farmerID":100105,
+      "signedByFarmer":true,
+      "signedByRetailer":false
+   },
+   "stockFrequency":"WEEKLY"
    }
 ]

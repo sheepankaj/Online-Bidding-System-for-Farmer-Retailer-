@@ -49,7 +49,6 @@
     <servlet-name>RetailerProfileLoaderServlet</servlet-name>
     <url-pattern>/RetailerProfileLoaderRequest</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>AdminProfileLoaderServlet</servlet-name>
     <servlet-class>controlers.profile.AdminProfileLoader</servlet-class>
