@@ -57,4 +57,13 @@
     <servlet-name>AdminProfileLoaderServlet</servlet-name>
     <url-pattern>/AdminProfileLoaderRequest</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>BidsControllerServlet</servlet-name>
+    <servlet-class>controlers.bid.BidController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BidsControllerServlet</servlet-name>
+    <url-pattern>/BidsController</url-pattern>
+  </servlet-mapping>
 </web-app>
