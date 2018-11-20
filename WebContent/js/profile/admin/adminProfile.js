@@ -36,8 +36,8 @@ function loadGenerateReportTab()
 					alert(data.message);	   
 				}
 			});		
-	
-}
+	}
+
 
 
 

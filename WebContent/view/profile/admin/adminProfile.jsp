@@ -34,7 +34,7 @@
   
 </div>
 
-<div id="Generate Report" class="tabcontent">
+<!--  <div id="Generate Report" class="tabcontent">
   <h3>Report</h3>
   <p>It will generate business reports on daily, weekly, monthly, quarterly and yearly basis.</p>
   <button class="tablinks" onclick="">Contract Report</button>
@@ -46,18 +46,140 @@
   <button class="tablinks" onclick="">Quarterly</button>
   <button class="tablinks" onclick="">Yearly</button>
   
+</div>-->
+
+
+<div id="Generate Report" class="tabcontent">
+  <h3>Report</h3>
+  <p>It will generate business reports on daily, weekly, monthly, quarterly and yearly basis.</p>
+  <button class="tablinks" onclick="return showdet();">Contract Report</button>
+  <button class="tablinks" onclick="return showdet();">Bidding Report</button>
+  <div id='showvars' style="display:none;">
+	  <button class="tablinks" onclick="">Daily</button>
+	  <button class="tablinks" onclick="">Weekly</button>
+	  <button class="tablinks" onclick="">Monthly</button>
+	  <button class="tablinks" onclick="">Quarterly</button>
+	  <button class="tablinks" onclick="">Yearly</button>
+  </div>
 </div>
+
+
+
 
 <div id="Spams" class="tabcontent">
   <h3>Remove Spams</h3>
+  <button class="tablinks" onclick="">Add Farmer/Retailer</button>
   <p>It will remove the spam farmers and retailers.</p> 
+  
+ <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td><button class="tablinks" onclick="">Remove</button></td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+        <td><button class="tablinks" onclick="">Remove</button></td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+        <td><button class="tablinks" onclick="">Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+ 
+ 
+ 
+ 
+ 
 </div>
 
 <div id="Verify" class="tabcontent">
   <h3>Verify Farmer</h3>
+  <button class="tablinks" onclick="">Approve Farmer/Retailer</button>
   <p>Verification status of Farmers will display.</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td><button class="tablinks" onclick="">Terminate</button></td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+        <td><button class="tablinks" onclick="">Terminate</button></td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+        <td><button class="tablinks" onclick="">Terminate</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
   <h3>Verify Retailer</h3>
+  <button class="tablinks" onclick="">Approve Farmer/Retailer</button>
   <p>Verification status of Retailers will display.</p>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td><button class="tablinks" onclick="">Terminate</button></td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+        <td><button class="tablinks" onclick="">Terminate</button></td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+        <td><button class="tablinks" onclick="">Terminate</button></td>
+      </tr>
+    </tbody>
+  </table>
   </div>
   
   <div id="Password Change" class="tabcontent">
@@ -85,3 +207,13 @@
 </div>
 </body>
 </html>
+
+
+
+<script type="text/javascript">
+
+function showdet(){
+	$("#showvars").css("display","block");
+}
+</script>
+
