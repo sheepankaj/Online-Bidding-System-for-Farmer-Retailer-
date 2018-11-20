@@ -48,7 +48,7 @@
 		<p>Meat</p>
 </div>
 
-<div id="Agree and Sign Contract" class="tabcontent">
+<div id="Manage Contracts" class="tabcontent">
   <h3>Manage Contracts</h3>
   <p>Terms and conditions agreed and signed the contract.</p>
 </div>

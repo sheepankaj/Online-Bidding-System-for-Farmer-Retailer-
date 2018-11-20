@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.contract.ContractService;
 import models.entity.Farmer;
 import models.entity.Retailer;
 import models.product.ProductService;
@@ -47,7 +48,7 @@ public class RetailerProfileLoader extends HttpServlet {
 		
 		if(event != null &&  event.equals("Manage Contracts"))
 		{
-			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());
+			//response.getWriter().append(ContractService.getContractServiceInstance(getServletContext()).getRetailerContracts(retailerID));
 			int quant = Integer.parseInt(request.getParameter("quantity"));
 		 	double price =Double.parseDouble(request.getParameter("price"));		    
 		}

@@ -5,7 +5,7 @@ public class YearlyContract extends Contract
 	
 	public YearlyContract()
 	{
-		super("yearlycontract"); // this is only a GSON library requirement for deserializing
+		super("yearlycontract"); // this is only a GSON library requirement for deserializing JSON files to java objects
 	}
 
 	@Override

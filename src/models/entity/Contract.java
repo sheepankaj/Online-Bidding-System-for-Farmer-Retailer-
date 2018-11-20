@@ -18,7 +18,7 @@ public abstract class Contract implements IReportStructure
 	private Date signdate = new Date();
 	private StockFrequency stockFrequency;
 	private StringBuilder contractConstraints = new StringBuilder();
-	String type;
+	String type;  // this is only a GSON library requirement for deserializing
 	
 	public Contract(String type)
 	{
