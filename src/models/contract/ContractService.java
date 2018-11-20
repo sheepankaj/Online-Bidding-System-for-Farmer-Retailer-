@@ -1,5 +1,7 @@
 package models.contract;
 
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +15,14 @@ import com.google.gson.reflect.TypeToken;
 import models.entity.Bid;
 import models.entity.Contract;
 import models.entity.Contract10PercentDiscount;
+import models.entity.DailyContract;
 import models.entity.EntityService;
+import models.entity.Product;
 import models.entity.Retailer;
 import models.entity.RuntimeTypeAdapterFactory;
 import models.entity.StockFrequency;
+import models.entity.WeeklyContract;
+import models.entity.YearlyContract;
 import models.payment.AmazonPayments;
 import models.payment.BankAccount;
 import models.payment.PayPal;
@@ -26,18 +32,20 @@ import models.profile.ProfilesService;
 public class ContractService extends EntityService
 {
 	private static ContractService instance;
-	static String filePath = "/WEB-INF/db/product/Product.json";
+	static String filePath = "/WEB-INF/db/contract/Contract.json";
+	private List<Contract> contracts = new ArrayList<>();
 	
 	private ContractService(ServletContext context,String filePath)
 	{
 		super(context,filePath);
 	}
 	
-	public static ContractService getContractServiceInstance(ServletContext context,String filePath)
+	public static ContractService getContractServiceInstance(ServletContext context) throws FileNotFoundException
 	{
 		if(instance == null)
 		{
 			instance = new ContractService(context,filePath);
+			instance.loadEntities();
 		}
 		return instance;
 	}
@@ -58,25 +66,25 @@ public class ContractService extends EntityService
 		return contract;
 	}	
 	
+	public void loadEntities() throws FileNotFoundException
+	{
+		super.loadEntities();
+		TypeToken<List<Contract>> token = new TypeToken<List<Contract>>() {};
+		contracts = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
+	}
+	
 	
 	public void testGSON()
 	{
-		List<BankAccount> accounts = new ArrayList<>();
-		accounts.add(new PayPal(4000,"PP3784","PA7748849393",100106,"100106@paypal.com"));
-		accounts.add(new AmazonPayments(8000,"AP5467","PA7748849393",100107,"100106@amazon.com"));
-		accounts.add(new Venmo(6000,"VO2334","VO34342232",100108,"100106@venmo.com"));
-		accounts.add(new PayPal(9000,"PP7895","PA7748849393",100109,"100106@paypal.com"));
+		List<Contract> contracts = new ArrayList<>();
 		
-		RuntimeTypeAdapterFactory<BankAccount> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
-			    .of(BankAccount.class, "type")
-			    .registerSubtype(PayPal.class, "paypal")
-			    .registerSubtype(Venmo.class, "venmo")
-			    .registerSubtype(AmazonPayments.class, "amazonpayments");
-			Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create();
+			contracts.add(new DailyContract());
+			contracts.add(new WeeklyContract());
+			contracts.add(new YearlyContract());
 
-			String json = gson.toJson(accounts);
+			String json = getGson().toJson(contracts);
 			System.out.println( json );
-			Type listType = new TypeToken<List<BankAccount>>(){}.getType();
-			List<BankAccount> fromJson = gson.fromJson(json, listType);
+			Type listType = new TypeToken<List<Contract>>(){}.getType();
+			List<Contract> fromJson = getGson().fromJson(json, listType);
 	}
 }

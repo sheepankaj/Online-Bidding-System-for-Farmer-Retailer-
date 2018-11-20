@@ -37,20 +37,33 @@ function openCity(evt, eventName) {
     			});		
     	}
     else if(eventName=="View Product Catalogue")
-    	{
-    	
-    	}
-    else if(eventName=="Agree and Sign Contract")
-    	{
-    	
-    	}
+	{
+	
+	}
+    else if(eventName=="Manage Contracts")
+	{
+		// try to print a contract
+    	$.post('../../../RetailerProfileLoaderRequest',
+    		    {
+    		        tabEvent: eventName
+    		    },
+    		    function(data, status){
+    		        alert("Data: " + data + "\nStatus: " + status);
+    		        $.each(data,function(key,value)
+    		                {
+    		                    var option = $('<option />').val(value.productID).text(value.name);
+    		               $("#product-dropdown").append(option);
+    		                });
+    		        
+    		    });	
+	}
     else if(eventName=="Change Password")
 	{
 	
 	}
     else
     	{
-    	z
+    	//z
     	}
     evt.currentTarget.className += " active";
 }
