@@ -7,9 +7,9 @@ public class Farmer extends User
 	boolean spam;
 	private String statusType;
 	
-	public Farmer(String username,long userID,String password,String farmAddress,String telephone,String type)
+	public Farmer(String username,long userID,String password,String farmAddress,String telephone,Priority priority,String type)
 	{
-		super(username,userID,password,ProfileType.FARMER,type);
+		super(username,userID,password,ProfileType.FARMER,priority,type);
 		this.farmAddress = farmAddress;
 		this.telephone = telephone;
 	}

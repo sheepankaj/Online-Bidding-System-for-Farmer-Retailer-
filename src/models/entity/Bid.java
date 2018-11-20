@@ -66,21 +66,20 @@ public class Bid implements Notification
 	@Override
 	public void attach( NotificationListener listener )
 	{
-		// TODO Auto-generated method stub
-		
+		System.out.println( "attach from notification" );
 	}
 
 	@Override
 	public void detach( NotificationListener listener )
 	{
-		// TODO Auto-generated method stub
+		System.out.println( "detach from notification" );
 		
 	}
 
 	@Override
 	public void notifyNotificationListeners()
 	{
-		// TODO Auto-generated method stub
+		System.out.println( "notifyNotificationListeners from notification" );
 		
 	}	
 	

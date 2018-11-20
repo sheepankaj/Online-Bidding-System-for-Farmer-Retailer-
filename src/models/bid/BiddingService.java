@@ -41,6 +41,9 @@ public class BiddingService extends EntityService
 		super.loadEntities();
 		TypeToken<List<Bid>> token = new TypeToken<List<Bid>>() {};
 		bids = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
+		bids.get( 0 ).notifyNotificationListeners();
+		bids.get( 0 ).attach( null );
+		bids.get( 0 ).detach( null );
 	}
 	
 	private void testGSON()

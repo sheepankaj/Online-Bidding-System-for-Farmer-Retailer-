@@ -1,19 +1,17 @@
 package models.entity;
 
-public class Gold implements Priority{
+public class NoPriority implements Priority {
 
-	int priority = 2;
+	int priority = -1;
 	
 	
-	public Gold(String type) {
+	public NoPriority(String type) {
 		
 	}
-	
 	@Override
 	public int getPriority() {
 		// TODO Auto-generated method stub
 		return priority;
 	}
-	
-	
+
 }
