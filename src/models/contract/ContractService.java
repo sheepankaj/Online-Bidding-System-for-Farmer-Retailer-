@@ -12,15 +12,19 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import models.entity.Admin;
 import models.entity.Bid;
 import models.entity.Contract;
 import models.entity.Contract10PercentDiscount;
 import models.entity.DailyContract;
 import models.entity.EntityService;
+import models.entity.Farmer;
+import models.entity.MonthlyContract;
 import models.entity.Product;
 import models.entity.Retailer;
 import models.entity.RuntimeTypeAdapterFactory;
 import models.entity.StockFrequency;
+import models.entity.User;
 import models.entity.WeeklyContract;
 import models.entity.YearlyContract;
 import models.payment.AmazonPayments;
@@ -46,6 +50,7 @@ public class ContractService extends EntityService
 		{
 			instance = new ContractService(context,filePath);
 			instance.loadEntities();
+			//instance.testGSON();
 		}
 		return instance;
 	}
@@ -69,8 +74,16 @@ public class ContractService extends EntityService
 	public void loadEntities() throws FileNotFoundException
 	{
 		super.loadEntities();
-		TypeToken<List<Contract>> token = new TypeToken<List<Contract>>() {};
-		contracts = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
+		RuntimeTypeAdapterFactory<Contract> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
+			    .of(Contract.class, "type")
+			    .registerSubtype(DailyContract.class, "dailycontract")
+			    .registerSubtype(WeeklyContract.class, "weeklycontract")
+			    .registerSubtype(MonthlyContract.class, "monthlycontract")
+		        .registerSubtype(YearlyContract.class, "yearlycontract");
+		
+		Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create();
+		Type listType = new TypeToken<List<Contract>>(){}.getType();
+		contracts = gson.fromJson(new InputStreamReader(getIs()), listType);
 	}
 	
 	
@@ -81,10 +94,21 @@ public class ContractService extends EntityService
 			contracts.add(new DailyContract());
 			contracts.add(new WeeklyContract());
 			contracts.add(new YearlyContract());
+			
+			RuntimeTypeAdapterFactory<Contract> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
+				    .of(Contract.class, "type")
+				    .registerSubtype(DailyContract.class, "dailycontract")
+				    .registerSubtype(WeeklyContract.class, "weeklycontract")
+				    .registerSubtype(MonthlyContract.class, "monthlycontract")
+			        .registerSubtype(YearlyContract.class, "yearlycontract");
+			
+			
 
-			String json = getGson().toJson(contracts);
+			Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create();
+
+			String json = gson.toJson(contracts);
 			System.out.println( json );
 			Type listType = new TypeToken<List<Contract>>(){}.getType();
-			List<Contract> fromJson = getGson().fromJson(json, listType);
+			List<Contract> fromJson = gson.fromJson(json, listType);
 	}
 }

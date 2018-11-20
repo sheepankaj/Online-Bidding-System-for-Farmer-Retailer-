@@ -5,9 +5,9 @@ public class ContractDecorator extends Contract
     private Contract contract;
     
     public ContractDecorator(Contract contract)
-	{
-		this.contract = contract;
-	}
+	{    	
+    	this.contract = contract;
+	}      
     
 	@Override
 	public double getPriceOnFrequency()

@@ -5,7 +5,7 @@ public class WeeklyContract extends Contract
 
 	public WeeklyContract()
 	{
-		
+		super("weeklycontract"); // this is only a GSON library requirement for deserializing
 	}
 
 	@Override

@@ -3,9 +3,9 @@ package models.entity;
 public class MonthlyContract extends Contract
 {
 
-	public MonthlyContract(  )
+	public MonthlyContract()
 	{
-		
+		super("monthlycontract"); // this is only a GSON library requirement for deserializing
 	}
 
 	@Override

@@ -18,9 +18,15 @@ public abstract class Contract implements IReportStructure
 	private Date signdate = new Date();
 	private StockFrequency stockFrequency;
 	private StringBuilder contractConstraints = new StringBuilder();
+	String type;
 	
-	public Contract()
+	public Contract(String type)
 	{
+		this.type = type;
+	}
+	
+	public Contract() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	public abstract double getPriceOnFrequency();
