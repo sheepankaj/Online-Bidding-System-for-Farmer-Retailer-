@@ -72,13 +72,13 @@ public class ContractService extends EntityService
 	}	
 	
 	public String  getRetailerContracts(long retailerID) {
-		String jsonString = "";
+		List<Contract> retailersContracts = new ArrayList<>();
 		for(Contract contract : contracts)
 		{
 			if(contract.getRetailerUserID() == retailerID)
-				jsonString = getGson().toJson(contract);
+				retailersContracts.add(contract);
 		}
-		return jsonString;
+		return getGson().toJson(retailersContracts);
 	}
 	
 	public void loadEntities() throws FileNotFoundException
