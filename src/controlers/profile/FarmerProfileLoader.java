@@ -69,9 +69,10 @@ public class FarmerProfileLoader extends HttpServlet {
 		{
 			
 			Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));		
-			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":\""+user.getUserID()+"\",\"address\":\""+user.getFarmAddress()+"\",\"telephone\":\""+user.getTelephone()+"\"}");
+			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":\""+user.getUserID()+"\",\"address\":\""+user.getFarmAddress()+"\",\"telephone\":\""+user.getTelephone()+"\",\"spam\":\""+user.isSpam()+"\",\"prority\":\""+user.getPriorityLevel()+"\"}");
 			
 		}		
 	}
 
 }
+

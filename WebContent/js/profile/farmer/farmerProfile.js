@@ -23,15 +23,17 @@ function openCity(evt, eventName) {
     				type: 'POST',
     				url: '../../../FarmerProfileLoaderRequest',
     				data: 'l',
-    				success: function (data,status) 
+    				success: function (data,message) 
     				{
-    					alert("Data: " + data + "\nStatus: " + status);
+    					alert("You have logged in successfully!!!");
     					if(data.page=="farmer")   {
     						
     						$('#username').val(data.page);
     						$('#ID').val(data.id);
     						$('#address').val(data.address);
     						$('#telephone').val(data.telephone);
+    						$('#spam').val(data.spam);
+    						$('#priority').val(data.priority);
     					}
     				}
     			});		
@@ -43,7 +45,7 @@ function openCity(evt, eventName) {
     		        tabEvent: eventName
     		    },
     		    function(data, status){
-    		        alert("Data: " + data + "\nStatus: " + status);
+    		       // alert("Data: " + data + "\nStatus: " + status);
     		        $.each(data,function(key,value)
     		                {
     		                    var option = $('<option />').val(value.productID).text(value.name);
