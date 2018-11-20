@@ -48,12 +48,12 @@ function openCity(evt, eventName) {
     		        tabEvent: eventName
     		    },
     		    function(data, status){
-    		        alert("Data: " + data + "\nStatus: " + status);
-    		        $.each(data,function(key,value)
-    		                {
-    		                    var option = $('<option />').val(value.productID).text(value.name);
-    		               $("#product-dropdown").append(option);
-    		                });
+//    		        alert("Data: " + data + "\nStatus: " + status);
+//    		        $.each(data,function(key,value)
+//    		                {
+//    		                    var option = $('<option />').val(value.productID).text(value.name);
+//    		               $("#product-dropdown").append(option);
+//    		                });
     		        
     		    });	
 	}

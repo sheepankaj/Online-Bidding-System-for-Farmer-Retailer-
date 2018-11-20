@@ -45,17 +45,16 @@ public class RetailerProfileLoader extends HttpServlet {
 		String username = request.getParameter("username");
 		String event =  request.getParameter("tabEvent");
 		response.setContentType("application/json");
-		
+		HttpSession session = request.getSession(true);
+		Retailer user = (Retailer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));	
 		if(event != null &&  event.equals("Manage Contracts"))
 		{
-			//response.getWriter().append(ContractService.getContractServiceInstance(getServletContext()).getRetailerContracts(retailerID));
-			int quant = Integer.parseInt(request.getParameter("quantity"));
-		 	double price =Double.parseDouble(request.getParameter("price"));		    
+			response.getWriter().append(ContractService.getContractServiceInstance(getServletContext()).getRetailerContracts(user.getUserID()));
+			//int quant = Integer.parseInt(request.getParameter("quantity"));
+		 	//double price =Double.parseDouble(request.getParameter("price"));		    
 		}
 		else
 		{
-			HttpSession session = request.getSession(true);
-			Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));		
 			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"}");			
 		}
 		
