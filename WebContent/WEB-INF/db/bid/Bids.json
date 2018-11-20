@@ -2,8 +2,8 @@
    {
       "productStock":{
          "product":{
-            "name":"Carrots",
-            "productID":3893930
+            "name": "Carrot",
+		    "productID": 111001
          },
          "quantitiy":1000,
          "frequency":"DAILY",
@@ -11,14 +11,16 @@
          "productStockID":999001
       },
       "agreedFinalPrice":550000.0,
-      "retailerID":10020,
-      "farmerID":38839
+      "retailerID":100101,
+      "farmerID":100105,
+      "signedByFarmer":true,
+      "signedByRetailer":false
    },
    {
       "productStock":{
          "product":{
-            "name":"Onions",
-            "productID":5453434
+            "name": "Onion",
+		    "productID": 111002
          },
          "quantitiy":1500,
          "frequency":"MONTHLY",
@@ -26,14 +28,16 @@
          "productStockID":999002
       },
       "agreedFinalPrice":3900.0,
-      "retailerID":13430,
-      "farmerID":43434
+      "retailerID":100101,
+      "farmerID":100105,
+      "signedByFarmer":true,
+      "signedByRetailer":false
    },
    {
       "productStock":{
          "product":{
-            "name":"Cabage",
-            "productID":563354
+            "name": "Cabage",
+		    "productID": 111003
          },
          "quantitiy":125000,
          "frequency":"WEEKLY",
@@ -41,7 +45,9 @@
          "productStockID":999003
       },
       "agreedFinalPrice":5500.0,
-      "retailerID":23534,
-      "farmerID":57688
+      "retailerID":100101,
+      "farmerID":100105,
+      "signedByFarmer":true,
+      "signedByRetailer":false
    }
 ]

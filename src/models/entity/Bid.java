@@ -9,18 +9,22 @@ public class Bid implements Notification
 	private double agreedFinalPrice;
 	private long retailerID;
 	private long farmerID;
+	boolean signedByFarmer;
+	boolean signedByRetailer;
 	
 	public Bid()
 	{
 		
 	}
 	
-	public Bid( ProductStock productStock, double agreedFinalPrice, long retailerID, long farmerID )
+	public Bid( ProductStock productStock, double agreedFinalPrice, long retailerID, long farmerID, boolean signedByFarmer , boolean signedByRetailer)
 	{
 		this.productStock = productStock;
 		this.agreedFinalPrice = agreedFinalPrice;
 		this.retailerID = retailerID;
 		this.farmerID = farmerID;
+		this.signedByFarmer = signedByFarmer;
+		this.signedByRetailer = signedByRetailer;
 	}
 
 	public ProductStock getProductStock()
@@ -61,6 +65,26 @@ public class Bid implements Notification
 	public void setFarmerID( long farmerID )
 	{
 		this.farmerID = farmerID;
+	}	
+
+	public boolean isSignedByFarmer()
+	{
+		return signedByFarmer;
+	}
+
+	public void setSignedByFarmer( boolean signedByFarmer )
+	{
+		this.signedByFarmer = signedByFarmer;
+	}
+
+	public boolean isSignedByRetailer()
+	{
+		return signedByRetailer;
+	}
+
+	public void setSignedByRetailer( boolean signedByRetailer )
+	{
+		this.signedByRetailer = signedByRetailer;
 	}
 
 	@Override
@@ -72,15 +96,13 @@ public class Bid implements Notification
 	@Override
 	public void detach( NotificationListener listener )
 	{
-		System.out.println( "detach from notification" );
-		
+		System.out.println( "detach from notification" );		
 	}
 
 	@Override
 	public void notifyNotificationListeners()
 	{
-		System.out.println( "notifyNotificationListeners from notification" );
-		
+		System.out.println( "notifyNotificationListeners from notification" );		
 	}	
 	
 	
