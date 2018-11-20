@@ -29,8 +29,7 @@
 		<h3>Account Details</h3>
 		<p>User Name : <input type="text" id="username"></p><br/>
 		<p>User ID : <input type="text" id="ID"></p><br/>
-		<p>Name:</p>
-		<p>Address:</p>
+		<p>Address:<input type="text" id="addr"></p><br/>
 		<p>Contact Number:</p>
 		<p>Registered Date:</p>
 		<p>Spam:</p>
@@ -38,11 +37,7 @@
 	</div>
 
 	<div id="Add Products" class="tabcontent">
-		<h3>Add Products</h3>
-		<p>Vegetables</p>
-		<p>Fruits</p>
-		<p>Dairy Products</p>
-		<p>Meat</p>
+		<select id="product-dropdown"></select>
 	</div>
 
 	<div id="Bids" class="tabcontent">

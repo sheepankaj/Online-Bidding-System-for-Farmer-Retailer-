@@ -48,8 +48,10 @@ public class FarmerProfileLoader extends HttpServlet {
 		if(event != null &&  event.equals("Add Products"))
 		{
 			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());
-			int quant = Integer.parseInt(request.getParameter("quantity"));
-		 	double price =Double.parseDouble(request.getParameter("price"));
+			
+			System.out.println(request.getParameter("quantity"));
+			//int quant = Integer.parseInt(request.getParameter("quantity"));
+		 	//double price =Double.parseDouble(request.getParameter("price"));
 		 	
 		    
 		}
@@ -57,7 +59,7 @@ public class FarmerProfileLoader extends HttpServlet {
 		{
 			HttpSession session = request.getSession(true);
 			Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));		
-			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"}");
+			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"\",\"address\":\""+user.getFarmAddress()+"}");
 			
 		}		
 	}
