@@ -49,9 +49,17 @@ public class FarmerProfileLoader extends HttpServlet {
 		{
 			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());
 			
-			System.out.println(request.getParameter("quantity"));
-			//int quant = Integer.parseInt(request.getParameter("quantity"));
-		 	//double price =Double.parseDouble(request.getParameter("price"));
+			int quant;
+			double price;
+			
+			
+			if(request.getParameter("product-dropdown")!=null)
+			{
+			   quant=Integer.parseInt(request.getParameter("quantity"));
+			   System.out.println(quant);
+			}
+			
+		 	
 		 	
 		    
 		}

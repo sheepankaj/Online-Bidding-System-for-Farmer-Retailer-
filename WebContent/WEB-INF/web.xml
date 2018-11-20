@@ -41,6 +41,14 @@
     <servlet-name>FarmerProfileLoaderServlet</servlet-name>
     <url-pattern>/FarmerProfileLoaderRequest</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>RetailerProfileLoaderServlet</servlet-name>
+    <servlet-class>controlers.profile.RetailerProfileLoader</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RetailerProfileLoaderServlet</servlet-name>
+    <url-pattern>/RetailerProfileLoaderRequest</url-pattern>
+  </servlet-mapping>
   
   <servlet>
     <servlet-name>AdminProfileLoaderServlet</servlet-name>

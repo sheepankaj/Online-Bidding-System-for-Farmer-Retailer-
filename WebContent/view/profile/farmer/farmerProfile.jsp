@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<h1 class="form-title">Welcome <span id = "username" > <%= session.getAttribute("username") %> </span></h1>
+<h1 class="form-title">Welcome <span id = "username" > </span> <input type="submit" value="Logout" /></h1>
 
 	<div class="tab">
 		<button class="tablinks" onclick="openCity(event, 'Account Details')" id="defaultOpen">Account</button>
@@ -22,7 +22,6 @@
 		<button class="tablinks" onclick="openCity(event, 'Bids')">View Bids</button>
 		<button class="tablinks" onclick="openCity(event, 'Contract')">Agree and Sign Contract</button>
 		<button class="tablinks" onclick="openCity(event, 'Change password')">Change password</button>
-		<button class="tablinks" onclick="openCity(event, 'Logout')">Logout</button>
 	</div>
 
 	<div id="Account Details" class="tabcontent">
@@ -35,10 +34,14 @@
 		<p>Spam:</p>
 		
 	</div>
-
+	<form method="post" action="FarmerProfileLoaderRequest">
 	<div id="Add Products" class="tabcontent">
 		<select id="product-dropdown"></select>
+		<p>Quantity : <input type="text" id="quantity"></p><br/>
+		<p>Product Price : <input type="text" id="price"></p><br/>
+		<input type="button" value="Submit">
 	</div>
+	</form>
 
 	<div id="Bids" class="tabcontent">
 		<h3>View Bids</h3>
@@ -46,8 +49,17 @@
 	</div>
 
 	<div id="Contract" class="tabcontent">
-		<h3>Tokyo</h3>
-		<p>Tokyo is the capital of Japan.</p>
+		<h3>Manage Contracts</h3>
+		<p>sign the contract.</p>
 	</div>
+	
+	<div id="Logout" class="tabcontent">
+  <h3>Logout</h3>
+  
+  <form action="${pageContext.request.contextPath}/" method="post">
+    <input type="submit" value="Logout" />
+   
+ </form>
+ </div>
 </body>
 </html>
