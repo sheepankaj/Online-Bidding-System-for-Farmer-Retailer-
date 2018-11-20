@@ -23,13 +23,15 @@ function openCity(evt, eventName) {
     				type: 'POST',
     				url: '../../../FarmerProfileLoaderRequest',
     				data: 'l',
-    				success: function (data) 
+    				success: function (data,status) 
     				{
+    					alert("Data: " + data + "\nStatus: " + status);
     					if(data.page=="farmer")   {
     						
     						$('#username').val(data.page);
     						$('#ID').val(data.id);
     						$('#address').val(data.address);
+    						$('#telephone').val(data.telephone);
     					}
     				}
     			});		

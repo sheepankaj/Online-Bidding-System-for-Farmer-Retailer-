@@ -14,7 +14,8 @@
 </head>
 <body>
 
-<h1 class="form-title">Welcome <span id = "username" > </span> <input type="submit" value="Logout" /></h1>
+<h1 class="form-title">Welcome <%= session.getAttribute("username") %> </h1>
+<p align="right"> <button class="button" form="form1">logout</button></p>
 
 	<div class="tab">
 		<button class="tablinks" onclick="openCity(event, 'Account Details')" id="defaultOpen">Account</button>
@@ -28,8 +29,8 @@
 		<h3>Account Details</h3>
 		<p>User Name : <input type="text" id="username"></p><br/>
 		<p>User ID : <input type="text" id="ID"></p><br/>
-		<p>Address:<input type="text" id="addr"></p><br/>
-		<p>Contact Number:</p>
+		<p>Address:<input type="text" id="address"></p><br/>
+		<p>Contact Number:<input type="text" id="telephone"></p><br/>
 		<p>Registered Date:</p>
 		<p>Spam:</p>
 		
@@ -53,13 +54,11 @@
 		<p>sign the contract.</p>
 	</div>
 	
-	<div id="Logout" class="tabcontent">
-  <h3>Logout</h3>
+	<
   
-  <form action="${pageContext.request.contextPath}/" method="post">
-    <input type="submit" value="Logout" />
+  <form id="form1" action="${pageContext.request.contextPath}/" method="post">
+  </form>
    
- </form>
- </div>
+ 
 </body>
 </html>
