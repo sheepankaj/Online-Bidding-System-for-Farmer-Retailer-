@@ -69,11 +69,7 @@ public class AdminProfileLoader extends HttpServlet {
 	    	session.removeAttribute("username");
 	    	session.invalidate();
 	        //request.getSession().invalidate();
-	        //response.sendRedirect(request.getContextPath() + "../index.jsp");
-	    	
-	    response.sendRedirect("../index.jsp");
-	    
-	    
+	        response.sendRedirect(request.getContextPath() + "../index.jsp");
 	    
 	    }
 
