@@ -2,21 +2,18 @@
    {
       "farmerUserID":100105,
       "retailerUserID":100101,
-      "signdate":"Nov 20, 2018, 8:22:42 PM",
       "contractConstraints":"",
       "type":"dailycontract"
    },
    {
       "farmerUserID":100105,
       "retailerUserID":100101,
-      "signdate":"Nov 20, 2018, 8:22:42 PM",
       "contractConstraints":"",
        "type":"weeklycontract"
    },
    {
       "farmerUserID":100105,
       "retailerUserID":100101,
-      "signdate":"Nov 20, 2018, 8:22:42 PM",
       "contractConstraints":"",
       "type":"yearlycontract"
    }
