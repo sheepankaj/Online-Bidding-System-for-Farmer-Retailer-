@@ -59,6 +59,12 @@ h1.form-title {
 .login-lost a
 {
   color:#666;
-  text-decoration:none;
-  font-size:13px;
+  text-decoration:underline;
+  font-size:14px;
+  font-weight:bold;
+  font-family:Arial, Helvetica, sans-serif;
+  color: #0000FF;
+  
+  
+  
 }
