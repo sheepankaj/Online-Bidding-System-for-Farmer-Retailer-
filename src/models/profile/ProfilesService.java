@@ -150,6 +150,11 @@ public class ProfilesService extends EntityService
 		return profiles;
 	}
 	
+	public String getProfilesAsJSON()
+	{
+		return getGson().toJson(profiles);
+	}
+	
 	public void testGSON()
 	{
 		List<User> users = new ArrayList<>();

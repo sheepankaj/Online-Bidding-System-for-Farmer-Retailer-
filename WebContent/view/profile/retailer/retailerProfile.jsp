@@ -48,8 +48,8 @@
 		<p>Meat</p>
 </div>
 
-<div id="Agree and Sign Contract" class="tabcontent">
-  <h3>Agree and Sign Contract</h3>
+<div id="Manage Contracts" class="tabcontent">
+  <h3>Manage Contracts</h3>
   <p>Terms and conditions agreed and signed the contract.</p>
 </div>
 
@@ -61,6 +61,21 @@
 
 <div id="Logout" class="tabcontent">
   <h3>Logout</h3>
-  <p>You have successfully logged out from the system. change</p>
+  
+  <form action="${pageContext.request.contextPath}/" method="post">
+    <input type="submit" value="Logout" />
+    
+    
+    <!---- <% response.setHeader("Cache-Control"," no-cache, no-store, must-revalidate");
+  
+  if(session.getAttribute("username")==null)
+	  response.sendRedirect("../index.jsp");
+	  %> ---->
+   
+</form>
+  
+  
+  <p>When clicked on logout button, You will successfully logged out from the system.</p>
+  
 </div>
 </html>
