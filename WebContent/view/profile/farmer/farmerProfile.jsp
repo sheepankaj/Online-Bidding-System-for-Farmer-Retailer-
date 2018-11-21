@@ -68,11 +68,5 @@
   
   <form id="form1" action="${pageContext.request.contextPath}/" method="post">
   </form>
-<<<<<<< HEAD
-   
-
 </body>
-=======
-</body>
->>>>>>> branch 'master' of https://github.com/ShamithaSIlva/OnlineStockAuction.git
 </html>
