@@ -1,5 +1,6 @@
 package models.report;
 
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -10,6 +11,7 @@ public class PDFBuilder {
 	{
 		PdfPCell header = new PdfPCell(new Phrase(structure.getHeader().toString()));
 		header.setRowspan(table.getColumns());
+		header.setHorizontalAlignment(Element.ALIGN_CENTER);
 		table.getpTable().addCell(header); // adding header
 		
 		table.getpTable().addCell(structure.getBody(new PdfPTable(1))); // this is the body
