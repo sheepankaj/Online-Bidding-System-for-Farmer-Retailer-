@@ -117,6 +117,24 @@ public class ProfilesService extends EntityService
 		return vaild;
 	}
 	
+	public boolean validPasswordCheck(String username, String password)
+	{
+		User user = getProfile( username );
+		boolean vaildPassword = false;
+		if(user != null && user.getPassword().equals( password ))
+		{
+			return true;
+		}
+		else if(user == null)
+		{
+			return false;
+		}
+		else if(user != null && !user.getPassword().equals( password ))
+		{
+			return false;
+		}
+		return vaildPassword;
+	}
 	
 	
 	public void loadEntities() throws FileNotFoundException
