@@ -46,13 +46,11 @@
 		<input type="button" value="Submit">
 	</div>
 	</form>
-    <form method="post" action="BidsController">
-    
-    
-	<div id="Bids" class="tabcontent">
-		<select id="bids-dropdown"></select>
-		<input type="button" value="Accept Bid">
-	</div>
+    <form method="post" action="../../../BidsController" id="acceptBidForm">    
+		<div id="Bids" class="tabcontent">
+			<select id="bids-dropdown" name="bids-dropdown"></select>
+			<input type="button" value="Accept Bid" id="acceptBidButton">
+		</div>
     </form>
 	<div id="Contract" class="tabcontent">
 		<h3>Manage Contracts</h3>

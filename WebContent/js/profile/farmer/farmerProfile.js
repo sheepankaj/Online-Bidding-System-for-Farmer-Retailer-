@@ -3,6 +3,24 @@ $( document ).ready(function() {
 	
 	// Get the element with id="defaultOpen" and click on it
 	document.getElementById("defaultOpen").click();
+	var acceptBidForm = $('#acceptBidForm');
+	acceptBidForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: acceptBidForm.attr('method'),
+			url: acceptBidForm.attr('action'),
+			data: acceptBidForm.serialize(),
+			success: function (data) 
+			{
+				alert(data);
+			}
+		});		 
+		return false;
+	});
+    $( "#acceptBidButton" ).click(function() {
+    	acceptBidForm.submit();
+    });	
 });
 function openCity(evt, eventName) {
 	
@@ -64,7 +82,7 @@ function openCity(evt, eventName) {
     		       // alert("Data: " + data + "\nStatus: " + status);
     		        $.each(data,function(key,value)
     		                {
-    		                    var option = $('<option />').val(value.productID).text("Agreed : "+value.unitPrice);
+    		                    var option = $('<option />').val(value.bidID).text("[Product : "+value.productStock.product.name+"][Agreed : "+value.agreedFinalPrice+"][Your Price : "+value.productStock.unitPrice+"]");
     		               $("#bids-dropdown").append(option);
     		                });
     		        

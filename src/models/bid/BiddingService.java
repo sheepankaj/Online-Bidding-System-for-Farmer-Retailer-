@@ -61,6 +61,16 @@ public class BiddingService extends EntityService
 		return bids;
 	}
 	
+	public Bid getBid(long bidID)
+	{
+		for(Bid bid : this.bids)
+		{
+			if(bid.getBidID() == bidID)
+				return bid;
+		}
+		return null;
+	}
+	
 	public String getBidsAsJSON()
 	{
 		return getGson().toJson(bids);
