@@ -15,7 +15,6 @@ public abstract class Contract implements IReportStructure
 	private long farmerUserID;
 	private long retailerUserID;
 	private Bid agreedBid;
-	private Date signdate = new Date();
 	private StockFrequency stockFrequency;
 	private StringBuilder contractConstraints = new StringBuilder();
 	String type;  // this is only a GSON library requirement for deserializing
@@ -36,7 +35,7 @@ public abstract class Contract implements IReportStructure
 	@Override
 	public String toString()
 	{
-		return "Farmer ID : "+farmerUserID+" "+"Retailer ID : "+retailerUserID+" "+"Agreed Date : "+signdate+" Placed Bid : "+agreedBid.toString();
+		return "Farmer ID : "+farmerUserID+" "+"Retailer ID : "+retailerUserID+" "+" Placed Bid : "+agreedBid.toString();
 	}
 
 	public long getFarmerUserID()
@@ -69,16 +68,6 @@ public abstract class Contract implements IReportStructure
 		this.agreedBid = agreedBid;
 	}
 
-	public Date getSigndate()
-	{
-		return signdate;
-	}
-
-	public void setSigndate( Date signdate )
-	{
-		this.signdate = signdate;
-	}
-
 	public StockFrequency getStockFrequency()
 	{
 		return stockFrequency;
@@ -99,7 +88,7 @@ public abstract class Contract implements IReportStructure
 		PdfPTable table = new PdfPTable(2);
 		table.addCell(table);
 		PDFCell cell1 = new PDFCell("Signed Date : ");
-		PDFCell cell2 = new PDFCell(getSigndate().toString());
+		PDFCell cell2 = new PDFCell(new Date().toString());
 		table.addCell(cell1.getCell());
 		table.addCell(cell2.getCell());
 		return table;

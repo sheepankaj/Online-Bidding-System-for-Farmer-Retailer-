@@ -3,6 +3,24 @@ $( document ).ready(function() {
 	
 	// Get the element with id="defaultOpen" and click on it
 	document.getElementById("defaultOpen").click();
+	var acceptBidForm = $('#acceptBidForm');
+	acceptBidForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: acceptBidForm.attr('method'),
+			url: acceptBidForm.attr('action'),
+			data: acceptBidForm.serialize(),
+			success: function (data) 
+			{
+				alert(data);
+			}
+		});		 
+		return false;
+	});
+    $( "#acceptBidButton" ).click(function() {
+    	acceptBidForm.submit();
+    });	
 });
 function openCity(evt, eventName) {
 	
@@ -23,13 +41,17 @@ function openCity(evt, eventName) {
     				type: 'POST',
     				url: '../../../FarmerProfileLoaderRequest',
     				data: 'l',
-    				success: function (data) 
+    				success: function (data,message) 
     				{
+    					alert("You have logged in successfully!!!");
     					if(data.page=="farmer")   {
     						
     						$('#username').val(data.page);
     						$('#ID').val(data.id);
     						$('#address').val(data.address);
+    						$('#telephone').val(data.telephone);
+    						$('#spam').val(data.spam);
+    						$('#priority').val(data.priority);
     					}
     				}
     			});		
@@ -41,7 +63,7 @@ function openCity(evt, eventName) {
     		        tabEvent: eventName
     		    },
     		    function(data, status){
-    		        alert("Data: " + data + "\nStatus: " + status);
+    		       // alert("Data: " + data + "\nStatus: " + status);
     		        $.each(data,function(key,value)
     		                {
     		                    var option = $('<option />').val(value.productID).text(value.name);
@@ -51,9 +73,21 @@ function openCity(evt, eventName) {
     		    });
     }	
     else if(eventName=="Bids")
-    	{
-    	
-    	}
+	{
+    	$.post('../../../BidsController',
+    		    {
+    		        tabEvent: eventName
+    		    },
+    		    function(data, status){
+    		       // alert("Data: " + data + "\nStatus: " + status);
+    		        $.each(data,function(key,value)
+    		                {
+    		                    var option = $('<option />').val(value.bidID).text("[Product : "+value.productStock.product.name+"][Agreed : "+value.agreedFinalPrice+"][Your Price : "+value.productStock.unitPrice+"]");
+    		               $("#bids-dropdown").append(option);
+    		                });
+    		        
+    		    });
+	}
     else
     	{
     	z

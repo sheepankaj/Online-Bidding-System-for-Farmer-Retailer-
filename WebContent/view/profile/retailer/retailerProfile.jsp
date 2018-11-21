@@ -18,7 +18,7 @@
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Account Details')" id="defaultOpen">Account Details</button>
   <button class="tablinks" onclick="openCity(event, 'View Product Catalogue')">View Product Catalogue</button>
-  <button class="tablinks" onclick="openCity(event, 'Agree and Sign Contract')">Agree and Sign Contract</button>
+  <button class="tablinks" onclick="openCity(event, 'Manage Contracts')">Manage Contracts</button>
   <button class="tablinks" onclick="openCity(event, 'Change Password')"id="defaultOpen">Change Password</button>
   <button class="tablinks" onclick="openCity(event, 'Logout')"id="defaultOpen">Logout</button>
 
@@ -50,7 +50,12 @@
 
 <div id="Manage Contracts" class="tabcontent">
   <h3>Manage Contracts</h3>
-  <p>Terms and conditions agreed and signed the contract.</p>
+ <form method="post" action="../../../RetailerProfileLoaderRequest" id="contractView">
+	
+		<select id="contract-dropdown"></select>		
+		<input type="button" value="View Contract" class="login-button" id="submitViewContract" />
+	
+	</form>
 </div>
 
 <div id="Change Password" class="tabcontent">
