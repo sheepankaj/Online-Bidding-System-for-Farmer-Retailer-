@@ -42,6 +42,8 @@ public class FarmerProfileLoader extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
+		HttpSession session = request.getSession(true);
+		session.setAttribute("userid", username);
 		String event =  request.getParameter("tabEvent");
 		response.setContentType("application/json");
 		
@@ -65,11 +67,12 @@ public class FarmerProfileLoader extends HttpServlet {
 		}
 		else
 		{
-			HttpSession session = request.getSession(true);
+			
 			Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));		
-			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"\",\"address\":\""+user.getFarmAddress()+"}");
+			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":\""+user.getUserID()+"\",\"address\":\""+user.getFarmAddress()+"\",\"telephone\":\""+user.getTelephone()+"\",\"spam\":\""+user.isSpam()+"\",\"prority\":\""+user.getPriorityLevel()+"\"}");
 			
 		}		
 	}
 
 }
+

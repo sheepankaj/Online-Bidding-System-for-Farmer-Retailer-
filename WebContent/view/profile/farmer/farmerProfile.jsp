@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +14,8 @@
 <title>Farmer Profile</title>
 </head>
 <body>
-
-<h1 class="form-title">Welcome <span id = "username" > </span> <input type="submit" value="Logout" /></h1>
+<h1 class="form-title" align="center">Welcome <%= session.getAttribute("username") %> </h1>
+<p align="right"> <button class="button" form="form1">logout</button></p>
 
 	<div class="tab">
 		<button class="tablinks" onclick="openCity(event, 'Account Details')" id="defaultOpen">Account</button>
@@ -26,19 +27,22 @@
 
 	<div id="Account Details" class="tabcontent">
 		<h3>Account Details</h3>
-		<p>User Name : <input type="text" id="username"></p><br/>
 		<p>User ID : <input type="text" id="ID"></p><br/>
-		<p>Address:<input type="text" id="addr"></p><br/>
-		<p>Contact Number:</p>
-		<p>Registered Date:</p>
-		<p>Spam:</p>
+		<p>User Name :<input type="text" id="username"></p><br/>
+		<p>Address:<input type="text" id="address"></p><br/>
+		<p>Contact Number:<input type="text" id="telephone"></p><br/>
+		<p>Spam:<input type="text" id="spam"></p><br/>
+		<p>Priority:<input type="text" id="priority"></p><br/>
 		
 	</div>
 	<form method="post" action="FarmerProfileLoaderRequest">
 	<div id="Add Products" class="tabcontent">
-		<select id="product-dropdown"></select>
-		<p>Quantity : <input type="text" id="quantity"></p><br/>
-		<p>Product Price : <input type="text" id="price"></p><br/>
+		<p>Choose products from below drop down</p><select id="product-dropdown">
+		 <option value="" disabled selected>---Select your option---</option></select>
+		 <div>
+		<p>Specify total Quantity : <input type="text" id="quantity"></p><br/>
+		<p>Price of the product: <input type="text" id="price"></p><br/>
+		</div>
 		<input type="button" value="Submit">
 	</div>
 	</form>
@@ -53,13 +57,18 @@
 		<p>sign the contract.</p>
 	</div>
 	
-	<div id="Logout" class="tabcontent">
-  <h3>Logout</h3>
+	<div id="Change password" class="tabcontent">
+		<h3>Change password</h3>
+		<p>Enter old password:<input type="text" id="old password"></p><br/>
+		<p>Enter new password:<input type="text" id="new password"></p><br/>
+		<input type="button" value="Submit">
+		
+	</div>
+	
   
-  <form action="${pageContext.request.contextPath}/" method="post">
-    <input type="submit" value="Logout" />
+  <form id="form1" action="${pageContext.request.contextPath}/" method="post">
+  </form>
    
- </form>
- </div>
+ 
 </body>
 </html>
