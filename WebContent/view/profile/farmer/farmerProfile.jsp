@@ -59,8 +59,8 @@
 	
 	<div id="Change password" class="tabcontent">
 		<h3>Change password</h3>
-		<p>Enter old password:<input type="text" id="old password"></p><br/>
-		<p>Enter new password:<input type="text" id="new password"></p><br/>
+		<p>Enter old password:<input type="text" name="old password"></p><br/>
+		<p>Enter new password:<input type="text" name="new password"></p><br/>
 		<input type="button" value="Submit">
 		
 	</div>
