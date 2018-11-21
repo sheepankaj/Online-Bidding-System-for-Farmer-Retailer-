@@ -44,15 +44,15 @@ function openCity(evt, eventName) {
     				success: function (data,message) 
     				{
     					alert("You have logged in successfully!!!");
-    					if(data.page=="farmer")   {
+    					
     						
     						$('#username').val(data.page);
     						$('#ID').val(data.id);
     						$('#address').val(data.address);
     						$('#telephone').val(data.telephone);
     						$('#spam').val(data.spam);
-    						$('#priority').val(data.priority);
-    					}
+    						
+    					
     				}
     			});		
     	}

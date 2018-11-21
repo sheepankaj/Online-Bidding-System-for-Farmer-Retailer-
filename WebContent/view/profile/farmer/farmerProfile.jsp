@@ -32,7 +32,7 @@
 		<p>Address:<input type="text" id="address"></p><br/>
 		<p>Contact Number:<input type="text" id="telephone"></p><br/>
 		<p>Spam:<input type="text" id="spam"></p><br/>
-		<p>Priority:<input type="text" id="priority"></p><br/>
+		
 		
 	</div>
 	<form method="post" action="FarmerProfileLoaderRequest">

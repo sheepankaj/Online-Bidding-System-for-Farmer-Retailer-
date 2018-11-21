@@ -44,14 +44,14 @@ function openCity(evt, eventName) {
     				success: function (data) 
     				{
     					alert("You have logged in successfully!!!");
-    					if(data.page=="sulthan")   {
+    					
    						
     						$('#username').val(data.page);
     						$('#ID').val(data.id);
     						$('#address').val(data.address);
     						$('#tel').val(data.tel);
     						$('#spam').val(data.spam);
-    					}
+    					
     				}
     			});		
     	}
