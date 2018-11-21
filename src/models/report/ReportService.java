@@ -39,7 +39,7 @@ public class ReportService
 	
 	public void printContract(Contract contract,String docType,HttpServletResponse response) throws IOException
 	{
-		PDFTable table = new PDFTable(3, 5);
+		PDFTable table = new PDFTable(1, 5);
 		IReport report = createDoc( docType );
 		report.generateReport(PDFBuilder.getCompleteTable(contract, table), response);
 	}

@@ -1,15 +1,22 @@
 package models.report;
 
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 
 public class PDFBuilder {
 
 	public static PdfPTable getCompleteTable(IReportStructure structure, PDFTable table) 
 	{
-		table.getpTable().addCell(new Phrase(structure.getHeader().toString())); // adding header
+		PdfPCell header = new PdfPCell(new Phrase(structure.getHeader().toString()));
+		header.setRowspan(table.getColumns());
+		table.getpTable().addCell(header); // adding header
+		
 		table.getpTable().addCell(structure.getBody(new PdfPTable(1))); // this is the body
-		table.getpTable().addCell(new Phrase(structure.getFooter().toString())); // this is the footer
+		
+		PdfPCell footer = new PdfPCell(new Phrase(structure.getFooter().toString()));
+		footer.setRowspan(table.getColumns());
+		table.getpTable().addCell(footer); // this is the footer
 		return table.getpTable();
 	}
 
