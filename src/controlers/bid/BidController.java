@@ -47,6 +47,7 @@ public class BidController extends HttpServlet {
 		
 		String event =  request.getParameter("tabEvent");
 		String selectedBidID = request.getParameter("bids-dropdown");
+		String productCategory = request.getParameter("productCategory-dropdown");
 		HttpSession session = request.getSession(true);
 		Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
 		long farmerID = user.getUserID();

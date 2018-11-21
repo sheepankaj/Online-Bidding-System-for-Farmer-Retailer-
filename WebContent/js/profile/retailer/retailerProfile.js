@@ -63,6 +63,9 @@ function openCity(evt, eventName) {
     		    },
     		    function(data, status){
     		       // alert("Data: " + data + "\nStatus: " + status);
+    		    	$('#product-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+    		    	 $("#product-dropdown").append(empty);
     		        $.each(data,function(key,value)
     		                {
     		                    var option = $('<option />').val(value.productID).text(value.name);
@@ -79,10 +82,11 @@ function openCity(evt, eventName) {
     		        tabEvent: eventName
     		    },
     		    function(data, status){
+    		    	$('#productCategory-dropdown').html('');
     		        $.each(data,function(key,value)
     		                {
-    		                    var option = $('<option />').val(value.farmerUserID).text(value.farmerUserID);
-    		               $("#contract-dropdown").append(option);
+    		        	     var option = $('<option />').val(value.productID).text(value.name);
+    		               $("#productCategory-dropdown").append(option);
     		                });
     		        
     		    });	

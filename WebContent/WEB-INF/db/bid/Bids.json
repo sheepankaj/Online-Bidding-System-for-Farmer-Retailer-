@@ -59,7 +59,7 @@
             "name": "Cabage",
 		    "productID": 111003
          },
-         "quantitiy":125000,
+         "quantitiy":130000,
          "frequency":"WEEKLY",
          "unitPrice":6000.0,
          "productStockID":999003

@@ -82,7 +82,7 @@ function openCity(evt, eventName) {
     		       // alert("Data: " + data + "\nStatus: " + status);
     		        $.each(data,function(key,value)
     		                {
-    		                    var option = $('<option />').val(value.bidID).text("[Product : "+value.productStock.product.name+"][Agreed : "+value.agreedFinalPrice+"][Your Price : "+value.productStock.unitPrice+"]");
+    		                    var option = $('<option />').val(value.bidID).text("[Product : "+value.productStock.product.name+"][Quantity : "+value.productStock.quantitiy+"][Agreed : "+value.agreedFinalPrice+"][Your Price : "+value.productStock.unitPrice+"]");
     		               $("#bids-dropdown").append(option);
     		                });
     		        

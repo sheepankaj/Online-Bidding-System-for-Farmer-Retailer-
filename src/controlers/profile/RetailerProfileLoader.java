@@ -49,7 +49,8 @@ public class RetailerProfileLoader extends HttpServlet {
 		Retailer user = (Retailer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));	
 		if(event != null &&  event.equals("Manage Contracts"))
 		{
-			response.getWriter().append(ContractService.getContractServiceInstance(getServletContext()).getRetailerContracts(user.getUserID()));
+			//response.getWriter().append(ContractService.getContractServiceInstance(getServletContext()).getRetailerContracts(user.getUserID()));
+			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());
 			//int quant = Integer.parseInt(request.getParameter("quantity"));
 		 	//double price =Double.parseDouble(request.getParameter("price"));		    
 		}
