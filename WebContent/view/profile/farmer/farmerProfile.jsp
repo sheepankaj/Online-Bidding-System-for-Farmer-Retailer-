@@ -14,7 +14,8 @@
 </head>
 <body>
 
-<h1 class="form-title">Welcome <span id = "username" > </span> <input type="submit" value="Logout" /></h1>
+<h1 class="form-title">Welcome <span id = "username" > <%= session.getAttribute("username") %></span>
+<form action="${pageContext.request.contextPath}/" method="post"> <input type="submit" value="Logout" /></form></h1>
 
 	<div class="tab">
 		<button class="tablinks" onclick="openCity(event, 'Account Details')" id="defaultOpen">Account</button>
@@ -56,10 +57,9 @@
 	<div id="Logout" class="tabcontent">
   <h3>Logout</h3>
   
-  <form action="${pageContext.request.contextPath}/" method="post">
-    <input type="submit" value="Logout" />
+ <!-- - <form action="${pageContext.request.contextPath}/" method="post">
+    <input type="submit" value="Logout" />  </form>-->
    
- </form>
  </div>
 </body>
 </html>

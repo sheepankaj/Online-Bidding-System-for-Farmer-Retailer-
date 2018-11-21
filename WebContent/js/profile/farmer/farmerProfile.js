@@ -1,4 +1,4 @@
-
+	
 $( document ).ready(function() {
 	
 	// Get the element with id="defaultOpen" and click on it
@@ -56,7 +56,7 @@ function openCity(evt, eventName) {
     	}
     else
     	{
-    	
+    	z
     	}
     evt.currentTarget.className += " active";
 }
