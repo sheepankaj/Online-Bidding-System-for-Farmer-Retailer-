@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css"
 	href="../../../css/profile/retailer/retailerProfile.css">
@@ -14,17 +15,13 @@
 </head>
 <body>
 
-<h1 class="form-title">Welcome <span id = "username" > <%= session.getAttribute("username") %> </span></h1>
+<h1 class="form-title" align="center">Welcome <%= session.getAttribute("username") %> </h1>
+<p align="right"> <button class="button" form="form2">logout</button></p>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Account Details')" id="defaultOpen">Account Details</button>
   <button class="tablinks" onclick="openCity(event, 'View Product Catalogue')">View Product Catalogue</button>
   <button class="tablinks" onclick="openCity(event, 'Manage Contracts')">Manage Contracts</button>
-  <button class="tablinks" onclick="openCity(event, 'Change Password')"id="defaultOpen">Change Password</button>
-  <button class="tablinks" onclick="openCity(event, 'Logout')"id="defaultOpen">Logout</button>
-
-   
-   
-   
+  <button class="tablinks" onclick="openCity(event, 'Change Password')">Change Password</button>
 </div>
 
 
@@ -32,20 +29,17 @@
 		<h3>Account Details</h3>
 	    <p>User Name : <input type="text" id="username"></p><br/>
 		<p>User ID : <input type="text" id="ID"></p><br/>
-		<p>Address:</p>
-		<p>Contact Number:</p>
-		<p>Registered Date:</p>
-		<p>Spam:</p>
+		<p>Address:<input type="text" id="address"></p><br/>
+		<p>Contact Number:<input type="text" id="tel"></p><br/>
+		<p>Spam:<input type="text" id="spam"></p><br/>
 		
 	</div>
 
 
 <div id="View Product Catalogue" class="tabcontent">
   <h3>View Product Catalogue</h3>
-        <p>Vegetables</p>
-		<p>Fruits</p>
-		<p>Dairy Products</p>
-		<p>Meat</p>
+        <p>Choose products from below drop down</p><select id="product-dropdown">
+		 <option value="" disabled selected>---Select your option---</option></select>
 </div>
 
 <div id="Manage Contracts" class="tabcontent">
@@ -59,28 +53,22 @@
 </div>
 
 <div id="Change Password" class="tabcontent">
-  <h3>Change Password</h3>
-  <p>The Password has been changed.</p>
-</div>
-</body>
+		<h3>Change password</h3>
+		<p>Enter old password:<input type="text" id="old password"></p><br/>
+		<p>Enter new password:<input type="text" id="new password"></p><br/>
+		<input type="button" value="Submit">
+		
+	</div>
+	
+
 
 <div id="Logout" class="tabcontent">
   <h3>Logout</h3>
   
-  <form action="${pageContext.request.contextPath}/" method="post">
-    <input type="submit" value="Logout" />
-    
-    
-    <!---- <% response.setHeader("Cache-Control"," no-cache, no-store, must-revalidate");
-  
-  if(session.getAttribute("username")==null)
-	  response.sendRedirect("../index.jsp");
-	  %> ---->
-   
-</form>
-  
-  
-  <p>When clicked on logout button, You will successfully logged out from the system.</p>
   
 </div>
+
+  <form id="form2" action="${pageContext.request.contextPath}/" method="post">
+  </form>
+</body>
 </html>
