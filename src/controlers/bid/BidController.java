@@ -44,21 +44,25 @@ public class BidController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("application/json");
+		
 		String event =  request.getParameter("tabEvent");
 		String selectedBidID = request.getParameter("bids-dropdown");
+		HttpSession session = request.getSession(true);
+		Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
+		long farmerID = user.getUserID();
 		if(selectedBidID != null)
 		{
+			response.setContentType("application/pdf");
 			long selctedBidId = Long.valueOf(selectedBidID);
 			Bid bid = BiddingService.getBiddingServiceInstance(getServletContext()).getBid(selctedBidId);
 			Contract contract = ContractService.getContractServiceInstance(getServletContext()).createContract(bid);
 			ReportService.getReportServiceInstance().printContract(contract, "PDF", response);
 		}
-		HttpSession session = request.getSession(true);
-		Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
-		long farmerID = user.getUserID();
-		response.getWriter().append(BiddingService.getBiddingServiceInstance( getServletContext() ).getFarmerBids( farmerID ));
-		
+		else
+		{
+			response.setContentType("application/json");
+			response.getWriter().append(BiddingService.getBiddingServiceInstance( getServletContext() ).getFarmerBids( farmerID ));
+		}		
 	}
 
 }

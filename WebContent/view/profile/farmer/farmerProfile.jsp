@@ -46,7 +46,7 @@
 		<input type="button" value="Submit">
 	</div>
 	</form>
-    <form method="post" action="../../../BidsController" id="acceptBidForm">    
+    <form method="post" action="../../../BidsController" id="acceptBidForm"  target="_blank">    
 		<div id="Bids" class="tabcontent">
 			<select id="bids-dropdown" name="bids-dropdown"></select>
 			<input type="button" value="Accept Bid" id="acceptBidButton">

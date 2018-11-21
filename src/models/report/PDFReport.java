@@ -3,6 +3,7 @@ package models.report;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public class PDFReport implements IReport
@@ -17,7 +18,7 @@ public class PDFReport implements IReport
             document = new Document();
             PdfWriter.getInstance(document, response.getOutputStream());
             document.open();
-            document.add(((PDFTable)table).getpTable());
+            document.add(((PdfPTable)table));
             document.close();
         } catch (Exception de) {
             de.printStackTrace();
