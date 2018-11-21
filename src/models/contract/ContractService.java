@@ -69,7 +69,7 @@ public class ContractService extends EntityService
 		}
 		else
 		{
-			contract = new Contract10PercentDiscount( ContractFactory.createContract( frequency,bid) );
+			contract =  ContractFactory.createContract( frequency,bid);
 		}		
 		return contract;
 	}	

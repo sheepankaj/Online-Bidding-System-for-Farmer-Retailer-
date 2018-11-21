@@ -18,19 +18,18 @@ public class DailyContract extends Contract
 	@Override
 	public StringBuilder getContractConstraints()
 	{
-		StringBuilder builder = getContractConstraints();
-		builder.append( "This contract roles out in daily basis\n");
-		return builder;
+		getStringBuilder().append( "  > This contract roles out in daily basis\n");
+		return getStringBuilder();
 	}
 
 	@Override
 	public String getFarmerDetails() {
-		return "Farmer ID : "+ getFarmerUserID();
+		return "Farmer ID : "+ getAgreedBid().getFarmerID();
 	}
 
 	@Override
 	public String getRetailerDetails() {
-		return "Retailer ID : "+ getRetailerUserID();
+		return "Retailer ID : "+ getAgreedBid().getRetailerID();
 	}
 
 }

@@ -142,5 +142,20 @@
          "priorityType":"nopriority",
          "priority":-1
       }
-   }     
+   },
+   {  
+      "farmAddress":"Address1",
+      "telephone":"+353894855578",
+      "userID":100110,
+      "username":"retailer3",
+      "password":"retailer3",
+      "profileType":"RETAILER",
+      "type":"retailer",
+      "spam":false,
+      "successfullyClosedContracts":90,
+      "priority":{  
+         "priorityType":"nopriority",
+         "priority":-1
+      }
+   }         
 ]
