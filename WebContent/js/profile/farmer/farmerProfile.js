@@ -60,7 +60,7 @@ function openCity(evt, eventName) {
     		        alert("Data: " + data + "\nStatus: " + status);
     		        $.each(data,function(key,value)
     		                {
-    		                    var option = $('<option />').val(value.productID).text(value.name);
+    		                    var option = $('<option />').val(value.productID).text("Agreed : "+value.unitPrice);
     		               $("#bids-dropdown").append(option);
     		                });
     		        

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.bid.BiddingService;
 import models.entity.Farmer;
 import models.profile.ProfilesService;
 
@@ -39,8 +40,12 @@ public class BidController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
+		String event =  request.getParameter("tabEvent");
 		HttpSession session = request.getSession(true);
 		Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
+		long farmerID = user.getUserID();
+		response.getWriter().append(BiddingService.getBiddingServiceInstance( getServletContext() ).getFarmerBids( farmerID ));
+		
 	}
 
 }

@@ -9,8 +9,9 @@ public class Bid implements Notification
 	private double agreedFinalPrice;
 	private long retailerID;
 	private long farmerID;
-	boolean signedByFarmer;
-	boolean signedByRetailer;
+	private boolean signedByFarmer;
+	private boolean signedByRetailer;
+	private long bidID;
 	
 	public Bid()
 	{
@@ -85,6 +86,13 @@ public class Bid implements Notification
 	public void setSignedByRetailer( boolean signedByRetailer )
 	{
 		this.signedByRetailer = signedByRetailer;
+	}
+	
+	
+
+	public long getBidID()
+	{
+		return bidID;
 	}
 
 	@Override
