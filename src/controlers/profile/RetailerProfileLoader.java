@@ -53,9 +53,14 @@ public class RetailerProfileLoader extends HttpServlet {
 			//int quant = Integer.parseInt(request.getParameter("quantity"));
 		 	//double price =Double.parseDouble(request.getParameter("price"));		    
 		}
+		else if (event != null &&  event.equals("View Product Catalogue"))
+		{
+			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());
+			
+		}
 		else
 		{
-			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"}");			
+			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":\""+user.getUserID()+"\",\"address\":\""+user.getCompanyAddress()+"\",\"tel\":\""+user.getTel()+"\",\"spam\":\""+user.isSpam()+"\"}");			
 		}
 		
 	}
