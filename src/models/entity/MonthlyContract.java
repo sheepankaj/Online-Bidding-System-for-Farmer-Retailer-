@@ -13,8 +13,7 @@ public class MonthlyContract extends Contract
 	@Override
 	public double getPriceOnFrequency()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return getAgreedBid().getAgreedFinalPrice();
 	}
 
 	@Override

@@ -109,7 +109,8 @@ public abstract class Contract implements IReportStructure
 	public PdfPTable getBody(PdfPTable  table) {
 		table.addCell(new PdfPCell(new Phrase(getFarmerDetails())));
 		table.addCell(new PdfPCell(new Phrase(getRetailerDetails())));
-		table.addCell(new PdfPCell(new Phrase("Delevery Frequency : "+stockFrequency)));
+		table.addCell(new PdfPCell(new Phrase("Delevery Frequency : "+getContract().getStockFrequency())));
+		table.addCell(new PdfPCell(new Phrase("Final Price On Frequency : "+getPriceOnFrequency())));
 	    return table;
 	}
 	
