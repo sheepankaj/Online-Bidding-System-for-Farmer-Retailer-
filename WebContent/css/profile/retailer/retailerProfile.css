@@ -11,6 +11,8 @@ body {
 }
 
 /* Style the tab */
+.button {background-color: #f44336;}
+
 .tab {
 	float: left;
 	border: 1px solid #ccc;
