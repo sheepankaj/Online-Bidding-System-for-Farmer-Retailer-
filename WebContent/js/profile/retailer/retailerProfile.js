@@ -43,20 +43,33 @@ function openCity(evt, eventName) {
     				data: 'l',
     				success: function (data) 
     				{
-    					if(data.page=="retailer")   {
-//    						var obj = JSON.parse(data.page);
-//
-//    						document.getElementById("Account Details").innerHTML =
-//    						"Name: " + obj.username;
+    					alert("You have logged in successfully!!!");
+    					if(data.page=="sulthan")   {
+   						
     						$('#username').val(data.page);
     						$('#ID').val(data.id);
+    						$('#address').val(data.address);
+    						$('#tel').val(data.tel);
+    						$('#spam').val(data.spam);
     					}
     				}
     			});		
     	}
     else if(eventName=="View Product Catalogue")
 	{
-	
+    	$.post('../../../RetailerProfileLoaderRequest',
+    		    {
+    		        tabEvent: eventName
+    		    },
+    		    function(data, status){
+    		       // alert("Data: " + data + "\nStatus: " + status);
+    		        $.each(data,function(key,value)
+    		                {
+    		                    var option = $('<option />').val(value.productID).text(value.name);
+    		               $("#product-dropdown").append(option);
+    		                });
+    		        
+    		    });
 	}
     else if(eventName=="Manage Contracts")
 	{
