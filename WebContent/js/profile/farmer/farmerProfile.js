@@ -4,20 +4,20 @@ $( document ).ready(function() {
 	// Get the element with id="defaultOpen" and click on it
 	document.getElementById("defaultOpen").click();
 	var acceptBidForm = $('#acceptBidForm');
-	acceptBidForm.submit(function (e) 
-	{	
-		$.ajax(
-		{
-			type: acceptBidForm.attr('method'),
-			url: acceptBidForm.attr('action'),
-			data: acceptBidForm.serialize(),
-			success: function (data) 
-			{
-				alert(data);
-			}
-		});		 
-		return false;
-	});
+//	acceptBidForm.submit(function (e) 
+//	{	
+//		$.ajax(
+//		{
+//			type: acceptBidForm.attr('method'),
+//			url: acceptBidForm.attr('action'),
+//			data: acceptBidForm.serialize(),
+//			success: function (data) 
+//			{
+//				 window.open(data);
+//			}
+//		});		 
+//		return false;
+//	});
     $( "#acceptBidButton" ).click(function() {
     	acceptBidForm.submit();
     });	
