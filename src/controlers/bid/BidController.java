@@ -8,8 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.bid.BiddingService;
+import models.contract.ContractFactory;
+import models.contract.ContractService;
+import models.entity.Bid;
+import models.entity.Contract;
 import models.entity.Farmer;
 import models.profile.ProfilesService;
+import models.report.ReportService;
 
 /**
  * Servlet implementation class BidController
@@ -38,9 +44,25 @@ public class BidController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("application/json");
+		
+		String event =  request.getParameter("tabEvent");
+		String selectedBidID = request.getParameter("bids-dropdown");
 		HttpSession session = request.getSession(true);
 		Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
+		long farmerID = user.getUserID();
+		if(selectedBidID != null)
+		{
+			response.setContentType("application/pdf");
+			long selctedBidId = Long.valueOf(selectedBidID);
+			Bid bid = BiddingService.getBiddingServiceInstance(getServletContext()).getBid(selctedBidId);
+			Contract contract = ContractService.getContractServiceInstance(getServletContext()).createContract(bid);
+			ReportService.getReportServiceInstance().printContract(contract, "PDF", response);
+		}
+		else
+		{
+			response.setContentType("application/json");
+			response.getWriter().append(BiddingService.getBiddingServiceInstance( getServletContext() ).getFarmerBids( farmerID ));
+		}		
 	}
 
 }

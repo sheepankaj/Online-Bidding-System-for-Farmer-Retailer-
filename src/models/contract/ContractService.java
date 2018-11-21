@@ -65,9 +65,12 @@ public class ContractService extends EntityService
 		// this is achieved by decorating the contract
 		if(retailer.getSuccessfullyClosedContracts()>100)
 		{
-			contract = new Contract10PercentDiscount( ContractFactory.createContract( frequency ) );
+			contract = new Contract10PercentDiscount( ContractFactory.createContract( frequency,bid ) );
 		}
-		contract = new Contract10PercentDiscount( ContractFactory.createContract( StockFrequency.DAILY ) );
+		else
+		{
+			contract = new Contract10PercentDiscount( ContractFactory.createContract( frequency,bid) );
+		}		
 		return contract;
 	}	
 	
@@ -101,9 +104,9 @@ public class ContractService extends EntityService
 	{
 		List<Contract> contracts = new ArrayList<>();
 		
-			contracts.add(new DailyContract());
-			contracts.add(new WeeklyContract());
-			contracts.add(new YearlyContract());
+//			contracts.add(new DailyContract());
+//			contracts.add(new WeeklyContract());
+//			contracts.add(new YearlyContract());
 			
 			RuntimeTypeAdapterFactory<Contract> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
 				    .of(Contract.class, "type")

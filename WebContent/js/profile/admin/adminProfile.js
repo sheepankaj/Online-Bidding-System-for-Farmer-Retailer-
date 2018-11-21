@@ -22,6 +22,7 @@ function openCity(evt, eventName) {
     evt.currentTarget.className += " active";
 }
 
+
 function loadGenerateReportTab()
 {
 	
@@ -35,8 +36,9 @@ function loadGenerateReportTab()
 				{
 					alert(data.message);	   
 				}
-			});		
-	}
+			});	
+
+		}
 
 
 

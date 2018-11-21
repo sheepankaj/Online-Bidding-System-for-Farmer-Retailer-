@@ -16,8 +16,31 @@
 
 
 
-<!--  <h1 class="form-title">Welcome System Admin</h1>-->
+<% 
+  
 
+      
+
+      response.setHeader("Cache-Control"," no-cache");
+	  response.setHeader("Cache-Control"," no-store");
+	  response.setHeader("Pragma", "no-cache");
+	  response.setDateHeader("Expire", 0);
+	  
+	  
+	 String username=(String)session.getAttribute("username");
+	  
+	 //if(session.getAttribute("username")==null)
+		 if (null == username) {
+			   request.setAttribute("Error", "Session has ended.  Please login.");
+			   RequestDispatcher rd = request.getRequestDispatcher("../index.jsp");
+			   rd.forward(request, response);
+			   
+			   
+		
+	  //response.sendRedirect("../index.jsp");
+ 
+		 }
+	  %> 
 
 
 <h1 class="form-title">Welcome <span id = "username" > <%= session.getAttribute("username") %> </span></h1>
@@ -193,11 +216,7 @@
     <input type="submit" value="Logout" />
     
     
-    <!---- <% response.setHeader("Cache-Control"," no-cache, no-store, must-revalidate");
-  
-  if(session.getAttribute("username")==null)
-	  response.sendRedirect("../index.jsp");
-	  %> ---->
+
    
 </form>
   
@@ -215,5 +234,7 @@
 function showdet(){
 	$("#showvars").css("display","block");
 }
+
+
 </script>
 

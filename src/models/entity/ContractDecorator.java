@@ -21,4 +21,17 @@ public class ContractDecorator extends Contract
 		return contract.getContractConstraints();
 	}
 
+	public Contract getContract() {
+		return contract;
+	}
+	
+	@Override
+	public String getFarmerDetails() {
+		return "Farmer ID : "+ contract.getAgreedBid().getFarmerID();
+	}
+
+	@Override
+	public String getRetailerDetails() {
+		return "Retailer ID : "+ contract.getAgreedBid().getRetailerID();
+	}
 }

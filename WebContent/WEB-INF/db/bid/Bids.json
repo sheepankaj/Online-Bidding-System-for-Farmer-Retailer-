@@ -14,7 +14,8 @@
       "retailerID":100101,
       "farmerID":100105,
       "signedByFarmer":true,
-      "signedByRetailer":false
+      "signedByRetailer":false,
+      "bidID":222001
    },
    {
       "productStock":{
@@ -31,7 +32,8 @@
       "retailerID":100101,
       "farmerID":100105,
       "signedByFarmer":true,
-      "signedByRetailer":false
+      "signedByRetailer":false,
+      "bidID":222002
    },
    {
       "productStock":{
@@ -48,6 +50,7 @@
       "retailerID":100101,
       "farmerID":100105,
       "signedByFarmer":true,
-      "signedByRetailer":false
+      "signedByRetailer":false,
+      "bidID":222003
    }
 ]

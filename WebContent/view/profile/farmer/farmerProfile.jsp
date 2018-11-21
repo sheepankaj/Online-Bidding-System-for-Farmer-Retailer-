@@ -46,12 +46,12 @@
 		<input type="button" value="Submit">
 	</div>
 	</form>
-
-	<div id="Bids" class="tabcontent">
-		<h3>View Bids</h3>
-		<p>Currently there are no bids for you.</p>
-	</div>
-
+    <form method="post" action="../../../BidsController" id="acceptBidForm"  target="_blank">    
+		<div id="Bids" class="tabcontent">
+			<select id="bids-dropdown" name="bids-dropdown"></select>
+			<input type="button" value="Accept Bid" id="acceptBidButton">
+		</div>
+    </form>
 	<div id="Contract" class="tabcontent">
 		<h3>Manage Contracts</h3>
 		<p>sign the contract.</p>
@@ -68,7 +68,11 @@
   
   <form id="form1" action="${pageContext.request.contextPath}/" method="post">
   </form>
+<<<<<<< HEAD
    
 
 </body>
+=======
+</body>
+>>>>>>> branch 'master' of https://github.com/ShamithaSIlva/OnlineStockAuction.git
 </html>

@@ -17,6 +17,8 @@
 </head>
 <body>
 
+
+
 	<form class="form" action="LoginForm" method="post" id="loginForm">
 		<h1 class="form-title">User Login</h1>
 		<input type="text" class="form-input" placeholder="Username" autofocus
@@ -30,7 +32,7 @@
 		</p>
 	</form>
 	<!-- <div data-role="page">
- 
+  
         <div data-role="header">
             <h1>Login</h1>
         </div>/header
