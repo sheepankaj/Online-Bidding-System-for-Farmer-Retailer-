@@ -16,6 +16,7 @@ import models.entity.Contract;
 import models.entity.Farmer;
 import models.entity.Product;
 import models.entity.User;
+import models.login.LoginService;
 import models.notification.NotificationService;
 import models.profile.ProfilesService;
 import models.report.ReportService;
@@ -58,7 +59,7 @@ public class BidController extends HttpServlet {
 		{
 			response.setContentType("application/pdf");
 			long selctedBidId = Long.valueOf(selectedBidID);
-			Bid bid = BiddingService.getBiddingServiceInstance(getServletContext()).getBid(selctedBidId);
+			Bid bid = BiddingService.getBiddingServiceInstance(LoginService.getServeletContext()).getBid(selctedBidId);
 			Contract contract = ContractService.getContractServiceInstance(getServletContext()).createContract(bid);
 			ReportService.getReportServiceInstance().printContract(contract, "PDF", response);
 		}

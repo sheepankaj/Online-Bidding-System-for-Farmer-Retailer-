@@ -63,7 +63,7 @@
 		<p>Enter new password:<input type="text" name="new password"></p><br/>
 		<input type="button" value="Submit">
 	</div>
-	
+	<div class='error' style='display:none'id="notificationText"></div>
   
   <form id="form1" action="${pageContext.request.contextPath}/" method="post">
   </form>

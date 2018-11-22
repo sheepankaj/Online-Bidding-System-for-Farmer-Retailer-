@@ -13,7 +13,7 @@ $( document ).ready(function() {
 					data: placeBidForm.serialize(),
 					success: function (data) 
 					{
-						alert('ggg');
+						
 					}
 				});		 
 				return false;

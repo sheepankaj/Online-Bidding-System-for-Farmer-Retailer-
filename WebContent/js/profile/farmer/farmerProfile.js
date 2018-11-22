@@ -21,6 +21,7 @@ $( document ).ready(function() {
     $( "#acceptBidButton" ).click(function() {
     	acceptBidForm.submit();
     });	
+    doPoll();
 });
 function openCity(evt, eventName) {
 	
@@ -97,7 +98,13 @@ function openCity(evt, eventName) {
 
 function doPoll(){
     $.post('../../../NotificationRequest', function(data) {
-        alert(data);  // process results here
+    	if(data.state == "HasMessage")
+		{
+    		$('#notificationText').text(data.message);
+    		//$("#farmerNotification").val(data.message);
+    		$('.error').fadeIn(400).delay(8000).fadeOut(400); 
+    		//$('.error').fadeIn(400); 
+		}   	
         setTimeout(doPoll,5000);
     });
     

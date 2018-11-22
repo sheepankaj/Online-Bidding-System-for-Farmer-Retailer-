@@ -88,6 +88,13 @@ public class User implements NotificationListener
 		return priority.getPriority();
 		
 	}
+
+	public Queue<String> getMessageQueue()
+	{
+		return messageQueue;
+	}
+	
+	
 	
 	
 	
