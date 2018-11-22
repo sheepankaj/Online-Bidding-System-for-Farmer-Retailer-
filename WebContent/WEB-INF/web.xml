@@ -66,4 +66,13 @@
     <servlet-name>BidsControllerServlet</servlet-name>
     <url-pattern>/BidsController</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>NotificationServlet</servlet-name>
+    <servlet-class>controlers.notification.NotificationController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NotificationServlet</servlet-name>
+    <url-pattern>/NotificationRequest</url-pattern>
+  </servlet-mapping>
 </web-app>

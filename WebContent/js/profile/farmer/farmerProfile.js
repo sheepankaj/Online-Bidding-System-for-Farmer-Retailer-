@@ -95,4 +95,12 @@ function openCity(evt, eventName) {
     evt.currentTarget.className += " active";
 }
 
+function doPoll(){
+    $.post('../../../NotificationRequest', function(data) {
+        alert(data);  // process results here
+        setTimeout(doPoll,5000);
+    });
+    
+}
+
 
