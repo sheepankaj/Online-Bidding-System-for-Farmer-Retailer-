@@ -72,14 +72,6 @@ public class UserLogin extends HttpServlet {
 		if(ProfilesService.getProfileServiceInstance(getServletContext()).validLoginCheck( username, password ))
 		{
 			user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile(username);
-			if(user instanceof Farmer)
-			{
-				// we register farmer to product notifications
-				Farmer farmer = (Farmer)user;
-				String [] involvedProducts = ((Farmer)user).getProductsInvolved();				
-				NotificationService.getNotificationServiceInstance().registerFarmerForProductNotifications(involvedProducts,farmer);
-				
-			}
 			//response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\""+":\""+user.getProfileType()+"\"}");
 			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\""+":\""+user.getProfileType()+"\",\"name\":\""+user.getUsername()+"\"}");
 		}

@@ -59,13 +59,11 @@ public class Product implements Notification
 	@Override
 	public void attach( NotificationListener listener )
 	{
+		if(productListeners == null)
+		{
+			productListeners = new ArrayList<>();
+		}
 		productListeners.add( listener );
-	}
-
-	@Override
-	public void detach( NotificationListener listener )
-	{
-		productListeners.remove( listener );
 	}
 
 	@Override
@@ -74,6 +72,12 @@ public class Product implements Notification
 		for (NotificationListener listener : productListeners) {
 			listener.update(this);
 		}
+	}
+
+	@Override
+	public void detach( NotificationListener listener )
+	{
+		productListeners.remove( listener );
 	}
 	
 	

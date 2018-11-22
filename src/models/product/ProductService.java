@@ -51,14 +51,24 @@ public class ProductService extends EntityService
 		return getGson().toJson(products);
 	}
 	
-	public void addProduct( Product profile )
+	public void addProduct( Product product )
 	{
-		products.add( profile );
+		products.add( product );
 	}	
 	
 	public List<Product> getProducts()
 	{
 		return products;
+	}
+	
+	public Product getProductByProductID(long productID)
+	{
+		for(Product product : products)
+		{
+			if(product.getProductID() == productID)
+			return product;
+		}
+		return null;
 	}
 	
 	public void loadEntities()

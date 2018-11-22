@@ -14,7 +14,9 @@ import models.contract.ContractService;
 import models.entity.Bid;
 import models.entity.Contract;
 import models.entity.Farmer;
+import models.entity.Product;
 import models.entity.User;
+import models.notification.NotificationService;
 import models.profile.ProfilesService;
 import models.report.ReportService;
 
@@ -62,7 +64,8 @@ public class BidController extends HttpServlet {
 		}
 		else if(productCategory != null)
 		{
-			// update notifications for users
+			// update notifications for users		
+			NotificationService.getNotificationServiceInstance().updateFarmersForProductNotification( productCategory ,request.getParameter("quantity"),request.getParameter("price"));
 		}
 		else
 		{

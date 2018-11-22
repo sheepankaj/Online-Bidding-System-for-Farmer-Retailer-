@@ -1,5 +1,8 @@
 package models.entity;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import models.notification.Notification;
 import models.notification.NotificationListener;
 
@@ -11,6 +14,7 @@ public class User implements NotificationListener
 	ProfileType profileType;
 	String type;
 	private Priority priority;
+	private Queue<String> messageQueue = new LinkedList<>();
 	
 	public User()
 	{
@@ -68,8 +72,15 @@ public class User implements NotificationListener
 	@Override
 	public void update( Notification notification )
 	{
-		// TODO Auto-generated method stub
-		
+		if(notification instanceof Product)
+		{
+			Product product = ((Product)notification);
+			if(messageQueue == null)
+			{
+				messageQueue = new LinkedList<>();
+			}
+			messageQueue.add( "[Product : "+product.getName()+"][Quantity : "+product.getLatestProductStockQuantity()+"][Price : "+product.getLatestProductStockPrice()+"]" );
+		}
 	}
 	
 	public int getPriorityLevel() {
