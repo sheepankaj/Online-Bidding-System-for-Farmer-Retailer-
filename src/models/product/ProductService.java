@@ -27,7 +27,7 @@ public class ProductService extends EntityService
 		super(context,filePath);
 	}
 	
-	public static ProductService getProductServiceInstance(ServletContext context) throws FileNotFoundException
+	public static ProductService getProductServiceInstance(ServletContext context)
 	{
 		if(productService == null)
 		{
@@ -56,9 +56,22 @@ public class ProductService extends EntityService
 		products.add( profile );
 	}	
 	
-	public void loadEntities() throws FileNotFoundException
+	public List<Product> getProducts()
 	{
-		super.loadEntities();
+		return products;
+	}
+	
+	public void loadEntities()
+	{
+		try
+		{
+			super.loadEntities();
+		}
+		catch ( FileNotFoundException e )
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		TypeToken<List<Product>> token = new TypeToken<List<Product>>() {};
 		products = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
 	}

@@ -45,12 +45,12 @@
 </div>
 
 <div id="Manage Contracts" class="tabcontent">
-  <h4>Place bid</h4>
-    <form method="post" action="../../../RetailerProfileLoaderRequest" id="contractView">	
+  <h4>Place a bid</h4>
+    <form method="post" action="../../../BidsController" id="placeBidForm">	
 		<select id="productCategory-dropdown" name="productCategory-dropdown" class="input_class"></select><br>
 		<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
 		<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
-		<input type="submit" value="Place Bid" class="login-button" id="submitViewContract" class="input_class"/>	
+		<input type="button" value="Place Bid" id="submitViewContract" class="input_class"/>	
 	</form>
 </div>
 

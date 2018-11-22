@@ -3,14 +3,14 @@ $( document ).ready(function() {
 	
 	// Get the element with id="defaultOpen" and click on it
 	document.getElementById("defaultOpen").click();
-	var contractView = $('#contractView');
-	contractView.submit(function (e) 
+	var placeBidForm = $('#placeBidForm');
+	placeBidForm.submit(function (e) 
 			{	
 				$.ajax(
 				{
-					type: form.attr('method'),
-					url: form.attr('action'),
-					data: form.serialize(),
+					type: placeBidForm.attr('method'),
+					url: placeBidForm.attr('action'),
+					data: placeBidForm.serialize(),
 					success: function (data) 
 					{
 						alert('ggg');
@@ -19,7 +19,7 @@ $( document ).ready(function() {
 				return false;
 			});
 		    $( "#submitViewContract" ).click(function() {
-		    	contractView.submit();
+		    	placeBidForm.submit();
 		    });	
 });
 function openCity(evt, eventName) {
@@ -83,6 +83,8 @@ function openCity(evt, eventName) {
     		    },
     		    function(data, status){
     		    	$('#productCategory-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+   		    	 $("#productCategory-dropdown").append(empty);
     		        $.each(data,function(key,value)
     		                {
     		        	     var option = $('<option />').val(value.productID).text(value.name);

@@ -1,9 +1,18 @@
 package models.entity;
 
-public class Product
+import java.util.ArrayList;
+import java.util.List;
+
+import models.notification.Notification;
+import models.notification.NotificationListener;
+
+public class Product implements Notification
 {
-	String name;
-	long productID;
+	private String name;
+	private long productID;
+	List<NotificationListener> productListeners = new ArrayList<>();
+	private double latestProductStockPrice;
+	private int latestProductStockQuantity;
 	
 	public Product(String name,long productID)
 	{
@@ -25,6 +34,46 @@ public class Product
 
 	public void setProductID(long productID) {
 		this.productID = productID;
+	}	
+
+	public double getLatestProductStockPrice()
+	{
+		return latestProductStockPrice;
+	}
+
+	public void setLatestProductStockPrice( double latestProductStockPrice )
+	{
+		this.latestProductStockPrice = latestProductStockPrice;
+	}
+
+	public int getLatestProductStockQuantity()
+	{
+		return latestProductStockQuantity;
+	}
+
+	public void setLatestProductStockQuantity( int latestProductStockQuantity )
+	{
+		this.latestProductStockQuantity = latestProductStockQuantity;
+	}
+
+	@Override
+	public void attach( NotificationListener listener )
+	{
+		productListeners.add( listener );
+	}
+
+	@Override
+	public void detach( NotificationListener listener )
+	{
+		productListeners.remove( listener );
+	}
+
+	@Override
+	public void notifyNotificationListeners()
+	{
+		for (NotificationListener listener : productListeners) {
+			listener.update(this);
+		}
 	}
 	
 	

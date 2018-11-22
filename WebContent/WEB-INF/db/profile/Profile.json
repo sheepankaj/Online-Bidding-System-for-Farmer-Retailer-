@@ -26,7 +26,8 @@
       "priority":{  
          "priorityType":"platinum",
          "priority":1
-      }
+      },
+      "productsInvolved":["Carrot","Cabage"]
    },
    {  
       "farmAddress":"Address44",
@@ -54,7 +55,8 @@
       "priority":{  
          "priorityType":"silver",
          "priority":3
-      }
+      },
+      "productsInvolved":["Carrot","Onion"]
    },
    {  
       "fax":"fax12",

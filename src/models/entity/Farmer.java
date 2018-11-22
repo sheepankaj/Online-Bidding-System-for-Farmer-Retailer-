@@ -6,6 +6,7 @@ public class Farmer extends User
 	String telephone;
 	boolean spam;
 	private String statusType;
+	private String [] productsInvolved;
 	
 	public Farmer(String username,long userID,String password,String farmAddress,String telephone,Priority priority,String type)
 	{
@@ -50,5 +51,10 @@ public class Farmer extends User
 	public void setSpam( boolean spam )
 	{
 		this.spam = spam;
-	}	
+	}
+
+	public String[] getProductsInvolved()
+	{
+		return productsInvolved;
+	}		
 }
