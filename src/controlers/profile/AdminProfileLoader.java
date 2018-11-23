@@ -48,12 +48,24 @@ public class AdminProfileLoader extends HttpServlet {
 		
 //		String password = request.getParameter("password");
 		String username = (String)session.getAttribute("username");
+		String event =  request.getParameter("tabEvent");
 		
 		response.setContentType("application/json");
 		ProductService.getProductServiceInstance( getServletContext() );		
 		User user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile(username);
-		response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"}");
 		
+		
+		
+		if(event != null &&  event.equals("Verify"))
+		{
+			response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).getProfilesAsJSON());
+		}
+		else
+		{
+		
+			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"}");
+
+		}
 			
 		
 	}
