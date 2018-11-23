@@ -17,7 +17,7 @@ import models.entity.Product;
 
 public class ProductService extends EntityService
 {
-	public static ProductService productService;
+	private static ProductService productService;
 	List<Product> products = new ArrayList<>();
 	static String filePath = "/WEB-INF/db/product/Product.json";
 

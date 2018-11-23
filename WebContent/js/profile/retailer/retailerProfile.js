@@ -5,22 +5,40 @@ $( document ).ready(function() {
 	document.getElementById("defaultOpen").click();
 	var placeBidForm = $('#placeBidForm');
 	placeBidForm.submit(function (e) 
-			{	
-				$.ajax(
-				{
-					type: placeBidForm.attr('method'),
-					url: placeBidForm.attr('action'),
-					data: placeBidForm.serialize(),
-					success: function (data) 
-					{
-						
-					}
-				});		 
-				return false;
-			});
-		    $( "#submitViewContract" ).click(function() {
-		    	placeBidForm.submit();
-		    });	
+	{	
+		$.ajax(
+		{
+			type: placeBidForm.attr('method'),
+			url: placeBidForm.attr('action'),
+			data: placeBidForm.serialize(),
+			success: function (data) 
+			{
+				
+			}
+		});		 
+		return false;
+	});
+    $( "#submitViewContract" ).click(function() {
+    	placeBidForm.submit();
+    });	
+    var searchProductStockForm = $('#searchProductStockForm');
+    searchProductStockForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: searchProductStockForm.attr('method'),
+			url: searchProductStockForm.attr('action'),
+			data: searchProductStockForm.serialize(),
+			success: function (data) 
+			{
+				
+			}
+		});		 
+		return false;
+	});
+    $( "#submitSearchProductStock" ).click(function() {
+    	searchProductStockForm.submit();
+    });
 });
 function openCity(evt, eventName) {
 	

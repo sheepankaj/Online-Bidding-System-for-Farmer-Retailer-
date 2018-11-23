@@ -38,10 +38,18 @@
 
 <div id="View Product Catalogue" class="tabcontent">
   <h3>View Product Catalogue</h3>
-        <p>Choose products from below drop down</p>
-        <select id="product-dropdown">
-		 <option value="" disabled selected>---Select your option---</option>
-		 </select>
+  <form method="post" action="../../../RetailerProfileLoaderRequest" id="searchProductStockForm">
+        <select id="product-dropdown" class="input_class" name="product-dropdown"><option value="" disabled selected>---Select your option---</option></select><br>
+        <select id="frequency-dropdown" name="frequency-dropdown">
+		  <option value="DAILY">DAILY</option>
+		  <option value="WEEKLY">WEEKLY</option>
+		  <option value="MONTHLY">MONTHLY</option>
+		  <option value="YEARLY">YEARLY</option>
+		</select><br>
+		<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
+		<!-- <input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	 -->
+		<input type="button" value="Search Stock" id="submitSearchProductStock" name="submitSearchProductStock" class="input_class"/>
+   </form>
 </div>
 
 <div id="Manage Contracts" class="tabcontent">
