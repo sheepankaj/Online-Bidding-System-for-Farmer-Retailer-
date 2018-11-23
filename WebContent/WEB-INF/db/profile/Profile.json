@@ -59,6 +59,21 @@
       "productsInvolved":["Carrot","Onion"]
    },
    {  
+      "farmAddress":"Address1",
+      "telephone":"+353894855578",
+      "userID":100111,
+      "username":"retailer4",
+      "password":"retailer4",
+      "profileType":"RETAILER",
+      "type":"retailer",
+      "spam":false,
+      "successfullyClosedContracts":90,
+      "priority":{  
+         "priorityType":"nopriority",
+         "priority":-1
+      }
+   },
+   {  
       "fax":"fax12",
       "tel":"+432342332",
       "userID":100103,
@@ -146,7 +161,7 @@
       }
    },
    {  
-      "farmAddress":"Address1",
+      "retailAddress":"Address1",
       "telephone":"+353894855578",
       "userID":100110,
       "username":"retailer3",
