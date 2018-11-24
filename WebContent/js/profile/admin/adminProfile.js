@@ -44,7 +44,17 @@ if(eventName == 'Verify')
     		                    $(".address").val(value.farmAddress);
     		                    $(".telephone").val(value.telephone);
 
-    		        			}
+    		        			} else if(value.profileType=="RETAILER"){
+        		        			
+        		        			
+        		                    $(".Userid").val(value.userID);
+        		                    $(".profiletype").val(value.profileType);
+        		                    $(".username").val(value.username);
+        		                    $(".Address").val(value.retailAddress);
+        		                    $(".Telephone").val(value.telephone);
+
+        		        			}
+    		        		
     		                    
     		                });
     		        

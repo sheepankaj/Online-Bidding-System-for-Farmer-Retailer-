@@ -156,30 +156,39 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+      	<th>UserID</th>
+      	<th>Profile Type</th>
+        <th>Username</th>
+        <th>Address</th>
+        <th>Contact Number</th>
         <th>Action</th>
       </tr>
     </thead>
     
     <tbody>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td><p><input type="text" class="Userid"></p><br/></td>
+        <td><p><input type="text" class="profiletype"></p><br/></td>
+        <td><p><input type="text" class="username"></p><br/></td>
+        <td><p><input type="text" class="Address"></p><br/></td>
+        <td><p><input type="text" class="Telephone"></p><br/>
+        <td><button class="tablinks" onclick="">Terminate</button></td>
+      </tr>
+      
+      <tr>
+        <td><p><input type="text" class="Userid"></p><br/></td>
+        <td><p><input type="text" class="profiletype"></p><br/></td>
+        <td><p><input type="text" class="username"></p><br/></td>
+        <td><p><input type="text" class="Address"></p><br/></td>
+        <td><p><input type="text" class="Telephone"></p><br/>
         <td><button class="tablinks" onclick="">Terminate</button></td>
       </tr>
       <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-        <td><button class="tablinks" onclick="">Terminate</button></td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
+        <td><p><input type="text" class="Userid"></p><br/></td>
+        <td><p><input type="text" class="profiletype"></p><br/></td>
+        <td><p><input type="text" class="username"></p><br/></td>
+        <td><p><input type="text" class="Address"></p><br/></td>
+        <td><p><input type="text" class="Telephone"></p><br/>
         <td><button class="tablinks" onclick="">Terminate</button></td>
       </tr>
     </tbody>
@@ -194,10 +203,9 @@
   <h3>Logout</h3>
   
   <form action="${pageContext.request.contextPath}/" method="post">
-    <input type="submit" value="Logout" />
-  </form>
-    
-    <p>When clicked on logout button, You will successfully logged out from the system.</p>
+    <input type="submit" value="Logout" /> 
+    </form>
+  <p>When clicked on logout button, You will successfully logged out from the system.</p>
   
 </div>
 </body>
