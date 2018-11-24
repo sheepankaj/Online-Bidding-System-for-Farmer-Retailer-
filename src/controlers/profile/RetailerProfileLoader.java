@@ -55,7 +55,7 @@ public class RetailerProfileLoader extends HttpServlet {
 		{
 			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());			
 		}
-		else if(request.getParameter("submitSearchProductStock") != null)
+		else if(request.getParameter("product-dropdown") != null)
 		{
 			response.getWriter().append(ProductStockService.getProductStockServiceInstance( getServletContext() ).getSearchedProductStocksAsJSON(request.getParameter("product-dropdown"),request.getParameter("frequency-dropdown"),request.getParameter("quantity")));	
 		}

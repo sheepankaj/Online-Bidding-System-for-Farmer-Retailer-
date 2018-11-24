@@ -31,7 +31,17 @@ $( document ).ready(function() {
 			data: searchProductStockForm.serialize(),
 			success: function (data) 
 			{
-				
+				data.sort(function (a, b) {
+				    return a.priority.localeCompare(b.priority);
+				});
+				$.each(data,function(key,value)
+                {
+                    console.log(value.priority);
+//                    var div=$('<div id="new">new</div>');
+//                    var sopra=$('#home');
+//
+//                    $( sopra ).after( div );
+                });
 			}
 		});		 
 		return false;
@@ -79,17 +89,17 @@ function openCity(evt, eventName) {
     		    {
     		        tabEvent: eventName
     		    },
-    		    function(data, status){
+    		    function(data, status)
+    		    {
     		       // alert("Data: " + data + "\nStatus: " + status);
     		    	$('#product-dropdown').html('');
     		    	var empty = $('<option />').val("-1").text("--Select--");
-    		    	 $("#product-dropdown").append(empty);
+    		    	$("#product-dropdown").append(empty);
     		        $.each(data,function(key,value)
-    		                {
-    		                    var option = $('<option />').val(value.productID).text(value.name);
-    		               $("#product-dropdown").append(option);
-    		                });
-    		        
+	                {
+	                    var option = $('<option />').val(value.productID).text(value.name);
+	                    $("#product-dropdown").append(option);
+	                });    		        
     		    });
 	}
     else if(eventName=="Manage Contracts")
@@ -99,15 +109,16 @@ function openCity(evt, eventName) {
     		    {
     		        tabEvent: eventName
     		    },
-    		    function(data, status){
+    		    function(data, status)
+    		    {
     		    	$('#productCategory-dropdown').html('');
     		    	var empty = $('<option />').val("-1").text("--Select--");
-   		    	 $("#productCategory-dropdown").append(empty);
+   		    	    $("#productCategory-dropdown").append(empty);
     		        $.each(data,function(key,value)
-    		                {
-    		        	     var option = $('<option />').val(value.productID).text(value.name);
-    		               $("#productCategory-dropdown").append(option);
-    		                });
+	                {
+    		        	var option = $('<option />').val(value.productID).text(value.name);
+	        	     	$("#productCategory-dropdown").append(option);
+	                });
     		        
     		    });	
 	}
@@ -116,9 +127,9 @@ function openCity(evt, eventName) {
 	
 	}
     else
-    	{
-    	//z
-    	}
+	{
+	//z
+	}
     evt.currentTarget.className += " active";
 }
 
