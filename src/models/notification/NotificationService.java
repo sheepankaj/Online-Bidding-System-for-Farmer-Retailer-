@@ -1,6 +1,5 @@
 package models.notification;
 
-import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class NotificationService
 {
 	private static NotificationService instance;
 
-	public NotificationService()
+	private NotificationService()
 	{
 		// notificationManager = NotificationManager.getNotificationManagerInstance();
 	}
