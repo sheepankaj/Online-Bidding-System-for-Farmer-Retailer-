@@ -52,5 +52,23 @@
       "signedByFarmer":true,
       "signedByRetailer":false,
       "bidID":222003
+   },
+   {
+      "productStock":{
+         "product":{
+            "name": "Cabage",
+		    "productID": 111003
+         },
+         "quantitiy":130000,
+         "frequency":"WEEKLY",
+         "unitPrice":6000.0,
+         "productStockID":999003
+      },
+      "agreedFinalPrice":6000.0,
+      "retailerID":100110,
+      "farmerID":100105,
+      "signedByFarmer":true,
+      "signedByRetailer":false,
+      "bidID":222004
    }
 ]

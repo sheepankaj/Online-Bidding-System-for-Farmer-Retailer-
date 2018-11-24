@@ -20,7 +20,7 @@
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Account Details')" id="defaultOpen">Account Details</button>
   <button class="tablinks" onclick="openCity(event, 'View Product Catalogue')">View Product Catalogue</button>
-  <button class="tablinks" onclick="openCity(event, 'Manage Contracts')">Manage Contracts</button>
+  <button class="tablinks" onclick="openCity(event, 'Manage Contracts')">Manage Contracts and Bids</button>
   <button class="tablinks" onclick="openCity(event, 'Change Password')">Change Password</button>
 </div>
 
@@ -38,17 +38,19 @@
 
 <div id="View Product Catalogue" class="tabcontent">
   <h3>View Product Catalogue</h3>
-        <p>Choose products from below drop down</p><select id="product-dropdown">
-		 <option value="" disabled selected>---Select your option---</option></select>
+        <p>Choose products from below drop down</p>
+        <select id="product-dropdown">
+		 <option value="" disabled selected>---Select your option---</option>
+		 </select>
 </div>
 
 <div id="Manage Contracts" class="tabcontent">
-  <h3>Manage Contracts</h3>
- <form method="post" action="../../../RetailerProfileLoaderRequest" id="contractView">
-	
-		<select id="contract-dropdown"></select>		
-		<input type="button" value="View Contract" class="login-button" id="submitViewContract" />
-	
+  <h4>Place a bid</h4>
+    <form method="post" action="../../../BidsController" id="placeBidForm">	
+		<select id="productCategory-dropdown" name="productCategory-dropdown" class="input_class"></select><br>
+		<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
+		<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
+		<input type="button" value="Place Bid" id="submitViewContract" class="input_class"/>	
 	</form>
 </div>
 

@@ -55,3 +55,9 @@ body {
 	border-left: none;
 	height: 700px;
 }
+.input_class
+{
+	padding: 5px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}

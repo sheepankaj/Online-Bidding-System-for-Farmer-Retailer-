@@ -59,18 +59,11 @@
 	
 	<div id="Change password" class="tabcontent">
 		<h3>Change password</h3>
-<<<<<<< HEAD
 		<p>Enter old password:<input type="text" name="old password"></p><br/>
 		<p>Enter new password:<input type="text" name="new password"></p><br/>
 		<input type="button" value="Submit">
-		
-=======
-		<p>Enter old password:<input type="text" id="old password"></p><br/>
-		<p>Enter new password:<input type="text" id="new password"></p><br/>
-		<input type="button" value="Submit">		
->>>>>>> branch 'master' of https://github.com/ShamithaSIlva/OnlineStockAuction.git
 	</div>
-	
+	<div class='error' style='display:none'id="notificationText"></div>
   
   <form id="form1" action="${pageContext.request.contextPath}/" method="post">
   </form>

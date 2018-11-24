@@ -87,6 +87,12 @@ public abstract class Contract implements IReportStructure
 		this.contractConstraints = contractConstraints;
 	}	
 	
+	public StringBuilder getStringBuilder()
+	{
+		return contractConstraints;
+	}
+	
+	
 	@Override
 	public String getFooter() {
 //		PdfPTable table = new PdfPTable(2);
@@ -110,7 +116,9 @@ public abstract class Contract implements IReportStructure
 		table.addCell(new PdfPCell(new Phrase(getFarmerDetails())));
 		table.addCell(new PdfPCell(new Phrase(getRetailerDetails())));
 		table.addCell(new PdfPCell(new Phrase("Delevery Frequency : "+getContract().getStockFrequency())));
+		table.addCell(new PdfPCell(new Phrase("Original Price On Frequency : "+getContract().getPriceOnFrequency())));
 		table.addCell(new PdfPCell(new Phrase("Final Price On Frequency : "+getPriceOnFrequency())));
+		table.addCell(new PdfPCell(new Phrase("Contract Constraints :\n"+getContractConstraints().toString())));
 	    return table;
 	}
 	

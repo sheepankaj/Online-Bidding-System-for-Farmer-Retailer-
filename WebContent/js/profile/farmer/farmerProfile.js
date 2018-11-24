@@ -21,6 +21,7 @@ $( document ).ready(function() {
     $( "#acceptBidButton" ).click(function() {
     	acceptBidForm.submit();
     });	
+    doPoll();
 });
 function openCity(evt, eventName) {
 	
@@ -82,7 +83,7 @@ function openCity(evt, eventName) {
     		       // alert("Data: " + data + "\nStatus: " + status);
     		        $.each(data,function(key,value)
     		                {
-    		                    var option = $('<option />').val(value.bidID).text("[Product : "+value.productStock.product.name+"][Agreed : "+value.agreedFinalPrice+"][Your Price : "+value.productStock.unitPrice+"]");
+    		                    var option = $('<option />').val(value.bidID).text("[Product : "+value.productStock.product.name+"][Quantity : "+value.productStock.quantitiy+"][Agreed : "+value.agreedFinalPrice+"][Your Price : "+value.productStock.unitPrice+"]");
     		               $("#bids-dropdown").append(option);
     		                });
     		        
@@ -93,6 +94,20 @@ function openCity(evt, eventName) {
     	z
     	}
     evt.currentTarget.className += " active";
+}
+
+function doPoll(){
+    $.post('../../../NotificationRequest', function(data) {
+    	if(data.state == "HasMessage")
+		{
+    		$('#notificationText').text(data.message);
+    		//$("#farmerNotification").val(data.message);
+    		$('.error').fadeIn(400).delay(8000).fadeOut(400); 
+    		//$('.error').fadeIn(400); 
+		}   	
+        setTimeout(doPoll,5000);
+    });
+    
 }
 
 

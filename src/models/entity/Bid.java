@@ -1,9 +1,6 @@
 package models.entity;
 
-import models.notification.Notification;
-import models.notification.NotificationListener;
-
-public class Bid implements Notification
+public class Bid
 {
 	private ProductStock productStock;
 	private double agreedFinalPrice;
@@ -87,31 +84,9 @@ public class Bid implements Notification
 	{
 		this.signedByRetailer = signedByRetailer;
 	}
-	
-	
 
 	public long getBidID()
 	{
 		return bidID;
-	}
-
-	@Override
-	public void attach( NotificationListener listener )
-	{
-		System.out.println( "attach from notification" );
-	}
-
-	@Override
-	public void detach( NotificationListener listener )
-	{
-		System.out.println( "detach from notification" );		
-	}
-
-	@Override
-	public void notifyNotificationListeners()
-	{
-		System.out.println( "notifyNotificationListeners from notification" );		
 	}	
-	
-	
 }

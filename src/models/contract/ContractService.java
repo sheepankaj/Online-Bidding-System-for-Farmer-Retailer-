@@ -44,7 +44,7 @@ public class ContractService extends EntityService
 		super(context,filePath);
 	}
 	
-	public static ContractService getContractServiceInstance(ServletContext context) throws FileNotFoundException
+	public static ContractService getContractServiceInstance(ServletContext context)
 	{
 		if(instance == null)
 		{
@@ -69,7 +69,7 @@ public class ContractService extends EntityService
 		}
 		else
 		{
-			contract = new Contract10PercentDiscount( ContractFactory.createContract( frequency,bid) );
+			contract =  ContractFactory.createContract( frequency,bid);
 		}		
 		return contract;
 	}	
@@ -84,9 +84,17 @@ public class ContractService extends EntityService
 		return getGson().toJson(retailersContracts);
 	}
 	
-	public void loadEntities() throws FileNotFoundException
+	public void loadEntities()
 	{
-		super.loadEntities();
+		try
+		{
+			super.loadEntities();
+		}
+		catch ( FileNotFoundException e )
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		RuntimeTypeAdapterFactory<Contract> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
 			    .of(Contract.class, "type")
 			    .registerSubtype(DailyContract.class, "dailycontract")

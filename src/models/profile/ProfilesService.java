@@ -38,7 +38,7 @@ public class ProfilesService extends EntityService
 		super( context,filePath );
 	}
 	
-	public static ProfilesService getProfileServiceInstance(ServletContext context) throws FileNotFoundException
+	public static ProfilesService getProfileServiceInstance(ServletContext context)
 	{
 		if(profilesService == null)
 		{
@@ -137,9 +137,17 @@ public class ProfilesService extends EntityService
 	}
 	
 	
-	public void loadEntities() throws FileNotFoundException
+	public void loadEntities()
 	{
-		super.loadEntities();
+		try
+		{
+			super.loadEntities();
+		}
+		catch ( FileNotFoundException e )
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 //		TypeToken<List<User>> token = new TypeToken<List<User>>() {};
 //		profiles = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
 //		testGSON();
