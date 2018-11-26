@@ -13,7 +13,11 @@ public class PayPal extends BankAccount {
 	}
 
 	@Override
-	public void makePayment(double amount) {
+	public void makePayment(double amount) throws NotEnoughBalanceException {
+		if(balance < (amount + amount*0.02))
+		{
+			throw new NotEnoughBalanceException();
+		}
 		balance =  balance - (amount + amount*0.02);
 	}
 

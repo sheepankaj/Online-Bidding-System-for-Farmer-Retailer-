@@ -39,10 +39,9 @@ public class PaymentService extends EntityService{
 		return paymentService;
 	}
 
-	void makePayment(Contract contract) throws PamentDetailsNotUpdatedException
+	public void makePayment(Contract contract,String accountNumber) throws PamentDetailsNotUpdatedException,NotEnoughBalanceException
 	{
-		long retailerID = contract.getRetailerUserID();
-		BankAccount account = getBankAccount(retailerID);
+		BankAccount account = getBankAccount(accountNumber);
 		if(account.validateAccount())
 		{
 			throw new PamentDetailsNotUpdatedException(EXPIRED_PAYMENT_DETAILS);
@@ -50,12 +49,12 @@ public class PaymentService extends EntityService{
 		account.makePayment(contract.getPriceOnFrequency());
 	}
 	
-	BankAccount getBankAccount(long userID)
+	public BankAccount getBankAccount(String accountNumber)
 	{
 		BankAccount bankAccount = null;
 		for(BankAccount account : accounts)
 		{
-			if(account.getUserID() == userID)
+			if(account.getAccountNumber().equals( accountNumber ))
 			bankAccount = account;
 		}
 		return bankAccount;

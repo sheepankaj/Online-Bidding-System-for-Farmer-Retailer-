@@ -20,6 +20,24 @@ $( document ).ready(function() {
 	});
     $( "#submitViewContract" ).click(function() {
     	placeBidForm.submit();
+    });
+    var proceedToPaymentForm = $('#proceedToPaymentForm');
+    proceedToPaymentForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: proceedToPaymentForm.attr('method'),
+			url: proceedToPaymentForm.attr('action'),
+			data: proceedToPaymentForm.serialize(),
+			success: function (data) 
+			{
+				alert(data.message);
+			}
+		});		 
+		return false;
+	});
+    $( "#submitContractPayment" ).click(function() {
+    	proceedToPaymentForm.submit();
     });	
     var searchProductStockForm = $('#searchProductStockForm');
     searchProductStockForm.submit(function (e) 

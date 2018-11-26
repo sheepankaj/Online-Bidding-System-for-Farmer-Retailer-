@@ -8,7 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.bid.BiddingService;
+import models.contract.ContractService;
+import models.entity.Contract;
 import models.entity.User;
+import models.payment.BankAccount;
+import models.payment.NotEnoughBalanceException;
+import models.payment.PamentDetailsNotUpdatedException;
+import models.payment.PaymentService;
 import models.profile.ProfilesService;
 
 /**
@@ -41,6 +48,25 @@ public class PaymentController extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		User user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
 		String selectedContractID = request.getParameter("contract-dropdown");
+		Contract contract = ContractService.getContractServiceInstance( getServletContext() ).getContractByID(selectedContractID);
+		String account = request.getParameter("account-dropdown");
+		try
+		{
+			PaymentService.getPaymentServiceInstance( getServletContext() ).makePayment( contract, account );
+		}
+		catch ( PamentDetailsNotUpdatedException e )
+		{
+			response.setContentType("application/json");
+			response.getWriter().append("{\"state\":\"failed\",\"message\":"+e.getMessage()+"}");
+			e.printStackTrace();
+		}
+		catch ( NotEnoughBalanceException e )
+		{
+			response.setContentType("application/json");
+			response.getWriter().append("{\"state\":\"failed\",\"message\":"+e.getMessage()+"}");
+			e.printStackTrace();
+		}
+		
 	}
 
 }
