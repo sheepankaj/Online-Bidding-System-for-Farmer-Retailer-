@@ -39,14 +39,30 @@ public class PaymentService extends EntityService{
 		return paymentService;
 	}
 
-	public void makePayment(Contract contract,String accountNumber) throws PamentDetailsNotUpdatedException,NotEnoughBalanceException
+	public String makePayment(Contract contract,String accountNumber)
 	{
 		BankAccount account = getBankAccount(accountNumber);
+		String message = "";
 		if(account.validateAccount())
 		{
-			throw new PamentDetailsNotUpdatedException(EXPIRED_PAYMENT_DETAILS);
+			try
+			{
+				throw new PamentDetailsNotUpdatedException(EXPIRED_PAYMENT_DETAILS);
+			}
+			catch ( PamentDetailsNotUpdatedException e )
+			{
+				message = "{\"state\":\"failed\",\"message\":\""+e.getMessage()+"\"}";
+			}
 		}
-		account.makePayment(contract.getPriceOnFrequency());
+		try
+		{
+			account.makePayment(contract.getPriceOnFrequency());
+		}
+		catch ( NotEnoughBalanceException e )
+		{
+			message = "{\"state\":\"failed\",\"message\":\""+e.getMessage()+"\"}";
+		}		
+		return message;
 	}
 	
 	public BankAccount getBankAccount(String accountNumber)

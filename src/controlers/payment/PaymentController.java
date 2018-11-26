@@ -45,28 +45,11 @@ public class PaymentController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
-		User user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
+		response.setContentType("application/json");
 		String selectedContractID = request.getParameter("contract-dropdown");
 		Contract contract = ContractService.getContractServiceInstance( getServletContext() ).getContractByID(selectedContractID);
 		String account = request.getParameter("account-dropdown");
-		try
-		{
-			PaymentService.getPaymentServiceInstance( getServletContext() ).makePayment( contract, account );
-		}
-		catch ( PamentDetailsNotUpdatedException e )
-		{
-			response.setContentType("application/json");
-			response.getWriter().append("{\"state\":\"failed\",\"message\":"+e.getMessage()+"}");
-			e.printStackTrace();
-		}
-		catch ( NotEnoughBalanceException e )
-		{
-			response.setContentType("application/json");
-			response.getWriter().append("{\"state\":\"failed\",\"message\":"+e.getMessage()+"}");
-			e.printStackTrace();
-		}
-		
+		response.getWriter().append(PaymentService.getPaymentServiceInstance( getServletContext() ).makePayment( contract, account ));		
 	}
 
 }
