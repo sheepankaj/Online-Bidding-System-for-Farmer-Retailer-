@@ -188,6 +188,15 @@ function openCity(evt, eventName) {
 	        	     	$("#account-dropdown").append(option);
 	                });
     		        
+    		        $('#addfunds-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+   		    	    $("#addfunds-dropdown").append(empty);
+    		        $.each(data.accounts,function(key,value)
+	                {
+    		        	var option = $('<option />').val(value.accountNumber).text(value.accountType);
+	        	     	$("#addfunds-dropdown").append(option);
+	                });
+    		        
     		    });	
 	}
     else if(eventName=="Change Password")

@@ -30,7 +30,7 @@ public abstract class BankAccount implements IBankAccount
 	public abstract boolean validateAccount();
 
 	@Override
-	public abstract void makePayment( double amount ) throws NotEnoughBalanceException;
+	public abstract String makePayment( double amount ) throws NotEnoughBalanceException;
 
 	@Override
 	public abstract StringBuilder printReceipt();

@@ -59,21 +59,30 @@ public class PaymentService extends EntityService
 				message = "{\"state\":\"failed\",\"message\":\"" + e.getMessage() + "\"}";
 			}
 		}
-		try
+		else if(payment.getState() instanceof SentToPaymentGateway)
 		{
-			account.makePayment( contract.getPriceOnFrequency() );
+			message = "{\"state\":\"success\",\"message\":\"A payment has already been allocated for this contract\"}";
 		}
-		catch ( NotEnoughBalanceException e )
+		else
 		{
-			message = "{\"state\":\"failed\",\"message\":\"" + e.getMessage() + "\"}";
-		}
+			try
+			{
+				message = account.makePayment( contract.getPriceOnFrequency() );
+				payment.setState( new SentToPaymentGateway() );
+			}
+			catch ( NotEnoughBalanceException e )
+			{
+				message = "{\"state\":\"failed\",\"message\":\"" + e.getMessage() + "\"}";
+			}
+		}		
 		return message;
 	}
 	
-	public String addFundsToAccount(double amount, String account)
+	public String addFundsToAccount(double amount, String accountNumber)
 	{
-		String message = "";
-		return message;
+		BankAccount account = getBankAccount( accountNumber );
+		account.addCash( amount );
+		return "{\"state\":\"success\",\"message\":\"Fund "+amount+" added Successfully\"}";
 	}
 
 	private Payment getPayment( String paymentIdentifier )

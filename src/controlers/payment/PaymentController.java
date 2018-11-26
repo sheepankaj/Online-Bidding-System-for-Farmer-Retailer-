@@ -48,14 +48,16 @@ public class PaymentController extends HttpServlet {
 		response.setContentType("application/json");
 		String selectedContractID = request.getParameter("contract-dropdown");
 		String fundAmount = request.getParameter("fundAmount");
-		Contract contract = ContractService.getContractServiceInstance( getServletContext() ).getContractByID(selectedContractID);
+
 		String account = request.getParameter("account-dropdown");
+		String addFundsAccount = request.getParameter("addfunds-dropdown");
 		if(fundAmount != null)
 		{
-			response.getWriter().append(PaymentService.getPaymentServiceInstance( getServletContext() ).makePayment( contract, account ));
+			response.getWriter().append(PaymentService.getPaymentServiceInstance( getServletContext() ).addFundsToAccount( Double.parseDouble( fundAmount ), addFundsAccount ));
 		}
-		else
+		else if(selectedContractID != null)
 		{
+			Contract contract = ContractService.getContractServiceInstance( getServletContext() ).getContractByID(selectedContractID);
 			response.getWriter().append(PaymentService.getPaymentServiceInstance( getServletContext() ).makePayment( contract, account ));
 		}			
 	}

@@ -88,6 +88,7 @@
    	<div id="fundsAdding" style="width: 300px; margin-right: 10px; float:left;">
    		<h4>Add funds</h4>
 	    <form method="post" action="../../../PaymentController" id="addFundsForm">	
+	        <select id="addfunds-dropdown" name="addfunds-dropdown" class="input_class"></select><br>
 			<input type="text" id="fundAmount" name="fundAmount" placeholder="Amount" class="input_class"><br>
 			<input type="button" value="Add" id="submitAddFundsForm" class="input_class"/>	
 		</form>
