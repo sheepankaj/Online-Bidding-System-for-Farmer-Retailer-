@@ -61,6 +61,17 @@ public class PaymentService extends EntityService{
 		return bankAccount;
 	}
 	
+	public String getUserBankAccountsAsJSON(long userID)
+	{
+		List<BankAccount> bankAccounts = new ArrayList<>();
+		for(BankAccount account : accounts)
+		{
+			if(account.getUserID() == userID)
+		    bankAccounts.add( account );
+		}
+		return getGson().toJson( bankAccounts );
+	}
+	
 	public void loadEntities() throws FileNotFoundException
 	{
 		super.loadEntities();

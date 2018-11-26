@@ -5,6 +5,7 @@ public abstract class BankAccount implements IBankAccount
 	double balance;
 	String swiftCode;
 	String accountNumber;
+	String accountType;
 	long userID;
 	String emailID;
 	String type;
@@ -106,6 +107,12 @@ public abstract class BankAccount implements IBankAccount
 
 	public void setReceipt(StringBuilder receipt) {
 		this.receipt = receipt;
+	}
+
+
+	public String getAccountType()
+	{
+		return accountType;
 	}
 	
 	

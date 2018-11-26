@@ -14,6 +14,7 @@ public abstract class Contract implements IReportStructure
 {
 	private long farmerUserID;
 	private long retailerUserID;
+	private long contractID;
 	private Bid agreedBid;
 	private StockFrequency stockFrequency;
 	private StringBuilder contractConstraints = new StringBuilder();
@@ -90,9 +91,18 @@ public abstract class Contract implements IReportStructure
 	public StringBuilder getStringBuilder()
 	{
 		return contractConstraints;
+	}	
+	
+	public long getContractID()
+	{
+		return contractID;
 	}
-	
-	
+
+	public void setContractID( long contractID )
+	{
+		this.contractID = contractID;
+	}
+
 	@Override
 	public String getFooter() {
 //		PdfPTable table = new PdfPTable(2);

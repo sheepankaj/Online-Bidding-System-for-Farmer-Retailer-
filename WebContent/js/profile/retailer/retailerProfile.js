@@ -128,7 +128,7 @@ function openCity(evt, eventName) {
 	}
     else if(eventName=="Manage Payments")
 	{
-    	$.post('../../../PaymentController',
+    	$.post('../../../RetailerProfileLoaderRequest',
     		    {
     		        tabEvent: eventName
     		    },
@@ -137,10 +137,19 @@ function openCity(evt, eventName) {
     		    	$('#contract-dropdown').html('');
     		    	var empty = $('<option />').val("-1").text("--Select--");
    		    	    $("#contract-dropdown").append(empty);
-    		        $.each(data,function(key,value)
+    		        $.each(data.contracts,function(key,value)
 	                {
-    		        	var option = $('<option />').val(value.productID).text(value.name);
+    		        	var option = $('<option />').val(value.contractID).text('[Product :'+value.agreedBid.productStock.product.name+']'+'[Qty :'+value.agreedBid.productStock.quantitiy+']'+'[Agreed Price :'+value.agreedBid.agreedFinalPrice+']');
 	        	     	$("#contract-dropdown").append(option);
+	                });
+    		        
+    		        $('#account-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+   		    	    $("#account-dropdown").append(empty);
+    		        $.each(data.accounts,function(key,value)
+	                {
+    		        	var option = $('<option />').val(value.accountNumber).text(value.accountType);
+	        	     	$("#account-dropdown").append(option);
 	                });
     		        
     		    });	

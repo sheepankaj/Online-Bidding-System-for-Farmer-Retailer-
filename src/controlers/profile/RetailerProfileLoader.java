@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import models.contract.ContractService;
 import models.entity.Farmer;
 import models.entity.Retailer;
+import models.payment.PaymentService;
 import models.product.ProductService;
 import models.product.ProductStockService;
 import models.profile.ProfilesService;
@@ -53,7 +54,9 @@ public class RetailerProfileLoader extends HttpServlet {
 		}
 		if(event != null &&  event.equals("Manage Payments"))
 		{
-			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());		    
+			String contractJSON = ContractService.getContractServiceInstance(getServletContext()).getRetailerContracts( user.getUserID() );
+			String accounts = PaymentService.getPaymentServiceInstance( getServletContext() ).getUserBankAccountsAsJSON( user.getUserID() );
+			response.getWriter().append("{\"contracts\":"+contractJSON+",\"accounts\":"+accounts+"}");		    
 		}
 		else if (event != null &&  event.equals("View Product Catalogue"))
 		{

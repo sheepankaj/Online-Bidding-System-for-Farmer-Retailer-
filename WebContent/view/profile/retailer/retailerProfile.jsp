@@ -77,13 +77,12 @@
 </div>
 
 <div id="Manage Payments" class="tabcontent">
-		<div id="proceedToPayment" style="width: 200px; margin-right: 10px; float:left;">
-    	<h4>Proceed to payment</h4>
+		<div id="proceedToPayment" style="width: 300px; margin-right: 10px; float:left;">
+    	<h4>Select a Contract and proceed to payment</h4>
 	    <form method="post" action="../../../PaymentController" id="placeBidForm">	
 			<select id="contract-dropdown" name="contract-dropdown" class="input_class"></select><br>
-			<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
-			<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
-			<input type="button" value="Place Bid" id="submitViewContract" class="input_class"/>	
+			<select id="account-dropdown" name="account-dropdown" class="input_class"></select><br>
+			<input type="button" value="Proceed" id="submitViewContract" class="input_class"/>	
 		</form>
     </div>	
 </div>
