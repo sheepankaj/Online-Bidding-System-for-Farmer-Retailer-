@@ -126,6 +126,25 @@ function openCity(evt, eventName) {
     		        
     		    });	
 	}
+    else if(eventName=="Manage Payments")
+	{
+    	$.post('../../../PaymentController',
+    		    {
+    		        tabEvent: eventName
+    		    },
+    		    function(data, status)
+    		    {
+    		    	$('#contract-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+   		    	    $("#contract-dropdown").append(empty);
+    		        $.each(data,function(key,value)
+	                {
+    		        	var option = $('<option />').val(value.productID).text(value.name);
+	        	     	$("#contract-dropdown").append(option);
+	                });
+    		        
+    		    });	
+	}
     else if(eventName=="Change Password")
 	{
 	

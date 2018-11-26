@@ -51,6 +51,10 @@ public class RetailerProfileLoader extends HttpServlet {
 		{
 			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());		    
 		}
+		if(event != null &&  event.equals("Manage Payments"))
+		{
+			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());		    
+		}
 		else if (event != null &&  event.equals("View Product Catalogue"))
 		{
 			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());			
