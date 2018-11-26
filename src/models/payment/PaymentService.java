@@ -66,8 +66,13 @@ public class PaymentService extends EntityService
 		catch ( NotEnoughBalanceException e )
 		{
 			message = "{\"state\":\"failed\",\"message\":\"" + e.getMessage() + "\"}";
-			//payment.setState( state );
 		}
+		return message;
+	}
+	
+	public String addFundsToAccount(double amount, String account)
+	{
+		String message = "";
 		return message;
 	}
 

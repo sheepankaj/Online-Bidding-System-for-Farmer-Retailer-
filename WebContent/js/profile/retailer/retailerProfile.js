@@ -39,6 +39,24 @@ $( document ).ready(function() {
     $( "#submitContractPayment" ).click(function() {
     	proceedToPaymentForm.submit();
     });	
+    var addFundsForm = $('#addFundsForm');
+    addFundsForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: addFundsForm.attr('method'),
+			url: addFundsForm.attr('action'),
+			data: addFundsForm.serialize(),
+			success: function (data) 
+			{
+				alert(data.message);
+			}
+		});		 
+		return false;
+	});
+    $( "#submitAddFundsForm" ).click(function() {
+    	addFundsForm.submit();
+    });	
     var searchProductStockForm = $('#searchProductStockForm');
     searchProductStockForm.submit(function (e) 
 	{	

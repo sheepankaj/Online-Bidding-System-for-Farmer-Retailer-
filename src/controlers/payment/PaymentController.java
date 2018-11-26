@@ -47,9 +47,17 @@ public class PaymentController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
 		String selectedContractID = request.getParameter("contract-dropdown");
+		String fundAmount = request.getParameter("fundAmount");
 		Contract contract = ContractService.getContractServiceInstance( getServletContext() ).getContractByID(selectedContractID);
 		String account = request.getParameter("account-dropdown");
-		response.getWriter().append(PaymentService.getPaymentServiceInstance( getServletContext() ).makePayment( contract, account ));		
+		if(fundAmount != null)
+		{
+			response.getWriter().append(PaymentService.getPaymentServiceInstance( getServletContext() ).makePayment( contract, account ));
+		}
+		else
+		{
+			response.getWriter().append(PaymentService.getPaymentServiceInstance( getServletContext() ).makePayment( contract, account ));
+		}			
 	}
 
 }

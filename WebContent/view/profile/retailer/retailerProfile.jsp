@@ -77,14 +77,21 @@
 </div>
 
 <div id="Manage Payments" class="tabcontent">
-		<div id="proceedToPayment" style="width: 300px; margin-right: 10px; float:left;">
-    	<h4>Select a Contract and proceed to payment</h4>
+	<div id="proceedToPayment" style="width: 300px; margin-right: 10px;">
+   		<h4>Select a Contract and proceed to payment</h4>
 	    <form method="post" action="../../../PaymentController" id="proceedToPaymentForm">	
 			<select id="contract-dropdown" name="contract-dropdown" class="input_class"></select><br>
 			<select id="account-dropdown" name="account-dropdown" class="input_class"></select><br>
 			<input type="button" value="Proceed" id="submitContractPayment" class="input_class"/>	
 		</form>
-    </div>	
+   	</div>	
+   	<div id="fundsAdding" style="width: 300px; margin-right: 10px; float:left;">
+   		<h4>Add funds</h4>
+	    <form method="post" action="../../../PaymentController" id="addFundsForm">	
+			<input type="text" id="fundAmount" name="fundAmount" placeholder="Amount" class="input_class"><br>
+			<input type="button" value="Add" id="submitAddFundsForm" class="input_class"/>	
+		</form>
+   	</div>
 </div>
 	
 
