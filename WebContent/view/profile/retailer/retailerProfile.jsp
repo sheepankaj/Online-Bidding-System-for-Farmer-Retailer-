@@ -56,13 +56,15 @@
 </div>
 
 <div id="Manage Contracts" class="tabcontent">
-  <h4>Place a bid</h4>
-    <form method="post" action="../../../BidsController" id="placeBidForm">	
-		<select id="productCategory-dropdown" name="productCategory-dropdown" class="input_class"></select><br>
-		<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
-		<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
-		<input type="button" value="Place Bid" id="submitViewContract" class="input_class"/>	
-	</form>
+    <div id="place_bid_div" style="width: 200px; margin-right: 10px; float:left;">
+    	<h4>Place a bid</h4>
+	    <form method="post" action="../../../BidsController" id="placeBidForm">	
+			<select id="productCategory-dropdown" name="productCategory-dropdown" class="input_class"></select><br>
+			<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
+			<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
+			<input type="button" value="Place Bid" id="submitViewContract" class="input_class"/>	
+		</form>
+    </div>
 </div>
 
 <div id="Change Password" class="tabcontent">
