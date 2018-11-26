@@ -31,12 +31,23 @@ $( document ).ready(function() {
 			data: searchProductStockForm.serialize(),
 			success: function (data) 
 			{
-				data.sort(function (a, b) {
-				    return a.priority.localeCompare(b.priority);
-				});
-				$.each(data,function(key,value)
+//				data.sort(function (a, b) {
+//				    return a.priority.localeCompare(b.priority);
+//				});
+				var sortedData = sortByKey(data, 'priority');
+				$('#searchResults').html('');
+				$.each(sortedData,function(key,value)
                 {
-                    console.log(value.priority);
+					if( $('#searchResults').is(':empty') ) {
+						$('#searchResults').append(
+						'<div id="result_'+key+'" style="border: 1px solid black;">'+'Qty : ['+value["quantitiy"]+']<br>'+'Frequency : ['+value["frequency"]+']<br>'+'UnitPrice : ['+value["unitPrice"]+']<br>'+'FarmerID : ['+value["farmerID"]+']<br>'+'ProductStockID : ['+value["productStockID"]+']<br></div>');
+					}
+					else
+					{
+						var div=$('<div id="result_'+key+'" style="border: 1px solid black;">'+'Qty : ['+value["quantitiy"]+']<br>'+'Frequency : ['+value["frequency"]+']<br>'+'UnitPrice : ['+value["unitPrice"]+']<br>'+'FarmerID : ['+value["farmerID"]+']<br>'+'ProductStockID : ['+value["productStockID"]+']<br></div>');
+						var sopra=$('#result_'+(key-1));
+						$( sopra ).after( div );
+					}
 //                    var div=$('<div id="new">new</div>');
 //                    var sopra=$('#home');
 //
@@ -132,5 +143,12 @@ function openCity(evt, eventName) {
 	}
     evt.currentTarget.className += " active";
 }
+
+function sortByKey(array, key) {
+	return array.sort(function(a, b) {
+	    var x = a[key]; var y = b[key];
+	    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+	});
+	}
 
 

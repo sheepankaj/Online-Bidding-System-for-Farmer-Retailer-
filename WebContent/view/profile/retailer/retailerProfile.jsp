@@ -52,9 +52,7 @@
 			<input type="button" value="Search Stock" id="submitSearchProductStock" name="submitSearchProductStock" class="input_class"/>
 	   </form>
    </div>
-   <div id="searchResults" style="border: 1px solid black; width: 200px; height:600px; float:left;">
-   		
-   </div>
+   <div id="searchResults" style="width: 400px; height:600px; float:left; "></div>
 </div>
 
 <div id="Manage Contracts" class="tabcontent">
