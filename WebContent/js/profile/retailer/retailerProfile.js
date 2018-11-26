@@ -31,9 +31,6 @@ $( document ).ready(function() {
 			data: searchProductStockForm.serialize(),
 			success: function (data) 
 			{
-//				data.sort(function (a, b) {
-//				    return a.priority.localeCompare(b.priority);
-//				});
 				var sortedData = sortByKey(data, 'priority');
 				$('#searchResults').html('');
 				$.each(sortedData,function(key,value)
@@ -48,10 +45,6 @@ $( document ).ready(function() {
 						var sopra=$('#result_'+(key-1));
 						$( sopra ).after( div );
 					}
-//                    var div=$('<div id="new">new</div>');
-//                    var sopra=$('#home');
-//
-//                    $( sopra ).after( div );
                 });
 			}
 		});		 
