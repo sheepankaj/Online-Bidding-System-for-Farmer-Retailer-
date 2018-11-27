@@ -205,7 +205,7 @@ function openCity(evt, eventName) {
 	}
     else
 	{
-	//z
+	
 	}
     evt.currentTarget.className += " active";
 }
