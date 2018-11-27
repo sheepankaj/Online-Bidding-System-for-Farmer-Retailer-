@@ -33,7 +33,7 @@ class TestContractService
 		Contract10PercentDiscount discount = mock(Contract10PercentDiscount.class);
 		PowerMockito.when(retailer.getSuccessfullyClosedContracts()).thenReturn(105);
 		PowerMockito.when(stock.getFrequency()).thenReturn(StockFrequency.DAILY);
-		PowerMockito.when(ContractFactory.createContract(StockFrequency.DAILY)).thenReturn(new DailyContract());
+		PowerMockito.when(ContractFactory.createContract(StockFrequency.DAILY,new Bid())).thenReturn(new DailyContract(new Bid()));
         assertTrue(contractService.createContract(bid) instanceof Contract10PercentDiscount);
     }
 

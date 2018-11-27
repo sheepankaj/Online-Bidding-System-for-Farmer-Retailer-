@@ -8,7 +8,8 @@
          "quantitiy":1000,
          "frequency":"DAILY",
          "unitPrice":560000.0,
-         "productStockID":999001
+         "productStockID":999001,
+         "retailerID":100101
       },
       "agreedFinalPrice":550000.0,
       "retailerID":100101,
@@ -26,7 +27,8 @@
          "quantitiy":1500,
          "frequency":"MONTHLY",
          "unitPrice":4000.0,
-         "productStockID":999002
+         "productStockID":999002,
+         "retailerID":100101
       },
       "agreedFinalPrice":3900.0,
       "retailerID":100101,
@@ -44,7 +46,8 @@
          "quantitiy":125000,
          "frequency":"WEEKLY",
          "unitPrice":6000.0,
-         "productStockID":999003
+         "productStockID":999003,
+         "retailerID":100101
       },
       "agreedFinalPrice":5500.0,
       "retailerID":100101,
@@ -52,5 +55,24 @@
       "signedByFarmer":true,
       "signedByRetailer":false,
       "bidID":222003
+   },
+   {
+      "productStock":{
+         "product":{
+            "name": "Cabage",
+		    "productID": 111003
+         },
+         "quantitiy":130000,
+         "frequency":"WEEKLY",
+         "unitPrice":6000.0,
+         "productStockID":999004,
+         "retailerID":100110
+      },
+      "agreedFinalPrice":6000.0,
+      "retailerID":100110,
+      "farmerID":100105,
+      "signedByFarmer":true,
+      "signedByRetailer":false,
+      "bidID":222004
    }
 ]

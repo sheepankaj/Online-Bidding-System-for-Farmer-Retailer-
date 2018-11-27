@@ -2,8 +2,13 @@ package models.payment;
 
 public class Payment {
 
-	private IPaymentStates state = new Initiated();
+	private IPaymentStates state;
 	private StringBuilder builder = new StringBuilder();
+	
+	public Payment()
+	{
+		state = new Initiated();
+	}
 	
 	public void previousState() {
         state.prev(this);

@@ -14,6 +14,10 @@ import models.contract.ContractService;
 import models.entity.Bid;
 import models.entity.Contract;
 import models.entity.Farmer;
+import models.entity.Product;
+import models.entity.User;
+import models.login.LoginService;
+import models.notification.NotificationService;
 import models.profile.ProfilesService;
 import models.report.ReportService;
 
@@ -47,16 +51,22 @@ public class BidController extends HttpServlet {
 		
 		String event =  request.getParameter("tabEvent");
 		String selectedBidID = request.getParameter("bids-dropdown");
+		String productCategory = request.getParameter("productCategory-dropdown");
 		HttpSession session = request.getSession(true);
-		Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
+		User user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
 		long farmerID = user.getUserID();
 		if(selectedBidID != null)
 		{
 			response.setContentType("application/pdf");
 			long selctedBidId = Long.valueOf(selectedBidID);
-			Bid bid = BiddingService.getBiddingServiceInstance(getServletContext()).getBid(selctedBidId);
+			Bid bid = BiddingService.getBiddingServiceInstance(LoginService.getServeletContext()).getBid(selctedBidId);
 			Contract contract = ContractService.getContractServiceInstance(getServletContext()).createContract(bid);
 			ReportService.getReportServiceInstance().printContract(contract, "PDF", response);
+		}
+		else if(productCategory != null)
+		{
+			// update notifications for users		
+			NotificationService.getNotificationServiceInstance().updateFarmersForProductNotification( productCategory ,request.getParameter("quantity"),request.getParameter("price"));
 		}
 		else
 		{

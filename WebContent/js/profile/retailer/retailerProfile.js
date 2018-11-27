@@ -3,24 +3,92 @@ $( document ).ready(function() {
 	
 	// Get the element with id="defaultOpen" and click on it
 	document.getElementById("defaultOpen").click();
-	var contractView = $('#contractView');
-	contractView.submit(function (e) 
-			{	
-				$.ajax(
-				{
-					type: form.attr('method'),
-					url: form.attr('action'),
-					data: form.serialize(),
-					success: function (data) 
-					{
-						alert('ggg');
+	var placeBidForm = $('#placeBidForm');
+	placeBidForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: placeBidForm.attr('method'),
+			url: placeBidForm.attr('action'),
+			data: placeBidForm.serialize(),
+			success: function (data) 
+			{
+				
+			}
+		});		 
+		return false;
+	});
+    $( "#submitViewContract" ).click(function() {
+    	placeBidForm.submit();
+    });
+    var proceedToPaymentForm = $('#proceedToPaymentForm');
+    proceedToPaymentForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: proceedToPaymentForm.attr('method'),
+			url: proceedToPaymentForm.attr('action'),
+			data: proceedToPaymentForm.serialize(),
+			success: function (data) 
+			{
+				alert(data.message);
+			}
+		});		 
+		return false;
+	});
+    $( "#submitContractPayment" ).click(function() {
+    	proceedToPaymentForm.submit();
+    });	
+    var addFundsForm = $('#addFundsForm');
+    addFundsForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: addFundsForm.attr('method'),
+			url: addFundsForm.attr('action'),
+			data: addFundsForm.serialize(),
+			success: function (data) 
+			{
+				alert(data.message);
+			}
+		});		 
+		return false;
+	});
+    $( "#submitAddFundsForm" ).click(function() {
+    	addFundsForm.submit();
+    });	
+    var searchProductStockForm = $('#searchProductStockForm');
+    searchProductStockForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: searchProductStockForm.attr('method'),
+			url: searchProductStockForm.attr('action'),
+			data: searchProductStockForm.serialize(),
+			success: function (data) 
+			{
+				var sortedData = sortByKey(data, 'priority');
+				$('#searchResults').html('');
+				$.each(sortedData,function(key,value)
+                {
+					if( $('#searchResults').is(':empty') ) {
+						$('#searchResults').append(
+						'<div id="result_'+key+'" style="border: 1px solid black;">'+'Qty : ['+value["quantitiy"]+']<br>'+'Frequency : ['+value["frequency"]+']<br>'+'UnitPrice : ['+value["unitPrice"]+']<br>'+'FarmerID : ['+value["farmerID"]+']<br>'+'ProductStockID : ['+value["productStockID"]+']<br></div>');
 					}
-				});		 
-				return false;
-			});
-		    $( "#submitViewContract" ).click(function() {
-		    	contractView.submit();
-		    });	
+					else
+					{
+						var div=$('<div id="result_'+key+'" style="border: 1px solid black;">'+'Qty : ['+value["quantitiy"]+']<br>'+'Frequency : ['+value["frequency"]+']<br>'+'UnitPrice : ['+value["unitPrice"]+']<br>'+'FarmerID : ['+value["farmerID"]+']<br>'+'ProductStockID : ['+value["productStockID"]+']<br></div>');
+						var sopra=$('#result_'+(key-1));
+						$( sopra ).after( div );
+					}
+                });
+			}
+		});		 
+		return false;
+	});
+    $( "#submitSearchProductStock" ).click(function() {
+    	searchProductStockForm.submit();
+    });
 });
 function openCity(evt, eventName) {
 	
@@ -61,14 +129,17 @@ function openCity(evt, eventName) {
     		    {
     		        tabEvent: eventName
     		    },
-    		    function(data, status){
+    		    function(data, status)
+    		    {
     		       // alert("Data: " + data + "\nStatus: " + status);
+    		    	$('#product-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+    		    	$("#product-dropdown").append(empty);
     		        $.each(data,function(key,value)
-    		                {
-    		                    var option = $('<option />').val(value.productID).text(value.name);
-    		               $("#product-dropdown").append(option);
-    		                });
-    		        
+	                {
+	                    var option = $('<option />').val(value.productID).text(value.name);
+	                    $("#product-dropdown").append(option);
+	                });    		        
     		    });
 	}
     else if(eventName=="Manage Contracts")
@@ -78,12 +149,53 @@ function openCity(evt, eventName) {
     		    {
     		        tabEvent: eventName
     		    },
-    		    function(data, status){
+    		    function(data, status)
+    		    {
+    		    	$('#productCategory-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+   		    	    $("#productCategory-dropdown").append(empty);
     		        $.each(data,function(key,value)
-    		                {
-    		                    var option = $('<option />').val(value.farmerUserID).text(value.farmerUserID);
-    		               $("#contract-dropdown").append(option);
-    		                });
+	                {
+    		        	var option = $('<option />').val(value.productID).text(value.name);
+	        	     	$("#productCategory-dropdown").append(option);
+	                });
+    		        
+    		    });	
+	}
+    else if(eventName=="Manage Payments")
+	{
+    	$.post('../../../RetailerProfileLoaderRequest',
+    		    {
+    		        tabEvent: eventName
+    		    },
+    		    function(data, status)
+    		    {
+    		    	$('#contract-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+   		    	    $("#contract-dropdown").append(empty);
+    		        $.each(data.contracts,function(key,value)
+	                {
+    		        	var option = $('<option />').val(value.contractID).text('[Product :'+value.agreedBid.productStock.product.name+']'+'[Qty :'+value.agreedBid.productStock.quantitiy+']'+'[Agreed Price :'+value.agreedBid.agreedFinalPrice+']');
+	        	     	$("#contract-dropdown").append(option);
+	                });
+    		        
+    		        $('#account-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+   		    	    $("#account-dropdown").append(empty);
+    		        $.each(data.accounts,function(key,value)
+	                {
+    		        	var option = $('<option />').val(value.accountNumber).text(value.accountType);
+	        	     	$("#account-dropdown").append(option);
+	                });
+    		        
+    		        $('#addfunds-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+   		    	    $("#addfunds-dropdown").append(empty);
+    		        $.each(data.accounts,function(key,value)
+	                {
+    		        	var option = $('<option />').val(value.accountNumber).text(value.accountType);
+	        	     	$("#addfunds-dropdown").append(option);
+	                });
     		        
     		    });	
 	}
@@ -92,10 +204,17 @@ function openCity(evt, eventName) {
 	
 	}
     else
-    	{
-    	//z
-    	}
+	{
+	//z
+	}
     evt.currentTarget.className += " active";
 }
+
+function sortByKey(array, key) {
+	return array.sort(function(a, b) {
+	    var x = a[key]; var y = b[key];
+	    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+	});
+	}
 
 
