@@ -1,22 +1,16 @@
 package controlers.payment;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import models.bid.BiddingService;
 import models.contract.ContractService;
 import models.entity.Contract;
-import models.entity.User;
-import models.payment.BankAccount;
-import models.payment.NotEnoughBalanceException;
-import models.payment.PamentDetailsNotUpdatedException;
 import models.payment.PaymentService;
-import models.profile.ProfilesService;
 
 /**
  * Servlet implementation class PaymentController
