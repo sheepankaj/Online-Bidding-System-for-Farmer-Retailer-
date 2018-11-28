@@ -4,22 +4,26 @@ $( document ).ready(function() {
 	// Get the element with id="defaultOpen" and click on it
 	document.getElementById("defaultOpen").click();
 	var acceptBidForm = $('#acceptBidForm');
-//	acceptBidForm.submit(function (e) 
-//	{	
-//		$.ajax(
-//		{
-//			type: acceptBidForm.attr('method'),
-//			url: acceptBidForm.attr('action'),
-//			data: acceptBidForm.serialize(),
-//			success: function (data) 
-//			{
-//				 window.open(data);
-//			}
-//		});		 
-//		return false;
-//	});
     $( "#acceptBidButton" ).click(function() {
     	acceptBidForm.submit();
+    });	
+    var submitProductForm = $('#submitProductForm');
+    submitProductForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: submitProductForm.attr('method'),
+			url: submitProductForm.attr('action'),
+			data: submitProductForm.serialize(),
+			success: function (data) 
+			{
+				
+			}
+		});		 
+		return false;
+	});
+    $( "#submitProductStock" ).click(function() {
+    	submitProductForm.submit();
     });	
     doPoll();
 });

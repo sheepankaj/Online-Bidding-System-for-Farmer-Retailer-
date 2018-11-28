@@ -38,7 +38,7 @@
 	<div id="Add Products" class="tabcontent">
 		<div id="submit_stock_div" style="width: 200px; margin-right: 10px; float:left;">
 	    	<h4>Add a product stock</h4>
-		    <form method="post" action="../../../BidsController" id="placeBidForm">	
+		    <form method="post" action="../../../FarmerProfileLoaderRequest" id="submitProductForm">	
 				<select id="product-dropdown" name="product-dropdown"" class="input_class"></select><br>
 				<select id="frequency-dropdown" name="frequency-dropdown" class="input_class">
 				  <option value="DAILY">DAILY</option>
@@ -48,7 +48,7 @@
 				</select><br>
 				<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
 				<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
-				<input type="button" value="Submit Stock" id="submitProduct" class="input_class"/>	
+				<input type="button" value="Submit Stock" id="submitProductStock" class="input_class"/>	
 			</form>
 	    </div>
 	    
