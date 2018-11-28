@@ -12,12 +12,14 @@ import com.google.gson.reflect.TypeToken;
 import models.entity.EntityService;
 import models.entity.Product;
 import models.entity.ProductStock;
+import models.entity.StockFrequency;
 import models.profile.ProfilesService;
 
 public class ProductStockService extends EntityService
 {
 	private static ProductStockService instance;
 	List<ProductStock> productStock = new ArrayList<>();
+	List<ProductStock> addProductStock = new ArrayList<>();
 	static String filePath = "/WEB-INF/db/product/ProductStock.json";
 	
 	private ProductStockService( ServletContext context, String filePath )
@@ -34,7 +36,29 @@ public class ProductStockService extends EntityService
 		}
 		return instance;
 	}
-	
+	public String addProductStock(String name,String quantity,String frequency,String farmerID, String price) {
+		
+		
+		ProductStock productStockObj=new ProductStock();
+		
+		StockFrequency freq=StockFrequency.valueOf(frequency);
+		int quant=Integer.parseInt(quantity);
+		long id=Long.parseLong(farmerID);
+		Product prod=new Product(name,id);
+		Double unitPrice=Double.parseDouble(price);
+		
+		productStockObj.setFrequency(freq);
+		productStockObj.setQuantitiy(quant);
+		productStockObj.setProduct(prod);
+		productStockObj.setUnitPrice(unitPrice);
+		
+		
+		addProductStock.add(productStockObj);
+		System.out.println(addProductStock.size());
+		return "added";
+		
+
+	}
 	public String getSearchedProductStocksAsJSON(String productID, String frequency, String quantity)
 	{
 		List<ProductStock> searched = new ArrayList<>();

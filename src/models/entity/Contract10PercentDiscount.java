@@ -24,7 +24,7 @@ public class Contract10PercentDiscount extends ContractDecorator
 		return super.getFarmerDetails();
 	}
 
-	@OverrideQ
+	@Override
 	public String getRetailerDetails() {
 		return super.getRetailerDetails();
 	}

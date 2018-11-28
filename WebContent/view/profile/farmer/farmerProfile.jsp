@@ -37,11 +37,12 @@
 	</div>
 	<form method="post" action="FarmerProfileLoaderRequest">
 	<div id="Add Products" class="tabcontent">
-		<p>Choose products from below drop down</p><select id="product-dropdown">
+		<p>Choose products from below drop down</p><select id="product-dropdown" name="product-dropdown">
 		 <option value="" disabled selected>---Select your option---</option></select>
 		 <div>
-		<p>Specify total Quantity : <input type="text" id="quantity"></p><br/>
-		<p>Price of the product: <input type="text" id="price"></p><br/>
+		<p>Specify total Quantity : <input type="text" id="quantity" name = "quantity"></p><br/>
+		<p>Price of the product: <input type="text" id="price" name = "price"></p><br/>
+		<p>Frequency of the product: <input type="text" id="frequency" name = "frequency"></p><br/>
 		</div>
 		<input type="button" value="Submit">
 	</div>
@@ -56,13 +57,14 @@
 		<h3>Manage Contracts</h3>
 		<p>sign the contract.</p>
 	</div>
-	
+	<form method="post" action="FarmerProfileLoaderRequest" id="passwordForm">
 	<div id="Change password" class="tabcontent">
 		<h3>Change password</h3>
 		<p>Enter old password:<input type="text" name="old password"></p><br/>
 		<p>Enter new password:<input type="text" name="new password"></p><br/>
-		<input type="button" value="Submit">
+		<input type="button" value="Submit" id="submitPasswordForm">
 	</div>
+	</form>
 	<div class='error' style='display:none'id="notificationText"></div>
   
   <form id="form1" action="${pageContext.request.contextPath}/" method="post">

@@ -65,6 +65,7 @@ public class BidController extends HttpServlet {
 			if( !message.equals( "" ))
 			{
 				response.setContentType("application/json");
+				
 				response.getWriter().append(message);
 			}
 		}

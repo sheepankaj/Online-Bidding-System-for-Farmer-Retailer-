@@ -60,6 +60,7 @@ public class RetailerProfileLoader extends HttpServlet {
 		}
 		else if (event != null &&  event.equals("View Product Catalogue"))
 		{
+			
 			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());			
 		}
 		else if(request.getParameter("product-dropdown") != null)
