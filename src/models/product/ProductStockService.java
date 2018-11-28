@@ -55,7 +55,7 @@ public class ProductStockService extends EntityService
 		
 		addProductStock.add(productStockObj);
 		System.out.println(addProductStock.size());
-		return "added";
+		return "added stock sucessfully";
 		
 
 	}
