@@ -14,9 +14,8 @@ public class AmazonPayments extends BankAccount {
 	}
 
 	@Override
-	public void makePayment(double amount) {
-		// TODO Auto-generated method stub
-
+	public String makePayment(double amount) {
+		return null;
 	}
 
 	@Override

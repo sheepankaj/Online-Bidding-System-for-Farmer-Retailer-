@@ -12,25 +12,17 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import models.entity.Admin;
 import models.entity.Bid;
 import models.entity.Contract;
 import models.entity.Contract10PercentDiscount;
 import models.entity.DailyContract;
 import models.entity.EntityService;
-import models.entity.Farmer;
 import models.entity.MonthlyContract;
-import models.entity.Product;
 import models.entity.Retailer;
 import models.entity.RuntimeTypeAdapterFactory;
 import models.entity.StockFrequency;
-import models.entity.User;
 import models.entity.WeeklyContract;
 import models.entity.YearlyContract;
-import models.payment.AmazonPayments;
-import models.payment.BankAccount;
-import models.payment.PayPal;
-import models.payment.Venmo;
 import models.profile.ProfilesService;
 
 public class ContractService extends EntityService
@@ -131,5 +123,16 @@ public class ContractService extends EntityService
 			System.out.println( json );
 			Type listType = new TypeToken<List<Contract>>(){}.getType();
 			List<Contract> fromJson = gson.fromJson(json, listType);
+	}
+
+	public Contract getContractByID( String selectedContractID )
+	{
+		Contract contractFound = null;
+		for(Contract contract : contracts)
+		{
+			if(contract.getContractID() == Long.parseLong( selectedContractID ))
+            contractFound = contract;
+		}
+		return contractFound;
 	}
 }

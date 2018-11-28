@@ -7,6 +7,8 @@ public class ProductStock
 	private StockFrequency frequency;
 	private double unitPrice;
 	private long productStockID;
+	private long farmerID;
+	private int priority;
 	
 	public ProductStock()
 	{
@@ -67,7 +69,19 @@ public class ProductStock
 	{
 		return productStockID;
 	}
-	
-	
-	
+
+	public long getFarmerID()
+	{
+		return farmerID;
+	}
+
+	public int getPriority()
+	{
+		return priority;
+	}
+
+	public void setPriority( int priority )
+	{
+		this.priority = priority;
+	}	
 }

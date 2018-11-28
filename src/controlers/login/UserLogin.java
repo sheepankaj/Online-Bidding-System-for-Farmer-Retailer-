@@ -57,7 +57,7 @@ public class UserLogin extends HttpServlet {
 		HttpSession session = request.getSession(true);
 
 		session.setAttribute("username", request.getParameter("username"));
-		session.setAttribute("password", request.getParameter("password"));
+		//session.setAttribute("password", request.getParameter("password"));
 		//#PaymentService.getPaymentServiceInstance( getServletContext() );
 		//#BiddingService.getBiddingServiceInstance( getServletContext()).getBids();
 		//#ContractService.getContractServiceInstance(getServletContext());

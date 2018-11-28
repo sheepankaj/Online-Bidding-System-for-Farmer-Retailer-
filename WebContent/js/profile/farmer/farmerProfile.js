@@ -80,7 +80,7 @@ function openCity(evt, eventName) {
     		        tabEvent: eventName
     		    },
     		    function(data, status){
-    		       // alert("Data: " + data + "\nStatus: " + status);
+    		    	$("#bids-dropdown").html('');
     		        $.each(data,function(key,value)
     		                {
     		                    var option = $('<option />').val(value.bidID).text("[Product : "+value.productStock.product.name+"][Quantity : "+value.productStock.quantitiy+"][Agreed : "+value.agreedFinalPrice+"][Your Price : "+value.productStock.unitPrice+"]");
@@ -90,9 +90,9 @@ function openCity(evt, eventName) {
     		    });
 	}
     else
-    	{
-    	z
-    	}
+	{
+	
+	}
     evt.currentTarget.className += " active";
 }
 

@@ -1,0 +1,35 @@
+[
+	{
+         "product":{
+            "name": "Carrot",
+		    "productID": 111001
+         },
+         "quantitiy":1000,
+         "frequency":"DAILY",
+         "unitPrice":560000.0,
+         "productStockID":9990055,
+         "farmerID":100105
+    },
+    {
+         "product":{
+            "name": "Carrot",
+		    "productID": 111001
+         },
+         "quantitiy":1000,
+         "frequency":"DAILY",
+         "unitPrice":560000.0,
+         "productStockID":999006,
+         "farmerID":100112
+    },
+    {
+         "product":{
+            "name": "Carrot",
+		    "productID": 111001
+         },
+         "quantitiy":1000,
+         "frequency":"DAILY",
+         "unitPrice":560000.0,
+         "productStockID":999007,
+         "farmerID":100111
+    }
+]

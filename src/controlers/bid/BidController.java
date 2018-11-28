@@ -61,7 +61,12 @@ public class BidController extends HttpServlet {
 			long selctedBidId = Long.valueOf(selectedBidID);
 			Bid bid = BiddingService.getBiddingServiceInstance(LoginService.getServeletContext()).getBid(selctedBidId);
 			Contract contract = ContractService.getContractServiceInstance(getServletContext()).createContract(bid);
-			ReportService.getReportServiceInstance().printContract(contract, "PDF", response);
+			String message = ReportService.getReportServiceInstance().printContract(contract, "PDF", response);
+			if( !message.equals( "" ))
+			{
+				response.setContentType("application/json");
+				response.getWriter().append(message);
+			}
 		}
 		else if(productCategory != null)
 		{

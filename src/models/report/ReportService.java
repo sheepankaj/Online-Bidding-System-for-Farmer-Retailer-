@@ -37,19 +37,33 @@ public class ReportService
 //		report.generateReport( builder, response );
 	}
 	
-	public void printContract(Contract contract,String docType,HttpServletResponse response) throws IOException
+	public String printContract(Contract contract,String docType,HttpServletResponse response) throws IOException
 	{
 		PDFTable table = new PDFTable(1, 5);
-		IReport report = createDoc( docType );
-		report.generateReport(PDFBuilder.getCompleteTable(contract, table), response);
+		IReport report;
+		String message = "";
+		try
+		{
+			report = createDoc( docType );
+			report.generateReport(PDFBuilder.getCompleteTable(contract, table), response);
+		}
+		catch ( ReportTypeIsNotImplemented e )
+		{
+			message = e.getMessage();
+		}
+		return message;		
 	}
 	
-	private IReport createDoc(String docType)
+	private IReport createDoc(String docType) throws ReportTypeIsNotImplemented
 	{
 		IReport report = null;
 		if(docType.equals( "PDF" ))
 		{
 			report = new PDFReport();
+		}
+		else
+		{
+			throw new ReportTypeIsNotImplemented();
 		}
 		return report;
 	}

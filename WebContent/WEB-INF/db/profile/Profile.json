@@ -32,7 +32,7 @@
    {  
       "farmAddress":"Address44",
       "telephone":"+353834555578",
-      "userID":100105,
+      "userID":100112,
       "username":"farmer2",
       "password":"farmer2",
       "profileType":"FARMER",
@@ -41,12 +41,13 @@
       "priority":{  
          "priorityType":"gold",
          "priority":2
-      }
+      },
+      "productsInvolved":["Carrot","Cabage"]
    },
    {  
       "farmAddress":"Address44",
       "telephone":"+353834555578",
-      "userID":100105,
+      "userID":100111,
       "username":"farmer3",
       "password":"farmer3",
       "profileType":"FARMER",

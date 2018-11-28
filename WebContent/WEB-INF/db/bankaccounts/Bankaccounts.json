@@ -3,6 +3,7 @@
       "balance":4000.0,
       "swiftCode":"PP3784",
       "accountNumber":"PA7748849393",
+      "accountType":"PayPal",
       "userID":100106,
       "emailID":"100106@paypal.com",
       "type":"paypal"
@@ -10,7 +11,8 @@
    {
       "balance":8000.0,
       "swiftCode":"AP5467",
-      "accountNumber":"PA7748849393",
+      "accountNumber":"AP7748849393",
+      "accountType":"Amazon Payments",
       "userID":100107,
       "emailID":"100106@amazon.com",
       "type":"amazonpayments"
@@ -19,6 +21,7 @@
       "balance":6000.0,
       "swiftCode":"VO2334",
       "accountNumber":"VO34342232",
+      "accountType":"Venmo",
       "userID":100108,
       "emailID":"100106@venmo.com",
       "type":"venmo"
@@ -27,8 +30,27 @@
       "balance":9000.0,
       "swiftCode":"PP7895",
       "accountNumber":"PA7748849393",
+      "accountType":"PayPal",
       "userID":100109,
       "emailID":"100106@paypal.com",
       "type":"paypal"
+   },
+   {
+      "balance":9000.0,
+      "swiftCode":"PP7895",
+      "accountNumber":"PA7748849393",
+      "accountType":"PayPal",
+      "userID":100101,
+      "emailID":"100101@paypal.com",
+      "type":"paypal"
+   },
+   {
+      "balance":9000.0,
+      "swiftCode":"VO2334",
+      "accountNumber":"VO545455",
+      "accountType":"Venmo",
+      "userID":100101,
+      "emailID":"100101@venmo.com",
+      "type":"venmo"
    }
 ]
