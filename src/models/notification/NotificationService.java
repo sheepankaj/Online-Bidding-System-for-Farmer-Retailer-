@@ -3,8 +3,12 @@ package models.notification;
 import java.util.Arrays;
 import java.util.List;
 
+import models.bid.BiddingService;
+import models.entity.Bid;
 import models.entity.Farmer;
 import models.entity.Product;
+import models.entity.RandomNumberGenerator;
+import models.entity.StockFrequency;
 import models.entity.User;
 import models.login.LoginService;
 import models.product.ProductService;
@@ -57,12 +61,22 @@ public class NotificationService
 		}
 	}
 
-	public void updateFarmersForProductNotification( String productCode, String qty, String price )
+	public void updateFarmersForProductNotification( String productCode, String qty, String price,String frequency ,long retailerID)
 	{
 		long productID = Long.parseLong( productCode );
 		Product product = ProductService.getProductServiceInstance( LoginService.getServeletContext() ).getProductByProductID( productID );
-		product.setLatestProductStockPrice( Double.parseDouble( price ) );
-		product.setLatestProductStockQuantity( Integer.parseInt( qty ) );
+		double priceParsed = Double.parseDouble( price );
+		int parsedQty = Integer.parseInt( qty );
+		
+		Bid newBid = new Bid.BidBuilder()
+		.setProductStock(product, parsedQty, StockFrequency.valueOf(frequency), priceParsed)
+		.setBidID(RandomNumberGenerator.getLongID())
+		.setRetailerID(retailerID)
+		.setAgreedFinalPrice(priceParsed)
+		.build();
+		BiddingService.getBiddingServiceInstance(LoginService.getServeletContext()).addBid(newBid);
+		product.setLatestProductStockPrice( priceParsed );
+		product.setLatestProductStockQuantity( parsedQty );
 		product.notifyNotificationListeners();
 	}
 }

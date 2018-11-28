@@ -26,7 +26,7 @@ public class BiddingService extends EntityService
 		super(context,filePath);
 	}
 	
-	public static BiddingService getBiddingServiceInstance(ServletContext context) throws FileNotFoundException
+	public static BiddingService getBiddingServiceInstance(ServletContext context)
 	{
 		if(instance == null)
 		{
@@ -36,9 +36,14 @@ public class BiddingService extends EntityService
 		return instance;
 	}
 	
-	public void loadEntities() throws FileNotFoundException
+	public void loadEntities()
 	{
-		super.loadEntities();
+		try {
+			super.loadEntities();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		TypeToken<List<Bid>> token = new TypeToken<List<Bid>>() {};
 		bids = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
 	}
@@ -56,6 +61,11 @@ public class BiddingService extends EntityService
 	public List<Bid> getBids()
 	{
 		return bids;
+	}
+	
+	public void addBid(Bid newBid)
+	{
+		bids.add(newBid);
 	}
 	
 	public Bid getBid(long bidID)
