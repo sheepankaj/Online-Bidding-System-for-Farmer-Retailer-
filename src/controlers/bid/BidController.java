@@ -52,6 +52,7 @@ public class BidController extends HttpServlet {
 		String event =  request.getParameter("tabEvent");
 		String selectedBidID = request.getParameter("bids-dropdown");
 		String productCategory = request.getParameter("productCategory-dropdown");
+		String frequency = request.getParameter("frequency-dropdown");
 		HttpSession session = request.getSession(true);
 		User user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
 		long farmerID = user.getUserID();
@@ -71,7 +72,7 @@ public class BidController extends HttpServlet {
 		else if(productCategory != null)
 		{
 			// update notifications for users		
-			NotificationService.getNotificationServiceInstance().updateFarmersForProductNotification( productCategory ,request.getParameter("quantity"),request.getParameter("price"));
+			NotificationService.getNotificationServiceInstance().updateFarmersForProductNotification( productCategory ,request.getParameter("quantity"),request.getParameter("price"),frequency,user.getUserID());
 		}
 		else
 		{
