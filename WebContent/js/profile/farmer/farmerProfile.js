@@ -65,6 +65,9 @@ function openCity(evt, eventName) {
     		    },
     		    function(data, status){
     		       // alert("Data: " + data + "\nStatus: " + status);
+    		    	$("#product-dropdown").html('');
+    		    	 var optionEmpty = $('<option />').val('-1').text('-- Select --');
+    		    	$("#product-dropdown").append(optionEmpty);
     		        $.each(data,function(key,value)
     		                {
     		                    var option = $('<option />').val(value.productID).text(value.name);
