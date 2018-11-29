@@ -10,6 +10,7 @@ import javax.servlet.ServletContext;
 import com.google.gson.reflect.TypeToken;
 
 import models.entity.EntityService;
+import models.entity.Farmer;
 import models.entity.Product;
 import models.entity.ProductStock;
 import models.entity.RandomNumberGenerator;
@@ -38,13 +39,12 @@ public class ProductStockService extends EntityService
 		return instance;
 	}
 	public String addProductStock(String name,String quantity,String frequency,String farmerID, String price) {
-		
-		
-		ProductStock productStockObj=new ProductStock();
-		
+				
+		ProductStock productStockObj=new ProductStock();		
 		StockFrequency freq=StockFrequency.valueOf(frequency);
 		int quant=Integer.parseInt(quantity);
 		long id=Long.parseLong(farmerID);
+		Farmer farmer = (Farmer)ProfilesService.getProfile( id );
 		Product prod = ProductService.getProductServiceInstance( LoginService.getServeletContext() ).getProductByProductID( Long.parseLong( name ) );
 		Double unitPrice=Double.parseDouble(price);
 		
@@ -54,14 +54,9 @@ public class ProductStockService extends EntityService
 		productStockObj.setUnitPrice(unitPrice);
 		productStockObj.setFarmerID( id );
 		productStockObj.setProductStockID( RandomNumberGenerator.getLongID() );
-		
-		
-		
+		productStockObj.setPriority( farmer.getPriorityLevel() );
 		productStock.add(productStockObj);
-		System.out.println(productStock.size());
-		return "added stock sucessfully";
-		
-
+		return "{\"state\":\"Product Stock addded successfully..\"}";
 	}
 	public String getSearchedProductStocksAsJSON(String productID, String frequency, String quantity)
 	{
