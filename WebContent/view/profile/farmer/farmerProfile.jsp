@@ -39,7 +39,8 @@
 		<div id="submit_stock_div" style="width: 200px; margin-right: 10px; float:left;">
 			    	<h4>Add a product stock</h4>
 				    <form method="post" action="../../../FarmerProfileLoaderRequest" id="submitProductForm">	
-						<select id="product-dropdown" name="product-dropdown"" class="input_class"></select><br>
+				        <input type="hidden" id="formSubmit" name="formSubmit" value="productStockForm">
+						<select id="product-dropdown" name="product-dropdown" class="input_class"></select><br>
 						<select id="frequency-dropdown" name="frequency-dropdown" class="input_class">
 						  <option value="DAILY">DAILY</option>
 						  <option value="WEEKLY">WEEKLY</option>

@@ -17,7 +17,7 @@ $( document ).ready(function() {
 			data: submitProductForm.serialize(),
 			success: function (data) 
 			{
-				
+				alert(data);
 			}
 		});		 
 		return false;

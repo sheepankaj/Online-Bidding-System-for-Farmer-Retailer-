@@ -12,14 +12,15 @@ import com.google.gson.reflect.TypeToken;
 import models.entity.EntityService;
 import models.entity.Product;
 import models.entity.ProductStock;
+import models.entity.RandomNumberGenerator;
 import models.entity.StockFrequency;
+import models.login.LoginService;
 import models.profile.ProfilesService;
 
 public class ProductStockService extends EntityService
 {
 	private static ProductStockService instance;
 	List<ProductStock> productStock = new ArrayList<>();
-	List<ProductStock> addProductStock = new ArrayList<>();
 	static String filePath = "/WEB-INF/db/product/ProductStock.json";
 	
 	private ProductStockService( ServletContext context, String filePath )
@@ -44,17 +45,20 @@ public class ProductStockService extends EntityService
 		StockFrequency freq=StockFrequency.valueOf(frequency);
 		int quant=Integer.parseInt(quantity);
 		long id=Long.parseLong(farmerID);
-		Product prod=new Product(name,id);
+		Product prod = ProductService.getProductServiceInstance( LoginService.getServeletContext() ).getProductByProductID( Long.parseLong( name ) );
 		Double unitPrice=Double.parseDouble(price);
 		
 		productStockObj.setFrequency(freq);
 		productStockObj.setQuantitiy(quant);
 		productStockObj.setProduct(prod);
 		productStockObj.setUnitPrice(unitPrice);
+		productStockObj.setFarmerID( id );
+		productStockObj.setProductStockID( RandomNumberGenerator.getLongID() );
 		
 		
-		addProductStock.add(productStockObj);
-		System.out.println(addProductStock.size());
+		
+		productStock.add(productStockObj);
+		System.out.println(productStock.size());
 		return "added stock sucessfully";
 		
 
