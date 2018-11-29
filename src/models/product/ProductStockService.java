@@ -39,10 +39,8 @@ public class ProductStockService extends EntityService
 		return instance;
 	}
 	public String addProductStock(String name,String quantity,String frequency,String farmerID, String price) {
-		
-		
-		ProductStock productStockObj=new ProductStock();
-		
+				
+		ProductStock productStockObj=new ProductStock();		
 		StockFrequency freq=StockFrequency.valueOf(frequency);
 		int quant=Integer.parseInt(quantity);
 		long id=Long.parseLong(farmerID);
@@ -57,14 +55,8 @@ public class ProductStockService extends EntityService
 		productStockObj.setFarmerID( id );
 		productStockObj.setProductStockID( RandomNumberGenerator.getLongID() );
 		productStockObj.setPriority( farmer.getPriorityLevel() );
-		
-		
-		
 		productStock.add(productStockObj);
-		System.out.println(productStock.size());
-		return "added stock sucessfully";
-		
-
+		return "{\"state\":\"Product Stock addded successfully..\"}";
 	}
 	public String getSearchedProductStocksAsJSON(String productID, String frequency, String quantity)
 	{
