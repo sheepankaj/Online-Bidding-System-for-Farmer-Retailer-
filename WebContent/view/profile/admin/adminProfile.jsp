@@ -108,9 +108,12 @@
   <h3>Verify Farmer</h3>
   <button class="tablinks" onclick="">Approve Farmer/Retailer</button>
   <p>Verification status of Farmers will display.</p>
-  <table class="table">
+  <table border="1" cellspacing="0">
+  <!-- <table class="table"> -->
     <thead>
       <tr>
+      <th><input class='check_all' type='checkbox' onclick="select_all()"/></th>
+      	<th>S. No</th>
       	<th>UserID</th>
       	<th>Profile Type</th>
         <th>Username</th>
@@ -122,12 +125,17 @@
     
     <tbody>
       <tr>
-        <td><p><input type="text" class="userid"></p><br/></td>
-        <td><p><input type="text" class="Profiletype"></p><br/></td>
-        <td><p><input type="text" class="Username"></p><br/></td>
-        <td><p><input type="text" class="address"></p><br/></td>
-        <td><p><input type="text" class="telephone"></p><br/>
-        <td><button class="tablinks" onclick="">Terminate</button></td>
+      <td><input type='checkbox' class='case'/></td>
+      <td>1.</td>
+      <td><input type='text' id='userid' /></td>
+        
+        <td><input type='text' id='Profiletype'/></td>
+        <td><input type='text' id='Username'/></td>
+        <td><input type='text' id='address'/></td>
+        <td><input type='text' id="telephone"/></td>
+        <td><button type="button" class='delete'>- Delete</button></td><td>
+        <td><button type="button" class='Addmore'>- Add More</button></td><td>
+        <!-- <td><button class="tablinks" onclick="">Terminate</button></td> -->
       </tr>
       
       <tr>
@@ -196,7 +204,17 @@
   </div>
   
   <div id="Password Change" class="tabcontent">
-  <h3>Password Changed</h3>
+  <br><br>
+  ${msg}
+  <br>
+  <form action="ChangePassword" method="post">
+<table>
+<tr><td>Current Password</td><td><input type="password" name="currentpass" ></td></tr>
+<tr><td>New Password</td><td><input type="password" name="newpass"></td></tr>
+<tr><td>Confirm Password</td><td><input type="password" name="confirmpass"></td></tr>
+<tr><td><input type="submit" value="Change Password"></td></tr>
+</table>
+</form>
   </div>
   
   <div id="Logout" class="tabcontent">
