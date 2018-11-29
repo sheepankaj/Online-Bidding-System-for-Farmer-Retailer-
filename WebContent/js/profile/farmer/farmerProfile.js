@@ -116,5 +116,12 @@ function doPoll(){
     });
     
 }
+function passwordChangeFunction() {
+	alert("Password changed succesfully");
+    document.getElementById("passwordMessage").innerHTML = "Last change done on";
+    document.getElementById("time").innerHTML = Date();
+    
+    
+}
 
 
