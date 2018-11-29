@@ -10,6 +10,7 @@ import javax.servlet.ServletContext;
 import com.google.gson.reflect.TypeToken;
 
 import models.entity.EntityService;
+import models.entity.Farmer;
 import models.entity.Product;
 import models.entity.ProductStock;
 import models.entity.RandomNumberGenerator;
@@ -45,6 +46,7 @@ public class ProductStockService extends EntityService
 		StockFrequency freq=StockFrequency.valueOf(frequency);
 		int quant=Integer.parseInt(quantity);
 		long id=Long.parseLong(farmerID);
+		Farmer farmer = (Farmer)ProfilesService.getProfile( id );
 		Product prod = ProductService.getProductServiceInstance( LoginService.getServeletContext() ).getProductByProductID( Long.parseLong( name ) );
 		Double unitPrice=Double.parseDouble(price);
 		
@@ -54,6 +56,7 @@ public class ProductStockService extends EntityService
 		productStockObj.setUnitPrice(unitPrice);
 		productStockObj.setFarmerID( id );
 		productStockObj.setProductStockID( RandomNumberGenerator.getLongID() );
+		productStockObj.setPriority( farmer.getPriorityLevel() );
 		
 		
 		
