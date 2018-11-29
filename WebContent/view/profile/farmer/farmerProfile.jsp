@@ -36,36 +36,22 @@
 		
 	</div>
 	<div id="Add Products" class="tabcontent">
-<<<<<<< HEAD
-		<p>Choose products from below drop down</p><select id="product-dropdown" name="product-dropdown">
-		 <option value="" disabled selected>---Select your option---</option></select>
-		 <div>
-		<p>Specify total Quantity : <input type="text" id="quantity" name = "quantity"></p><br/>
-		<p>Price of the product: <input type="text" id="price" name = "price"></p><br/>
-		<p>Frequency of the product: <input type="text" id="frequency" name = "frequency"></p><br/>
-		</div>
-		<input type="button" value="Submit">
-	</div>
-	</form>
-=======
 		<div id="submit_stock_div" style="width: 200px; margin-right: 10px; float:left;">
-	    	<h4>Add a product stock</h4>
-		    <form method="post" action="../../../FarmerProfileLoaderRequest" id="submitProductForm">	
-				<select id="product-dropdown" name="product-dropdown"" class="input_class"></select><br>
-				<select id="frequency-dropdown" name="frequency-dropdown" class="input_class">
-				  <option value="DAILY">DAILY</option>
-				  <option value="WEEKLY">WEEKLY</option>
-				  <option value="MONTHLY">MONTHLY</option>
-				  <option value="YEARLY">YEARLY</option>
-				</select><br>
-				<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
-				<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
-				<input type="button" value="Submit Stock" id="submitProductStock" class="input_class"/>	
-			</form>
-	    </div>
-	    
-	 </div>
->>>>>>> branch 'master' of https://github.com/ShamithaSIlva/OnlineStockAuction.git
+			    	<h4>Add a product stock</h4>
+				    <form method="post" action="../../../FarmerProfileLoaderRequest" id="submitProductForm">	
+						<select id="product-dropdown" name="product-dropdown"" class="input_class"></select><br>
+						<select id="frequency-dropdown" name="frequency-dropdown" class="input_class">
+						  <option value="DAILY">DAILY</option>
+						  <option value="WEEKLY">WEEKLY</option>
+						  <option value="MONTHLY">MONTHLY</option>
+						  <option value="YEARLY">YEARLY</option>
+						</select><br>
+						<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
+						<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
+						<input type="button" value="Submit Stock" id="submitProductStock" class="input_class"/>	
+					</form>
+		</div>
+</div>
     <form method="post" action="../../../BidsController" id="acceptBidForm"  target="_blank">    
 		<div id="Bids" class="tabcontent">
 			<select id="bids-dropdown" name="bids-dropdown"></select>
