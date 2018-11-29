@@ -69,7 +69,8 @@
 		<p>Enter old password:<input type="text" name="old password"></p><br/>
 		<p>Enter new password:<input type="text" name="new password"></p><br/>
 		<input type="button" value="Submit" id="submitPasswordForm" onclick="passwordChangeFunction()">
-		<p id="passwordMessage"></p><p id="time"></p>
+		<p id="passwordMessage"></p>
+		<p id="time"></p>
 		
 		
 		
