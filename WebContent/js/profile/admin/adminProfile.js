@@ -32,7 +32,7 @@ if(eventName == 'Verify')
     		        tabEvent: eventName
     		    },
     		    function(data, status){
-    		        //alert("Data: " + data + "\nStatus: " + status);
+    		        //alert("Data: " + data + "\nStatus: " + status);lll
     		        $.each(data,function(key,value)
     		                {
     		        			if(value.profileType=="FARMER"){
