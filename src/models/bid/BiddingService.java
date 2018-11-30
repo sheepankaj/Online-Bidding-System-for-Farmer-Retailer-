@@ -49,6 +49,7 @@ public class BiddingService extends EntityService
 		bid.setBidID( RandomNumberGenerator.getLongID() );
 		bid.setFarmerID( stock.getFarmerID() );
 		bid.setAgreedFinalPrice( agreedPrice );
+		bid.setSignedByRetailer( true );
 		bids.add( bid );
 		return "{\"state\":\"Bid placed successfully\"}";
 	}
