@@ -15,9 +15,11 @@ import models.entity.Bid;
 import models.entity.Contract;
 import models.entity.Farmer;
 import models.entity.Product;
+import models.entity.ProductStock;
 import models.entity.User;
 import models.login.LoginService;
 import models.notification.NotificationService;
+import models.product.ProductStockService;
 import models.profile.ProfilesService;
 import models.report.ReportService;
 
@@ -52,6 +54,10 @@ public class BidController extends HttpServlet {
 		String event =  request.getParameter("tabEvent");
 		String selectedBidID = request.getParameter("bids-dropdown");
 		String productCategory = request.getParameter("productCategory-dropdown");
+		String frequency = request.getParameter("frequency-dropdown");
+		String individualBidSubmit = request.getParameter("individualBidSubmit");
+		String productStockID = request.getParameter("productStockID");
+		String retailerPrice = request.getParameter("retailerPrice");
 		HttpSession session = request.getSession(true);
 		User user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
 		long farmerID = user.getUserID();
@@ -61,12 +67,25 @@ public class BidController extends HttpServlet {
 			long selctedBidId = Long.valueOf(selectedBidID);
 			Bid bid = BiddingService.getBiddingServiceInstance(LoginService.getServeletContext()).getBid(selctedBidId);
 			Contract contract = ContractService.getContractServiceInstance(getServletContext()).createContract(bid);
-			ReportService.getReportServiceInstance().printContract(contract, "PDF", response);
+			String message = ReportService.getReportServiceInstance().printContract(contract, "PDF", response);
+			if( !message.equals( "" ))
+			{
+				response.setContentType("application/json");
+				
+				response.getWriter().append(message);
+			}
 		}
 		else if(productCategory != null)
 		{
 			// update notifications for users		
-			NotificationService.getNotificationServiceInstance().updateFarmersForProductNotification( productCategory ,request.getParameter("quantity"),request.getParameter("price"));
+			NotificationService.getNotificationServiceInstance().updateFarmersForProductNotification( productCategory ,request.getParameter("quantity"),request.getParameter("price"),frequency,user.getUserID());
+		}
+		else if("individualBid".equals( individualBidSubmit ))
+		{
+			// this is individual bid submitting
+			response.setContentType("application/json");
+			ProductStock stock = ProductStockService.getProductStockServiceInstance( getServletContext() ).getProductStockByID( productStockID );
+			response.getWriter().append(BiddingService.getBiddingServiceInstance( getServletContext() ).addBid( stock, user.getUserID(), Double.parseDouble( retailerPrice ) ));
 		}
 		else
 		{

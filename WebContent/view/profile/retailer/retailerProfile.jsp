@@ -61,6 +61,12 @@
     	<h4>Place a bid</h4>
 	    <form method="post" action="../../../BidsController" id="placeBidForm">	
 			<select id="productCategory-dropdown" name="productCategory-dropdown" class="input_class"></select><br>
+			<select id="frequency-dropdown" name="frequency-dropdown" class="input_class">
+			  <option value="DAILY">DAILY</option>
+			  <option value="WEEKLY">WEEKLY</option>
+			  <option value="MONTHLY">MONTHLY</option>
+			  <option value="YEARLY">YEARLY</option>
+			</select><br>
 			<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
 			<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
 			<input type="button" value="Place Bid" id="submitViewContract" class="input_class"/>	

@@ -1,5 +1,7 @@
 package models.entity;
 
+import java.util.Random;
+
 public class Bid
 {
 	private ProductStock productStock;
@@ -88,5 +90,82 @@ public class Bid
 	public long getBidID()
 	{
 		return bidID;
-	}	
+	}		
+	
+	public void setBidID( long bidID )
+	{
+		this.bidID = bidID;
+	}
+
+
+
+	public static class BidBuilder {
+		
+		private ProductStock productStock;
+		private double agreedFinalPrice;
+		private long retailerID;
+		private long farmerID;
+		private boolean signedByFarmer;
+		private boolean signedByRetailer;
+		private long bidID;
+		
+		
+		public BidBuilder()
+		{
+			
+		}
+		
+		public BidBuilder setProductStock(Product product, int quantitiy, StockFrequency frequency, double unitPrice)
+		{
+			long x = 1234567L;
+			long y = 23456789L;
+			Random r = new Random();
+			long number = x+((long)(r.nextDouble()*(y-x)));
+			ProductStock productStock = new ProductStock(product, quantitiy, frequency, unitPrice, number );
+			this.productStock = productStock;
+			return this;
+		}
+		
+		public BidBuilder setAgreedFinalPrice(double agreedFinalPrice)
+		{
+			this.agreedFinalPrice = agreedFinalPrice;
+			return this;
+		}
+		
+		public BidBuilder setRetailerID(long retailerID)
+		{
+			this.retailerID = retailerID;
+			return this;
+		}
+		
+		public BidBuilder setFarmerID(long farmerID)
+		{
+			this.farmerID = farmerID;
+			return this;
+		}
+		
+		public BidBuilder setSignedByFarmer(boolean signedByFarmer)
+		{
+			this.signedByFarmer = signedByFarmer;
+			return this;
+		}
+		
+		public BidBuilder setSignedByRetailer(boolean signedByRetailer)
+		{
+			this.signedByRetailer = signedByRetailer;
+			return this;
+		}
+		
+		public BidBuilder setBidID(long bidID)
+		{
+			this.bidID = bidID;
+			return this;
+		}
+		
+		public Bid build() 
+		{
+            return new Bid(productStock, agreedFinalPrice, retailerID, farmerID, signedByFarmer , signedByRetailer);
+	    }
+	}
+
 }

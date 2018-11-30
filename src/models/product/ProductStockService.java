@@ -62,6 +62,20 @@ public class ProductStockService extends EntityService
 		
 
 	}
+	
+	public ProductStock getProductStockByID(String productStockID)
+	{
+		ProductStock prodStock = null;
+		for(ProductStock stock : productStock)
+		{
+			
+			if(stock.getProductStockID() == Long.parseLong( productStockID ))
+			{
+				prodStock = stock;
+			}
+		}
+		return prodStock;
+	}
 	public String getSearchedProductStocksAsJSON(String productID, String frequency, String quantity)
 	{
 		List<ProductStock> searched = new ArrayList<>();

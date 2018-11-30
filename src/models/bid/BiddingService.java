@@ -13,6 +13,7 @@ import models.entity.Bid;
 import models.entity.EntityService;
 import models.entity.Product;
 import models.entity.ProductStock;
+import models.entity.RandomNumberGenerator;
 import models.entity.StockFrequency;
 
 public class BiddingService extends EntityService
@@ -26,7 +27,7 @@ public class BiddingService extends EntityService
 		super(context,filePath);
 	}
 	
-	public static BiddingService getBiddingServiceInstance(ServletContext context) throws FileNotFoundException
+	public static BiddingService getBiddingServiceInstance(ServletContext context)
 	{
 		if(instance == null)
 		{
@@ -36,9 +37,33 @@ public class BiddingService extends EntityService
 		return instance;
 	}
 	
-	public void loadEntities() throws FileNotFoundException
+	public String addBid(ProductStock stock,long retailerID,double agreedPrice)
 	{
-		super.loadEntities();
+		if(stock == null)
+		{
+			return "{\"state\":\"ProductStock not found..\"}";
+		}
+		Bid bid = new Bid();
+		bid.setRetailerID( retailerID );
+		bid.setProductStock( stock );
+		bid.setBidID( RandomNumberGenerator.getLongID() );
+		bid.setFarmerID( stock.getFarmerID() );
+		bid.setAgreedFinalPrice( agreedPrice );
+		bids.add( bid );
+		return "{\"state\":\"Bid placed successfully\"}";
+	}
+	
+	public void loadEntities()
+	{
+		try
+		{
+			super.loadEntities();
+		}
+		catch ( FileNotFoundException e )
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		TypeToken<List<Bid>> token = new TypeToken<List<Bid>>() {};
 		bids = getGson().fromJson(new InputStreamReader(getIs()), token.getType());
 	}
@@ -56,6 +81,11 @@ public class BiddingService extends EntityService
 	public List<Bid> getBids()
 	{
 		return bids;
+	}
+	
+	public void addBid(Bid bid)
+	{
+		bids.add( bid );
 	}
 	
 	public Bid getBid(long bidID)
