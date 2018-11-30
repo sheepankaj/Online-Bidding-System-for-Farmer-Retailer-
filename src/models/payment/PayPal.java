@@ -14,7 +14,7 @@ public class PayPal extends BankAccount {
 
 	@Override
 	public String makePayment(double amount) throws NotEnoughBalanceException {
-		String message="{\"state\":\"success\",\"message\":\"Fund "+amount+" added Successfully\"}";
+		String message="{\"state\":\"success\",\"message\":\"Fund "+amount+" allocated Successfully\"}";
 		if(balance < (amount + amount*0.02))
 		{
 			throw new NotEnoughBalanceException((amount + amount*0.02)-balance);

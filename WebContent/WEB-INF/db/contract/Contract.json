@@ -2,6 +2,7 @@
    {
       "farmerUserID":100105,
       "retailerUserID":100101,
+      "contractID":444001,
       "contractConstraints":"",
       "type":"dailycontract",
       "agreedBid":{
@@ -26,6 +27,7 @@
    {
       "farmerUserID":100105,
       "retailerUserID":100101,
+      "contractID":444002,
       "contractConstraints":"",
        "type":"weeklycontract",
        "agreedBid":{
@@ -50,6 +52,7 @@
    {
       "farmerUserID":100105,
       "retailerUserID":100101,
+      "contractID":444002,
       "contractConstraints":"",
       "type":"yearlycontract",
       "agreedBid":{
