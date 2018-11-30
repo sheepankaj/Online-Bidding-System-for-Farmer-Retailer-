@@ -43,7 +43,9 @@ public class ProductStockService extends EntityService
 			Product product = stock.getProduct();
 			if(product.getProductID() == Long.parseLong( productID ) && stock.getFrequency().toString().equals( frequency ) && stock.getQuantitiy() == Integer.parseInt( quantity ))
 			{
-				stock.setPriority(ProfilesService.getProfile( stock.getFarmerID() ).getPriorityLevel());
+				long id = stock.getFarmerID();
+				int priority = ProfilesService.getProfile( id ).getPriorityLevel();
+				stock.setPriority(priority);
 				searched.add(stock);
 			}
 		}

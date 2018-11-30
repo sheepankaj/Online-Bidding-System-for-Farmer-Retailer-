@@ -56,7 +56,7 @@ public class ProfilesService extends EntityService
 		profiles.add( profile );
 	}
 	
-	public static User getProfile( String username )
+	public User getProfile( String username )
 	{
 		for(User profile : profiles)
 		{
