@@ -124,4 +124,14 @@ public class ContractService extends EntityService
 			Type listType = new TypeToken<List<Contract>>(){}.getType();
 			List<Contract> fromJson = gson.fromJson(json, listType);
 	}
+
+	public Contract getContractByID( String selectedContractID )
+	{
+		for(Contract contract : contracts)
+		{
+			if((contract.getContractID()) == Long.parseLong( selectedContractID ))
+				return contract;
+		}
+		return null;
+	}
 }

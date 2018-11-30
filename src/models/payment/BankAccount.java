@@ -10,6 +10,7 @@ public abstract class BankAccount implements IBankAccount
 	String type;
 	StringBuilder receipt;
 	boolean cardDetailsExpired = false;
+	String accountType;
 	
 	
 	
@@ -29,7 +30,7 @@ public abstract class BankAccount implements IBankAccount
 	public abstract boolean validateAccount();
 
 	@Override
-	public abstract void makePayment( double amount );
+	public abstract String makePayment( double amount ) throws NotEnoughBalanceException;
 
 	@Override
 	public abstract StringBuilder printReceipt();
@@ -107,7 +108,10 @@ public abstract class BankAccount implements IBankAccount
 	public void setReceipt(StringBuilder receipt) {
 		this.receipt = receipt;
 	}
-	
-	
 
+
+	public String getAccountType()
+	{
+		return accountType;
+	}
 }
