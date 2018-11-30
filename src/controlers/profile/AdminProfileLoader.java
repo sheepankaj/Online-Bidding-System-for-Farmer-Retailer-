@@ -46,7 +46,7 @@ public class AdminProfileLoader extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		
 		
-//		String password = request.getParameter("password");
+//		String password = request.getParameter("password"); some chnage
 		String username = (String)session.getAttribute("username");
 		String event =  request.getParameter("tabEvent");
 		
