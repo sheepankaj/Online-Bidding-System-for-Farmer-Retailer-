@@ -67,7 +67,7 @@ public class PaymentService extends EntityService
 		{
 			try
 			{
-				account.makePayment( contract.getPriceOnFrequency() );
+				message = account.makePayment( contract.getPriceOnFrequency() );
 				payment.setState( new SentToPaymentGateway() );
 			}
 			catch ( NotEnoughBalanceException e )
