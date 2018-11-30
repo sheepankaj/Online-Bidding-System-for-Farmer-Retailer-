@@ -73,6 +73,11 @@ public class ProductStock
 	public long getFarmerID()
 	{
 		return farmerID;
+	}	
+
+	public void setFarmerID( long farmerID )
+	{
+		this.farmerID = farmerID;
 	}
 
 	public int getPriority()
@@ -83,5 +88,12 @@ public class ProductStock
 	public void setPriority( int priority )
 	{
 		this.priority = priority;
+	}
+
+	public void setProductStockID( long productStockID )
+	{
+		this.productStockID = productStockID;
 	}	
+	
+	
 }

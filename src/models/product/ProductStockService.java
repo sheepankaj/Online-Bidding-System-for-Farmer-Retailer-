@@ -10,8 +10,12 @@ import javax.servlet.ServletContext;
 import com.google.gson.reflect.TypeToken;
 
 import models.entity.EntityService;
+import models.entity.Farmer;
 import models.entity.Product;
 import models.entity.ProductStock;
+import models.entity.RandomNumberGenerator;
+import models.entity.StockFrequency;
+import models.login.LoginService;
 import models.profile.ProfilesService;
 
 public class ProductStockService extends EntityService
@@ -34,7 +38,30 @@ public class ProductStockService extends EntityService
 		}
 		return instance;
 	}
-	
+	public String addProductStock(String name,String quantity,String frequency,String farmerID, String price) {
+		
+		
+		ProductStock productStockObj=new ProductStock();
+		
+		StockFrequency freq=StockFrequency.valueOf(frequency);
+		int quant=Integer.parseInt(quantity);
+		long id=Long.parseLong(farmerID);
+		Farmer farmer = (Farmer)ProfilesService.getProfile( id );
+		Product prod = ProductService.getProductServiceInstance( LoginService.getServeletContext() ).getProductByProductID( Long.parseLong( name ) );
+		Double unitPrice=Double.parseDouble(price);
+		
+		productStockObj.setFrequency(freq);
+		productStockObj.setQuantitiy(quant);
+		productStockObj.setProduct(prod);
+		productStockObj.setUnitPrice(unitPrice);
+		productStockObj.setFarmerID( id );
+		productStockObj.setProductStockID( RandomNumberGenerator.getLongID() );
+		productStockObj.setPriority( farmer.getPriorityLevel() );
+		productStock.add(productStockObj);
+		return "{\"state\":\"Product Stock addded successfully..\"}";
+		
+
+	}
 	public String getSearchedProductStocksAsJSON(String productID, String frequency, String quantity)
 	{
 		List<ProductStock> searched = new ArrayList<>();
@@ -43,9 +70,7 @@ public class ProductStockService extends EntityService
 			Product product = stock.getProduct();
 			if(product.getProductID() == Long.parseLong( productID ) && stock.getFrequency().toString().equals( frequency ) && stock.getQuantitiy() == Integer.parseInt( quantity ))
 			{
-				long id = stock.getFarmerID();
-				int priority = ProfilesService.getProfile( id ).getPriorityLevel();
-				stock.setPriority(priority);
+				stock.setPriority(ProfilesService.getProfile( stock.getFarmerID() ).getPriorityLevel());
 				searched.add(stock);
 			}
 		}

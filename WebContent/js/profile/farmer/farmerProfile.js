@@ -4,22 +4,26 @@ $( document ).ready(function() {
 	// Get the element with id="defaultOpen" and click on it
 	document.getElementById("defaultOpen").click();
 	var acceptBidForm = $('#acceptBidForm');
-//	acceptBidForm.submit(function (e) 
-//	{	
-//		$.ajax(
-//		{
-//			type: acceptBidForm.attr('method'),
-//			url: acceptBidForm.attr('action'),
-//			data: acceptBidForm.serialize(),
-//			success: function (data) 
-//			{
-//				 window.open(data);
-//			}
-//		});		 
-//		return false;
-//	});
     $( "#acceptBidButton" ).click(function() {
     	acceptBidForm.submit();
+    });	
+    var submitProductForm = $('#submitProductForm');
+    submitProductForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: submitProductForm.attr('method'),
+			url: submitProductForm.attr('action'),
+			data: submitProductForm.serialize(),
+			success: function (data) 
+			{
+				alert(data.state);
+			}
+		});		 
+		return false;
+	});
+    $( "#submitProductStock" ).click(function() {
+    	submitProductForm.submit();
     });	
     doPoll();
 });
@@ -45,15 +49,15 @@ function openCity(evt, eventName) {
     				success: function (data,message) 
     				{
     					alert("You have logged in successfully!!!");
-    					if(data.page=="farmer")   {
+    					
     						
     						$('#username').val(data.page);
     						$('#ID').val(data.id);
     						$('#address').val(data.address);
     						$('#telephone').val(data.telephone);
     						$('#spam').val(data.spam);
-    						$('#priority').val(data.priority);
-    					}
+    						
+    					
     				}
     			});		
     	}
@@ -65,6 +69,9 @@ function openCity(evt, eventName) {
     		    },
     		    function(data, status){
     		       // alert("Data: " + data + "\nStatus: " + status);
+    		    	$("#product-dropdown").html('');
+    		    	 var optionEmpty = $('<option />').val('-1').text('-- Select --');
+    		    	$("#product-dropdown").append(optionEmpty);
     		        $.each(data,function(key,value)
     		                {
     		                    var option = $('<option />').val(value.productID).text(value.name);
@@ -80,7 +87,7 @@ function openCity(evt, eventName) {
     		        tabEvent: eventName
     		    },
     		    function(data, status){
-    		       // alert("Data: " + data + "\nStatus: " + status);
+    		    	$("#bids-dropdown").html('');
     		        $.each(data,function(key,value)
     		                {
     		                    var option = $('<option />').val(value.bidID).text("[Product : "+value.productStock.product.name+"][Quantity : "+value.productStock.quantitiy+"][Agreed : "+value.agreedFinalPrice+"][Your Price : "+value.productStock.unitPrice+"]");
@@ -90,9 +97,9 @@ function openCity(evt, eventName) {
     		    });
 	}
     else
-    	{
-    	z
-    	}
+	{
+	
+	}
     evt.currentTarget.className += " active";
 }
 

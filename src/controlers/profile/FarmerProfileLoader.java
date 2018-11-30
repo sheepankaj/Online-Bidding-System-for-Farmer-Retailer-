@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import models.entity.Farmer;
-import models.entity.StockFrequency;
 import models.product.ProductService;
+import models.product.ProductStockService;
 import models.profile.ProfilesService;
 
 /**
@@ -47,30 +47,41 @@ public class FarmerProfileLoader extends HttpServlet {
 		session.setAttribute("userid", username);
 		String event =  request.getParameter("tabEvent");
 		response.setContentType("application/json");
+		String oldPassword=request.getParameter("old password");
+		String newPassword=request.getParameter("new password");
 		
-		if(event != null &&  event.equals("Add Products"))
+		if(event != null &&  event.equals("Add Products") && !"productStockForm".equals(request.getParameter("formSubmit")) )
 		{
 			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());
+					    
+		}
+		else if(event != null &&  event.equals("Change password")) {
+			if(ProfilesService.getProfileServiceInstance(getServletContext()).validPasswordCheck(username, oldPassword)) {
+				
+				if(oldPassword!=null) {
+				Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));	
+				response.getWriter().append("{\"state\":\"Success\",\"message\":\"password change successfull..!!\",\"page\""+":\""+user.getProfileType()+"\",\"name\":\""+user.getUsername()+"\"}");
 			
-			int quant;
-			double price;
-			
-			
-			if(request.getParameter("product-dropdown")!=null)
-			{
-			   quant=Integer.parseInt(request.getParameter("quantity"));
-			   System.out.println(quant);
+				}
 			}
 			
-		 	
-		 	
-		    
+		}
+		else if("productStockForm".equals(request.getParameter("formSubmit"))) {
+			
+			String selectedProduct = request.getParameter("product-dropdown");
+			String quantity = request.getParameter("quantity");
+			String price = request.getParameter("price");
+			String frequency = request.getParameter("frequency-dropdown");
+			
+			Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));
+			String id=Long.toString(user.getUserID());
+			response.getWriter().append(ProductStockService.getProductStockServiceInstance(getServletContext()).addProductStock(selectedProduct, quantity, frequency, id, price));
 		}
 		else
 		{
 			
 			Farmer user = (Farmer)ProfilesService.getProfileServiceInstance(getServletContext()).getProfile((String)session.getAttribute("username"));		
-			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":\""+user.getUserID()+"\",\"address\":\""+user.getFarmAddress()+"\",\"telephone\":\""+user.getTelephone()+"\",\"spam\":\""+user.isSpam()+"\",\"prority\":\""+user.getPriorityLevel()+"\"}");
+			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":\""+user.getUserID()+"\",\"address\":\""+user.getFarmAddress()+"\",\"telephone\":\""+user.getTelephone()+"\",\"spam\":\""+user.isSpam()+"\"}");
 			
 		}
 		

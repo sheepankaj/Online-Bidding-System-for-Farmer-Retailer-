@@ -51,7 +51,7 @@ public class RetailerProfileLoader extends HttpServlet {
 		{
 			response.getWriter().append(ProductService.getProductServiceInstance(getServletContext()).getProductsAsJSON());		    
 		}
-		if(event != null &&  event.equals("Manage Payments"))
+		else if(event != null &&  event.equals("Manage Payments"))
 		{
 			String contractJSON = ContractService.getContractServiceInstance(getServletContext()).getRetailerContracts( user.getUserID() );
 			String accounts = PaymentService.getPaymentServiceInstance( getServletContext() ).getUserBankAccountsAsJSON( user.getUserID() );

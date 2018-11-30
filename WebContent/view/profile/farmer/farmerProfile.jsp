@@ -32,20 +32,27 @@
 		<p>Address:<input type="text" id="address"></p><br/>
 		<p>Contact Number:<input type="text" id="telephone"></p><br/>
 		<p>Spam:<input type="text" id="spam"></p><br/>
-		<p>Priority:<input type="text" id="priority"></p><br/>
+		
 		
 	</div>
-	<form method="post" action="FarmerProfileLoaderRequest">
 	<div id="Add Products" class="tabcontent">
-		<p>Choose products from below drop down</p><select id="product-dropdown">
-		 <option value="" disabled selected>---Select your option---</option></select>
-		 <div>
-		<p>Specify total Quantity : <input type="text" id="quantity"></p><br/>
-		<p>Price of the product: <input type="text" id="price"></p><br/>
+		<div id="submit_stock_div" style="width: 200px; margin-right: 10px; float:left;">
+			    	<h4>Add a product stock</h4>
+				    <form method="post" action="../../../FarmerProfileLoaderRequest" id="submitProductForm">	
+				        <input type="hidden" id="formSubmit" name="formSubmit" value="productStockForm">
+						<select id="product-dropdown" name="product-dropdown" class="input_class"></select><br>
+						<select id="frequency-dropdown" name="frequency-dropdown" class="input_class">
+						  <option value="DAILY">DAILY</option>
+						  <option value="WEEKLY">WEEKLY</option>
+						  <option value="MONTHLY">MONTHLY</option>
+						  <option value="YEARLY">YEARLY</option>
+						</select><br>
+						<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
+						<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
+						<input type="button" value="Submit Stock" id="submitProductStock" class="input_class"/>	
+					</form>
 		</div>
-		<input type="button" value="Submit">
-	</div>
-	</form>
+</div>
     <form method="post" action="../../../BidsController" id="acceptBidForm"  target="_blank">    
 		<div id="Bids" class="tabcontent">
 			<select id="bids-dropdown" name="bids-dropdown"></select>
@@ -56,13 +63,14 @@
 		<h3>Manage Contracts</h3>
 		<p>sign the contract.</p>
 	</div>
-	
+	<form method="post" action="FarmerProfileLoaderRequest" id="passwordForm">
 	<div id="Change password" class="tabcontent">
 		<h3>Change password</h3>
 		<p>Enter old password:<input type="text" name="old password"></p><br/>
 		<p>Enter new password:<input type="text" name="new password"></p><br/>
-		<input type="button" value="Submit">
+		<input type="button" value="Submit" id="submitPasswordForm">
 	</div>
+	</form>
 	<div class='error' style='display:none'id="notificationText"></div>
   
   <form id="form1" action="${pageContext.request.contextPath}/" method="post">
