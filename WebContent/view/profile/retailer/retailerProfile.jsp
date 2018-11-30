@@ -21,6 +21,7 @@
   <button class="tablinks" onclick="openCity(event, 'Account Details')" id="defaultOpen">Account Details</button>
   <button class="tablinks" onclick="openCity(event, 'View Product Catalogue')">View Product Catalogue</button>
   <button class="tablinks" onclick="openCity(event, 'Manage Contracts')">Manage Contracts and Bids</button>
+  <button class="tablinks" onclick="openCity(event, 'Manage Payments')">Manage Payments</button>
   <button class="tablinks" onclick="openCity(event, 'Change Password')">Change Password</button>
 </div>
 
@@ -52,28 +53,47 @@
 			<input type="button" value="Search Stock" id="submitSearchProductStock" name="submitSearchProductStock" class="input_class"/>
 	   </form>
    </div>
-   <div id="searchResults" style="border: 1px solid black; width: 200px; height:600px; float:left;">
-   		
-   </div>
+   <div id="searchResults" style="width: 400px; height:600px; float:left; "></div>
 </div>
 
 <div id="Manage Contracts" class="tabcontent">
-  <h4>Place a bid</h4>
-    <form method="post" action="../../../BidsController" id="placeBidForm">	
-		<select id="productCategory-dropdown" name="productCategory-dropdown" class="input_class"></select><br>
-		<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
-		<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
-		<input type="button" value="Place Bid" id="submitViewContract" class="input_class"/>	
-	</form>
+    <div id="place_bid_div" style="width: 200px; margin-right: 10px; float:left;">
+    	<h4>Place a bid</h4>
+	    <form method="post" action="../../../BidsController" id="placeBidForm">	
+			<select id="productCategory-dropdown" name="productCategory-dropdown" class="input_class"></select><br>
+			<input type="text" id="quantity" name="quantity" placeholder="Quantity(t)" class="input_class"><br>	
+			<input type="text" id="price" name="price" placeholder="Price" class="input_class"><br>	
+			<input type="button" value="Place Bid" id="submitViewContract" class="input_class"/>	
+		</form>
+    </div>
+    
 </div>
 
 <div id="Change Password" class="tabcontent">
 		<h3>Change password</h3>
 		<p>Enter old password:<input type="text" id="old password"></p><br/>
 		<p>Enter new password:<input type="text" id="new password"></p><br/>
-		<input type="button" value="Submit">
-		
-	</div>
+		<input type="button" value="Submit">		
+</div>
+
+<div id="Manage Payments" class="tabcontent">
+	<div id="proceedToPayment" style="width: 300px; margin-right: 10px;">
+   		<h4>Select a Contract and proceed to payment</h4>
+	    <form method="post" action="../../../PaymentController" id="proceedToPaymentForm">	
+			<select id="contract-dropdown" name="contract-dropdown" class="input_class"></select><br>
+			<select id="account-dropdown" name="account-dropdown" class="input_class"></select><br>
+			<input type="button" value="Proceed" id="submitContractPayment" class="input_class"/>	
+		</form>
+   	</div>	
+   	<div id="fundsAdding" style="width: 300px; margin-right: 10px; float:left;">
+   		<h4>Add funds</h4>
+	    <form method="post" action="../../../PaymentController" id="addFundsForm">	
+	        <select id="addfunds-dropdown" name="account-dropdown" class="input_class"></select><br>
+			<input type="text" id="fundAmount" name="fundAmount" placeholder="Amount" class="input_class"><br>
+			<input type="button" value="Add" id="submitAddFundsForm" class="input_class"/>	
+		</form>
+   	</div>
+</div>
 	
 
 

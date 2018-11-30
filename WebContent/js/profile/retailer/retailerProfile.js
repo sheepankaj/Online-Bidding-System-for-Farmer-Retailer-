@@ -20,6 +20,42 @@ $( document ).ready(function() {
 	});
     $( "#submitViewContract" ).click(function() {
     	placeBidForm.submit();
+    });
+    var proceedToPaymentForm = $('#proceedToPaymentForm');
+    proceedToPaymentForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: proceedToPaymentForm.attr('method'),
+			url: proceedToPaymentForm.attr('action'),
+			data: proceedToPaymentForm.serialize(),
+			success: function (data) 
+			{
+				alert(data.message);
+			}
+		});		 
+		return false;
+	});
+    $( "#submitContractPayment" ).click(function() {
+    	proceedToPaymentForm.submit();
+    });	
+    var addFundsForm = $('#addFundsForm');
+    addFundsForm.submit(function (e) 
+	{	
+		$.ajax(
+		{
+			type: addFundsForm.attr('method'),
+			url: addFundsForm.attr('action'),
+			data: addFundsForm.serialize(),
+			success: function (data) 
+			{
+				alert(data.message);
+			}
+		});		 
+		return false;
+	});
+    $( "#submitAddFundsForm" ).click(function() {
+    	addFundsForm.submit();
     });	
     var searchProductStockForm = $('#searchProductStockForm');
     searchProductStockForm.submit(function (e) 
@@ -31,16 +67,20 @@ $( document ).ready(function() {
 			data: searchProductStockForm.serialize(),
 			success: function (data) 
 			{
-				data.sort(function (a, b) {
-				    return a.priority.localeCompare(b.priority);
-				});
-				$.each(data,function(key,value)
+				var sortedData = sortByKey(data, 'priority');
+				$('#searchResults').html('');
+				$.each(sortedData,function(key,value)
                 {
-                    console.log(value.priority);
-//                    var div=$('<div id="new">new</div>');
-//                    var sopra=$('#home');
-//
-//                    $( sopra ).after( div );
+					if( $('#searchResults').is(':empty') ) {
+						$('#searchResults').append(
+						'<div id="result_'+key+'" style="border: 1px solid black;">'+'Qty : ['+value["quantitiy"]+']<br>'+'Frequency : ['+value["frequency"]+']<br>'+'UnitPrice : ['+value["unitPrice"]+']<br>'+'FarmerID : ['+value["farmerID"]+']<br>'+'ProductStockID : ['+value["productStockID"]+']<br></div>');
+					}
+					else
+					{
+						var div=$('<div id="result_'+key+'" style="border: 1px solid black;">'+'Qty : ['+value["quantitiy"]+']<br>'+'Frequency : ['+value["frequency"]+']<br>'+'UnitPrice : ['+value["unitPrice"]+']<br>'+'FarmerID : ['+value["farmerID"]+']<br>'+'ProductStockID : ['+value["productStockID"]+']<br></div>');
+						var sopra=$('#result_'+(key-1));
+						$( sopra ).after( div );
+					}
                 });
 			}
 		});		 
@@ -122,6 +162,43 @@ function openCity(evt, eventName) {
     		        
     		    });	
 	}
+    else if(eventName=="Manage Payments")
+	{
+    	$.post('../../../RetailerProfileLoaderRequest',
+    		    {
+    		        tabEvent: eventName
+    		    },
+    		    function(data, status)
+    		    {
+    		    	$('#contract-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+   		    	    $("#contract-dropdown").append(empty);
+    		        $.each(data.contracts,function(key,value)
+	                {
+    		        	var option = $('<option />').val(value.contractID).text('[Product :'+value.agreedBid.productStock.product.name+']'+'[Qty :'+value.agreedBid.productStock.quantitiy+']'+'[Agreed Price :'+value.agreedBid.agreedFinalPrice+']');
+	        	     	$("#contract-dropdown").append(option);
+	                });
+    		        
+    		        $('#account-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+   		    	    $("#account-dropdown").append(empty);
+    		        $.each(data.accounts,function(key,value)
+	                {
+    		        	var option = $('<option />').val(value.accountNumber).text(value.accountType);
+	        	     	$("#account-dropdown").append(option);
+	                });
+    		        
+    		        $('#addfunds-dropdown').html('');
+    		    	var empty = $('<option />').val("-1").text("--Select--");
+   		    	    $("#addfunds-dropdown").append(empty);
+    		        $.each(data.accounts,function(key,value)
+	                {
+    		        	var option = $('<option />').val(value.accountNumber).text(value.accountType);
+	        	     	$("#addfunds-dropdown").append(option);
+	                });
+    		        
+    		    });	
+	}
     else if(eventName=="Change Password")
 	{
 	
@@ -132,5 +209,12 @@ function openCity(evt, eventName) {
 	}
     evt.currentTarget.className += " active";
 }
+
+function sortByKey(array, key) {
+	return array.sort(function(a, b) {
+	    var x = a[key]; var y = b[key];
+	    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+	});
+	}
 
 
