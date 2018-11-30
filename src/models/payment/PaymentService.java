@@ -63,14 +63,17 @@ public class PaymentService extends EntityService
 		{
 			message = "{\"state\":\"success\",\"message\":\"A payment has already been allocated for this contract\"}";
 		}
-		try
+		else
 		{
-			account.makePayment( contract.getPriceOnFrequency() );
-			payment.setState( new SentToPaymentGateway() );
-		}
-		catch ( NotEnoughBalanceException e )
-		{
-			message = "{\"state\":\"failed\",\"message\":\"" + e.getMessage() + "\"}";
+			try
+			{
+				account.makePayment( contract.getPriceOnFrequency() );
+				payment.setState( new SentToPaymentGateway() );
+			}
+			catch ( NotEnoughBalanceException e )
+			{
+				message = "{\"state\":\"failed\",\"message\":\"" + e.getMessage() + "\"}";
+			}
 		}
 		return message;
 	}

@@ -52,7 +52,7 @@
    {
       "farmerUserID":100105,
       "retailerUserID":100101,
-      "contractID":444002,
+      "contractID":444003,
       "contractConstraints":"",
       "type":"yearlycontract",
       "agreedBid":{
