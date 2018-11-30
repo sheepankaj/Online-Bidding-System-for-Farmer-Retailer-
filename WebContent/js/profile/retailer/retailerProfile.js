@@ -73,11 +73,11 @@ $( document ).ready(function() {
                 {
 					if( $('#searchResults').is(':empty') ) {
 						$('#searchResults').append(
-						'<div id="result_'+key+'" style="border: 1px solid black;">'+'Qty : ['+value["quantitiy"]+']<br>'+'Frequency : ['+value["frequency"]+']<br>'+'UnitPrice : ['+value["unitPrice"]+']<br>'+'FarmerID : ['+value["farmerID"]+']<br>'+'ProductStockID : ['+value["productStockID"]+']<br></div>');
+						'<div id="result_'+key+'" style="border: 1px solid black;"><form id="placebid_'+key+'" name="placebid_'+key+'" method="post" action="../../../BidsController">'+'Qty : ['+value["quantitiy"]+']<br>'+'Frequency : ['+value["frequency"]+']<br>'+'UnitPrice : ['+value["unitPrice"]+']<br>'+'FarmerID : ['+value["farmerID"]+']<br>'+'ProductStockID : ['+value["productStockID"]+']<br><input type="text" id="retailerPrice" name="retailerPrice" placeholder="Your Price" class="input_class"><input type="button" value="Place Bid" id="submitRetailerBid_'+key+'" class="input_class"/></form></div>');
 					}
 					else
 					{
-						var div=$('<div id="result_'+key+'" style="border: 1px solid black;">'+'Qty : ['+value["quantitiy"]+']<br>'+'Frequency : ['+value["frequency"]+']<br>'+'UnitPrice : ['+value["unitPrice"]+']<br>'+'FarmerID : ['+value["farmerID"]+']<br>'+'ProductStockID : ['+value["productStockID"]+']<br></div>');
+						var div=$('<div id="result_'+key+'" style="border: 1px solid black;"><form id="placebid_'+key+'" name="placebid_'+key+'" method="post" action="../../../BidsController">'+'Qty : ['+value["quantitiy"]+']<br>'+'Frequency : ['+value["frequency"]+']<br>'+'UnitPrice : ['+value["unitPrice"]+']<br>'+'FarmerID : ['+value["farmerID"]+']<br>'+'ProductStockID : ['+value["productStockID"]+']<br><input type="text" id="retailerPrice" name="retailerPrice" placeholder="Your Price" class="input_class"><input type="button" value="Place Bid" id="submitRetailerBid_'+key+'" class="input_class"/></form></div>');
 						var sopra=$('#result_'+(key-1));
 						$( sopra ).after( div );
 					}
