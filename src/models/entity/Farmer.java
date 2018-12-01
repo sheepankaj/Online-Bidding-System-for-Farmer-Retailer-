@@ -8,6 +8,11 @@ public class Farmer extends User
 	private String statusType;
 	private String [] productsInvolved;
 	
+	public Farmer()
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Farmer(String username,long userID,String password,String farmAddress,String telephone,Priority priority,String type)
 	{
 		super(username,userID,password,ProfileType.FARMER,priority,type);

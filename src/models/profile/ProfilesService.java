@@ -20,6 +20,7 @@ import models.entity.NoPriority;
 import models.entity.Platinum;
 import models.entity.Priority;
 import models.entity.ProfileType;
+import models.entity.RandomNumberGenerator;
 import models.entity.Retailer;
 import models.entity.RuntimeTypeAdapterFactory;
 import models.entity.Silver;
@@ -75,7 +76,35 @@ public class ProfilesService extends EntityService
 			retailer.setPassword( password );
 			retailer.setUsername( username );
 			retailer.setProfileType( ProfileType.RETAILER );
+			retailer.setPriority( new NoPriority( "nopriority" ) );
+			retailer.setUserID( RandomNumberGenerator.getLongID() );
 			profiles.add( retailer );
+			message = "{\"state\":\"success\",\"message\":\"Successfully added the profile\"}";
+		}		
+		return message;
+	}
+	
+	public String addFarmerProfile(String username,String password,String farmAddress,String tel)
+	{
+		String message ="";
+		User user = getProfile( username );
+		if(user != null)
+		{
+			// profile exists so cannot add one
+			message = "{\"state\":\"success\",\"message\":\"Username already exists\"}";
+		}
+		else
+		{
+			Farmer farmer = new Farmer();
+			farmer.setPassword( password );
+			farmer.setTelephone( tel );
+			farmer.setFarmAddress( farmAddress );
+			farmer.setPassword( password );
+			farmer.setUsername( username );
+			farmer.setUserID( RandomNumberGenerator.getLongID() );
+			farmer.setProfileType( ProfileType.FARMER );
+			farmer.setPriority( new NoPriority( "nopriority" ) );
+			profiles.add( farmer );
 			message = "{\"state\":\"success\",\"message\":\"Successfully added the profile\"}";
 		}		
 		return message;

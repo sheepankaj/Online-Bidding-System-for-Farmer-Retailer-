@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.entity.Contract;
+import models.profile.ProfilesService;
 import models.report.ReportService;
 
 @WebServlet("/RegisterFarmer")
@@ -39,11 +40,10 @@ public class RegisterFarmer extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		response.setContentType("application/pdf");
-		List<Contract> contracts = new ArrayList<Contract>();
-
-		ReportService.getReportServiceInstance().generateContractReport( contracts, "PDF", response );
-		//response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
+		String farmAddress = request.getParameter("farmAddress");
+		String tel = request.getParameter("telephone");
+		response.setContentType("application/json");
+		response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).addFarmerProfile( username, password, farmAddress, tel ));
 	}
 
 }

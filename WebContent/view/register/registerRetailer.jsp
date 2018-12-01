@@ -17,7 +17,6 @@
 		<input type="password" class="form-input" placeholder="Password" name="password" id="password"> 
 		<input type="password" class="form-input" placeholder="Retype-password" name="retype_password" id="confirm_password"> 
 		<input type="text" class="form-input" placeholder="Business Name" autofocus name="business_name"> 
-		<input type="text" class="form-input" placeholder="Business Address" autofocus name="business_address">
 		<input type="text" class="form-input" placeholder="Business Tel" autofocus name="business_tel">
 		<input type="text" class="form-input" placeholder="Business Fax" autofocus name="business_fax">
 		<input type="button" value="Submit" class="login-button" id="submitButton">

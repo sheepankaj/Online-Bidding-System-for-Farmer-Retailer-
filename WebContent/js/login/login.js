@@ -9,8 +9,10 @@ $( document ).ready(function() {
 			data: form.serialize(),
 			success: function (data) 
 			{
-				//console.log(data);
-				//return false;
+				if(data.state == 'Failed')
+				{
+					alert(data.message);
+				}
 				
 				if(data.page == "FARMER")
 				{
