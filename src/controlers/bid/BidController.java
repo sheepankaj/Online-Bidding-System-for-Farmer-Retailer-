@@ -85,6 +85,7 @@ public class BidController extends HttpServlet {
 			// this is individual bid submitting
 			response.setContentType("application/json");
 			ProductStock stock = ProductStockService.getProductStockServiceInstance( getServletContext() ).getProductStockByID( productStockID );
+			
 			response.getWriter().append(BiddingService.getBiddingServiceInstance( getServletContext() ).addBid( stock, user.getUserID(), Double.parseDouble( retailerPrice ) ));
 		}
 		else

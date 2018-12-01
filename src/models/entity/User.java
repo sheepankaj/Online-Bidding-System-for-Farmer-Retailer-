@@ -91,6 +91,10 @@ public class User implements NotificationListener
 
 	public Queue<String> getMessageQueue()
 	{
+		if(messageQueue == null)
+		{
+			messageQueue = new LinkedList<>();
+		}
 		return messageQueue;
 	}
 	

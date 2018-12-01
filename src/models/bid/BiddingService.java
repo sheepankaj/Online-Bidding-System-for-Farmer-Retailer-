@@ -15,6 +15,7 @@ import models.entity.Product;
 import models.entity.ProductStock;
 import models.entity.RandomNumberGenerator;
 import models.entity.StockFrequency;
+import models.notification.NotificationService;
 
 public class BiddingService extends EntityService
 {
@@ -39,9 +40,11 @@ public class BiddingService extends EntityService
 	
 	public String addBid(ProductStock stock,long retailerID,double agreedPrice)
 	{
+		String message = "";
+		boolean bidExists = false;
 		if(stock == null)
 		{
-			return "{\"state\":\"ProductStock not found..\"}";
+			message = "{\"state\":\"ProductStock not found..\"}";
 		}
 		Bid bid = new Bid();
 		bid.setRetailerID( retailerID );
@@ -50,8 +53,27 @@ public class BiddingService extends EntityService
 		bid.setFarmerID( stock.getFarmerID() );
 		bid.setAgreedFinalPrice( agreedPrice );
 		bid.setSignedByRetailer( true );
-		bids.add( bid );
-		return "{\"state\":\"Bid placed successfully\"}";
+		for(Bid extBid : bids)
+		{
+			if(extBid.equals( bid ))
+			{
+				message = "{\"state\":\"You have added a bid already to this Product Stock\"}";
+				bidExists = true;
+				break;
+			}
+		}
+		if(!bidExists)
+		{
+			NotificationService.getNotificationServiceInstance().updateFarmerAboutTheBid( Double.toString( agreedPrice ), stock );
+			message = "{\"state\":\"Bid placed successfully\"}";
+			bids.add( bid );
+		}	
+		return message;
+	}
+	
+	public boolean bidAlreadyExists(long retailerID, ProductStock stock)
+	{
+		return false;
 	}
 	
 	public void loadEntities()

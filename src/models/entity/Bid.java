@@ -96,6 +96,20 @@ public class Bid
 	{
 		this.bidID = bidID;
 	}
+	
+	@Override
+	public boolean equals( Object obj )
+	{
+		Bid bid = (Bid) obj;
+		if(this.getProductStock().getProductStockID() == bid.getProductStock().getProductStockID()&& this.getRetailerID() == bid.getRetailerID())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 
 
 

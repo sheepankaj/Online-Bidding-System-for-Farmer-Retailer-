@@ -7,6 +7,7 @@ import models.bid.BiddingService;
 import models.entity.Bid;
 import models.entity.Farmer;
 import models.entity.Product;
+import models.entity.ProductStock;
 import models.entity.RandomNumberGenerator;
 import models.entity.StockFrequency;
 import models.entity.User;
@@ -59,6 +60,17 @@ public class NotificationService
 				NotificationService.getNotificationServiceInstance().registerFarmerForProductNotifications( involvedProducts, farmer );
 			}
 		}
+	}
+	
+	public void pushNotificationToUser(String message, long userID)
+	{
+		User user = ProfilesService.getProfile( userID );
+		user.getMessageQueue().add( message );
+	}
+	
+	public void updateFarmerAboutTheBid(String retailerPrice,ProductStock stock)
+	{
+		pushNotificationToUser( "[Product : "+stock.getProduct().getName()+"][Qty : "+stock.getQuantitiy()+"][Retailer Price : "+retailerPrice+"]", stock.getFarmerID() );
 	}
 
 	public void updateFarmersForProductNotification( String productCode, String qty, String price,String frequency ,long retailerID)
