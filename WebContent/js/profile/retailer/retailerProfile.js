@@ -129,7 +129,7 @@ function openCity(evt, eventName) {
     				data: 'l',
     				success: function (data) 
     				{
-    					alert("You have logged in successfully!!!");
+    					//alert("You have logged in successfully!!!");
     					if(data.page=="sulthan")   {
    						
     						$('#username').val(data.page);
@@ -155,6 +155,8 @@ function openCity(evt, eventName) {
     		    	$("#product-dropdown").append(empty);
     		        $.each(data,function(key,value)
 	                {
+    		        	if(value.disabled)
+    		        		return true;
 	                    var option = $('<option />').val(value.productID).text(value.name);
 	                    $("#product-dropdown").append(option);
 	                });    		        
@@ -174,6 +176,8 @@ function openCity(evt, eventName) {
    		    	    $("#productCategory-dropdown").append(empty);
     		        $.each(data,function(key,value)
 	                {
+    		        	if(value.disabled)
+    		        		return true;
     		        	var option = $('<option />').val(value.productID).text(value.name);
 	        	     	$("#productCategory-dropdown").append(option);
 	                });

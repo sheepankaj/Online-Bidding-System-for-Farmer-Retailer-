@@ -48,7 +48,7 @@ function openCity(evt, eventName) {
     				data: 'l',
     				success: function (data,message) 
     				{
-    					alert("You have logged in successfully!!!");
+    					//alert("You have logged in successfully!!!");
     					
     						
     						$('#username').val(data.page);
@@ -74,6 +74,8 @@ function openCity(evt, eventName) {
     		    	$("#product-dropdown").append(optionEmpty);
     		        $.each(data,function(key,value)
     		                {
+    		        	if(value.disabled)
+    		        		return true;
     		                    var option = $('<option />').val(value.productID).text(value.name);
     		               $("#product-dropdown").append(option);
     		                });

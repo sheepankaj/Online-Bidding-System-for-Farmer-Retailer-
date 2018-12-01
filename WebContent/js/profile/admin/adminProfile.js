@@ -33,6 +33,7 @@ document.getElementById(eventName).style.display = "block";
 	    },
 	    function(data, status)
 	    {
+	    	$("#product_table tbody").html('');
 	       $.each(data,function(key,value)
 	        {
 	    	    var buttonText = (value["disabled"])? 'Enable':'Disable';
