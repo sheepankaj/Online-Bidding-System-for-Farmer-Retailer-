@@ -10,6 +10,8 @@ import models.entity.Contract;
 public class ReportService
 {
 	private static ReportService reportService;
+	private static AbstractReportCreator reportCreator;
+	
 	
 	private ReportService()
 	{
@@ -21,6 +23,7 @@ public class ReportService
 		if(reportService == null)
 		{
 			reportService = new ReportService();
+			reportCreator = ReportCreator.getReportServiceInstance();
 		}
 		return reportService;
 	}
@@ -44,7 +47,7 @@ public class ReportService
 		String message = "";
 		try
 		{
-			report = createDoc( docType );
+			report = reportCreator.reportCreator( docType );
 			report.generateReport(PDFBuilder.getCompleteTable(contract, table), response);
 		}
 		catch ( ReportTypeIsNotImplemented e )
@@ -53,19 +56,5 @@ public class ReportService
 		}
 		return message;
 		
-	}
-	
-	private IReport createDoc(String docType) throws ReportTypeIsNotImplemented
-	{
-		IReport report = null;
-		if(docType.equals( "PDF" ))
-		{
-			report = new PDFReport();
-		}
-		else
-		{
-			throw new ReportTypeIsNotImplemented();
-		}
-		return report;
 	}
 }
