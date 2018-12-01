@@ -32,5 +32,4 @@ public class ReportCreator extends AbstractReportCreator
 		}
 		return report;
 	}
-
 }

@@ -26,8 +26,13 @@ public class ReportService
 			reportCreator = ReportCreator.getReportServiceInstance();
 		}
 		return reportService;
-	}
+	}	
 	
+	public static void setReportCreator( AbstractReportCreator reportCreator )
+	{
+		ReportService.reportCreator = reportCreator;
+	}
+
 	public void generateContractReport(List<Contract> contracts,String docType,HttpServletResponse response) throws IOException
 	{
 //		IReport report = createDoc( docType );

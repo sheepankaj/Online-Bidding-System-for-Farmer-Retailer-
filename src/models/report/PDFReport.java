@@ -8,7 +8,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 public class PDFReport implements IReport
 {
-
 	@Override
 	public void generateReport( Object table,HttpServletResponse response )
 	{
@@ -30,5 +29,4 @@ public class PDFReport implements IReport
 	{
 		// TODO Auto-generated method stub
 	}
-
 }
