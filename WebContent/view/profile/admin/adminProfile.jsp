@@ -22,28 +22,13 @@
 
   <button class="tablinks" onclick="openCity(event, 'Generate Report')" id="defaultOpen">Generate Report</button>
   <button class="tablinks" onclick="openCity(event, 'Spams')">Spam</button>
+  <button class="tablinks" onclick="openCity(event, 'Product')">Products</button>
   <button class="tablinks" onclick="openCity(event, 'Verify')">Verification</button>
   <button class ="tablinks" onclick="openCity(event, 'Password Change')">Password Change</button>
   <button class="tablinks" onclick="openCity(event, 'Logout')">Logout</button>
   
   
 </div>
-
-<!--  <div id="Generate Report" class="tabcontent">
-  <h3>Report</h3>
-  <p>It will generate business reports on daily, weekly, monthly, quarterly and yearly basis.</p>
-  <button class="tablinks" onclick="">Contract Report</button>
-  <button class="tablinks" onclick="">Bidding Report</button>
-  
-  <button class="tablinks" onclick="">Daily</button>
-  <button class="tablinks" onclick="">Weekly</button>
-  <button class="tablinks" onclick="">Monthly</button>
-  <button class="tablinks" onclick="">Quarterly</button>
-  <button class="tablinks" onclick="">Yearly</button>
-  lll
-  
-</div>-->
-
 
 <div id="Generate Report" class="tabcontent">
   <h3>Report</h3>
@@ -65,7 +50,7 @@
 <div id="Spams" class="tabcontent">
   <h3>Remove Spams</h3>
   <button class="tablinks" onclick="">Add Farmer/Retailer</button>
-  <p>It will remove the spam farmers and retailers.</p> 
+  <p>It will remove the spam farmers/retailers.</p> 
   
  <table class="table">
     <thead>
@@ -98,11 +83,30 @@
       </tr>
     </tbody>
   </table>
- 
- 
- 
- 
- 
+</div>
+
+
+<div id="Product" class="tabcontent">
+  <h3>Add/Remove Products</h3>
+  <button class="tablinks" onclick="">Add/Remove Products</button>
+  <p>It will add/remove the fake products.</p> 
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1000011</td>
+        <td>Onion</td>
+        <td><button class="tablinks" onclick="">Add/Remove</button></td>
+      </tr>
+      </tbody>
+  </table>
 </div>
 
 <div id="Verify" class="tabcontent">
