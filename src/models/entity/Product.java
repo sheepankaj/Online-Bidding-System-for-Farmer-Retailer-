@@ -13,6 +13,7 @@ public class Product implements Notification
 	List<NotificationListener> productListeners = new ArrayList<>();
 	private double latestProductStockPrice;
 	private int latestProductStockQuantity;
+	boolean disabled;
 	
 	public Product(String name,long productID)
 	{
@@ -54,6 +55,16 @@ public class Product implements Notification
 	public void setLatestProductStockQuantity( int latestProductStockQuantity )
 	{
 		this.latestProductStockQuantity = latestProductStockQuantity;
+	}	
+
+	public boolean isDisabled()
+	{
+		return disabled;
+	}
+
+	public void setDisabled( boolean disabled )
+	{
+		this.disabled = disabled;
 	}
 
 	@Override

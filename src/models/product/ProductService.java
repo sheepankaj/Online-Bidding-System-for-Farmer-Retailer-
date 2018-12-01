@@ -71,6 +71,28 @@ public class ProductService extends EntityService
 		return null;
 	}
 	
+	public String disableEnableProduct(long productID)
+	{
+		String message = "";
+		for(Product product : products)
+		{
+			if(product.getProductID() == productID)
+			{
+				if(product.isDisabled())
+				{
+					product.setDisabled( false );
+					message = "{\"state\":\"success\",\"message\":\"Successflly enabled the product\"}";
+				}
+				else
+				{
+					product.setDisabled( true );
+					message = "{\"state\":\"success\",\"message\":\"Successflly enabled the product\"}";
+				}
+			}
+		}
+		return message;
+	}
+	
 	public void loadEntities()
 	{
 		try

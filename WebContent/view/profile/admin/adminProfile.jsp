@@ -87,7 +87,7 @@
 
 
 <div id="Product" class="tabcontent">  
-  <table class="table">
+  <table class="table" id="product_table">
     <thead>
       <tr>
         <th>Product ID</th>
@@ -96,11 +96,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1000011</td>
-        <td>Onion</td>
-        <td><button class="tablinks" onclick="">Add/Remove</button></td>
-      </tr>
+      
       </tbody>
   </table>
 </div>

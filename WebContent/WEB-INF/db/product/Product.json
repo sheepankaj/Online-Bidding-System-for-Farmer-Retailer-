@@ -1,18 +1,22 @@
 [
 	{
 		"name": "Carrot",
-		"productID": 111001
+		"productID": 111001,
+		"disabled":false
 	},
 	{
 		"name": "Onion",
-		"productID": 111002
+		"productID": 111002,
+		"disabled":false
 	},
 	{
 		"name": "Cabage",
-		"productID": 111003
+		"productID": 111003,
+		"disabled":false
 	},
 	{
 		"name": "Broccoli",
-		"productID": 111004
+		"productID": 111004,
+		"disabled":false
 	}
 ]

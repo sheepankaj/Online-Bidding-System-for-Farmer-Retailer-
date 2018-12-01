@@ -42,32 +42,27 @@ public class AdminProfileLoader extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(true);
-		
-		
-//		String password = request.getParameter("password"); some chnage
 		String username = (String)session.getAttribute("username");
 		String event =  request.getParameter("tabEvent");
+		String disableProduct =  request.getParameter("disableProduct");
 		
 		response.setContentType("application/json");
 		ProductService.getProductServiceInstance( getServletContext() );		
 		User user = ProfilesService.getProfileServiceInstance(getServletContext()).getProfile(username);
 		
-		
-		
-		if(event != null &&  event.equals("Verify"))
+		if(event != null &&  event.equals("Product"))
 		{
-			response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).getProfilesAsJSON());
+			response.getWriter().append(ProductService.getProductServiceInstance( getServletContext() ).getProductsAsJSON());
+		}
+		else if(disableProduct != null && disableProduct.length()>0)
+		{
+			response.getWriter().append(ProductService.getProductServiceInstance( getServletContext() ).disableEnableProduct( Long.parseLong( disableProduct ) ));
 		}
 		else
-		{
-		
+		{		
 			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":"+user.getUserID()+"}");
-
-		}
-			
-		
+		}		
 	}
 	
 	

@@ -24,74 +24,34 @@ function openCity(evt, eventName) {
 
 
 document.getElementById(eventName).style.display = "block";
-if(eventName == 'Verify')
+	if(eventName == 'Product')
+	{
+		
+		$.post('../../../AdminProfileLoaderRequest',
+	    {
+	        tabEvent: eventName
+	    },
+	    function(data, status)
+	    {
+	       $.each(data,function(key,value)
+	        {
+	        	var newRow = '<tr><td>'+value["productID"]+'</td><td>'+value["name"]+'</td><td><button class="tablinks" onclick="disableProduct(\''+value["productID"]+'\')">Disable/Enable</button></td></tr>';
+	            $("#product_table tbody").append(newRow);  
+	        });    		        
+	    });
+	}	
+}
+
+function disableProduct(productID)
 {
-    	
-    	$.post('../../../AdminProfileLoaderRequest',
-    		    {
-    		        tabEvent: eventName
-    		    },
-    		    function(data, status){
-    		        //alert("Data: " + data + "\nStatus: " + status);lll
-    		        $.each(data,function(key,value)
-    		                {
-    		        			if(value.profileType=="FARMER"){
-    		        				
-    		        				var i=2;
-    		        				  $(".Addmore").on('click',function(){
-    		        				    var data="<tr><td><input type='checkbox' class='case'/></td><td>"+i+".</td>";
-    		        				        data +="<td><input type='text' id=$('#userid').val(value.userID)"+i+"/></td> <td><input type='text' id='Profiletype"+i+"/></td><td><input type='text' id='Username"+i+"/></td><td><input type='text' id='address"+i+"/></td><td><input type='text' id='telephone"+i+"/></td></tr>";
-    		        				        $('table').append(data);
-    		        				        i++;
-    		        				       
-    		        				});
-    		        				  $(".delete").on('click', function() {
-    		        						$('.case:checkbox:checked').parents("tr").remove();
-    		        					    $('.check_all').prop("checked", false); 
-    		        						check();
-
-    		        					});
-    		        				  function select_all() {
-    		        						$('input[class=case]:checkbox').each(function(){ 
-    		        							if($('input[class=check_all]:checkbox:checked').length == 0){ 
-    		        								$(this).prop("checked", false); 
-    		        							} else {
-    		        								$(this).prop("checked", true); 
-    		        							} 
-    		        						});
-    		        					}
-
-    		        					function check(){
-    		        						obj=$('table tr').find('span');
-    		        						$.each( obj, function( key, value ) {
-    		        						id=value.id;
-    		        						$('#'+id).html(key+1);
-    		        						});
-    		        						}
-    		        			
-    		        			/*
-    		                    $(".userid").val(value.userID);
-    		                    $(".Profiletype").val(value.profileType);
-    		                    $(".Username").val(value.username);
-    		                    $(".address").val(value.farmAddress);
-    		                    $(".telephone").val(value.telephone);
-    		                    */
-    		        			} else if(value.profileType=="RETAILER"){
-        		        			
-        		        			
-        		                    $(".Userid").val(value.userID);
-        		                    $(".profiletype").val(value.profileType);
-        		                    $(".username").val(value.username);
-        		                    $(".Address").val(value.retailAddress);
-        		                    $(".Telephone").val(value.telephone);
-
-        		        			}
-    		        		
-    		                    
-    		                });
-    		        
-    		    });
-    }	
+	$.post('../../../AdminProfileLoaderRequest',
+		    {
+		        disableProduct: productID
+		    },
+		    function(data, status)
+		    {
+		       alert(data.message);	        
+		    });
 }
 function loadGenerateReportTab()
 {
