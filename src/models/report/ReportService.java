@@ -9,7 +9,7 @@ import models.entity.Contract;
 
 public class ReportService
 {
-	public static ReportService reportService;
+	private static ReportService reportService;
 	
 	private ReportService()
 	{

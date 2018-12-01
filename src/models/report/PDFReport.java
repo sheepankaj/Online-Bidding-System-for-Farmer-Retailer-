@@ -10,7 +10,7 @@ public class PDFReport implements IReport
 {
 
 	@Override
-	public Document generateReport( Object table,HttpServletResponse response )
+	public void generateReport( Object table,HttpServletResponse response )
 	{
 		Document document = null;
 		try 
@@ -23,7 +23,6 @@ public class PDFReport implements IReport
         } catch (Exception de) {
             de.printStackTrace();
         }
-		return document;
 	}
 
 	@Override

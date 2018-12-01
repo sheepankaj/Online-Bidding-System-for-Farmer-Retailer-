@@ -131,8 +131,5 @@ public abstract class Contract implements IReportStructure
 	public long getContractID()
 	{
 		return contractID;
-	}
-	
-	
-	
+	}	
 }
