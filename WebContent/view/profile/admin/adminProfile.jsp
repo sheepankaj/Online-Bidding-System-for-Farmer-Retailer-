@@ -21,9 +21,9 @@
 <div class="tab">
 
   <button class="tablinks" onclick="openCity(event, 'Generate Report')" id="defaultOpen">Generate Report</button>
-  <button class="tablinks" onclick="openCity(event, 'Spams')">Spam</button>
-  <button class="tablinks" onclick="openCity(event, 'Product')">Products</button>
-  <button class="tablinks" onclick="openCity(event, 'Verify')">Verification</button>
+  <button class="tablinks" onclick="openCity(event, 'Spams')">Manage Spam Users</button>
+  <button class="tablinks" onclick="openCity(event, 'Product')">Manage Products</button>
+ <!--  <button class="tablinks" onclick="openCity(event, 'Verify')">Verification</button> -->
   <button class ="tablinks" onclick="openCity(event, 'Password Change')">Password Change</button>
   <button class="tablinks" onclick="openCity(event, 'Logout')">Logout</button>
   
@@ -49,7 +49,7 @@
 
 <div id="Spams" class="tabcontent">
   <h3>Remove Spams</h3>
-  <button class="tablinks" onclick="">Add Farmer/Retailer</button>
+  
   <p>It will remove the spam farmers/retailers.</p> 
   
  <table class="table">
@@ -86,11 +86,7 @@
 </div>
 
 
-<div id="Product" class="tabcontent">
-  <h3>Add/Remove Products</h3>
-  <button class="tablinks" onclick="">Add/Remove Products</button>
-  <p>It will add/remove the fake products.</p> 
-  
+<div id="Product" class="tabcontent">  
   <table class="table">
     <thead>
       <tr>
