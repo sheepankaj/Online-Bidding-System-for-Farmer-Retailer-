@@ -10,8 +10,7 @@ import models.entity.Contract;
 public class ReportService
 {
 	private static ReportService reportService;
-	private static AbstractReportCreator reportCreator;
-	
+	private static AbstractReportCreator reportCreator;	
 	
 	private ReportService()
 	{
@@ -59,7 +58,6 @@ public class ReportService
 		{
 			message = e.getMessage();
 		}
-		return message;
-		
+		return message;		
 	}
 }
