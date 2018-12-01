@@ -35,7 +35,8 @@ document.getElementById(eventName).style.display = "block";
 	    {
 	       $.each(data,function(key,value)
 	        {
-	        	var newRow = '<tr><td>'+value["productID"]+'</td><td>'+value["name"]+'</td><td><button class="tablinks" onclick="disableProduct(\''+value["productID"]+'\')">Disable/Enable</button></td></tr>';
+	    	    var buttonText = (value["disabled"])? 'Enable':'Disable';
+	        	var newRow = '<tr><td>'+value["productID"]+'</td><td>'+value["name"]+'</td><td><button class="tablinks" id="action_button_'+value["productID"]+'" onclick="disableProduct(\''+value["productID"]+'\')">'+buttonText+'</button></td></tr>';
 	            $("#product_table tbody").append(newRow);  
 	        });    		        
 	    });
@@ -50,7 +51,8 @@ function disableProduct(productID)
 		    },
 		    function(data, status)
 		    {
-		       alert(data.message);	        
+		       alert(data.message);	  
+		       $("#action_button_"+productID).html(data.changedto);
 		    });
 }
 function loadGenerateReportTab()

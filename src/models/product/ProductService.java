@@ -81,12 +81,12 @@ public class ProductService extends EntityService
 				if(product.isDisabled())
 				{
 					product.setDisabled( false );
-					message = "{\"state\":\"success\",\"message\":\"Successflly enabled the product\"}";
+					message = "{\"state\":\"success\",\"message\":\"Successflly enabled the product\",\"changedto\":\"Disable\"}";
 				}
 				else
 				{
 					product.setDisabled( true );
-					message = "{\"state\":\"success\",\"message\":\"Successflly enabled the product\"}";
+					message = "{\"state\":\"success\",\"message\":\"Successflly disabled the product\",\"changedto\":\"Enable\"}";
 				}
 			}
 		}
