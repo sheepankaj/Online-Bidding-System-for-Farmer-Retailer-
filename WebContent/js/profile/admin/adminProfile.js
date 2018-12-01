@@ -41,7 +41,23 @@ document.getElementById(eventName).style.display = "block";
 	            $("#product_table tbody").append(newRow);  
 	        });    		        
 	    });
-	}	
+	}
+	else if(eventName == 'Spams')
+	{
+		$.post('../../../AdminProfileLoaderRequest',
+			    {
+			        tabEvent: eventName
+			    },
+			    function(data, status)
+			    {
+			    	$("#user_table tbody").html('');
+			       $.each(data,function(key,value)
+			        {
+			    	   var newRow = '<tr><td>'+value["userID"]+'</td><td>'+value["username"]+'</td><td>'+value["profileType"]+'</td><td><button class="tablinks" id="action_button_'+value["productID"]+'" onclick="removeUser(\''+value["productID"]+'\')">Remove</button></td></tr>';
+			            $("#user_table tbody").append(newRow);  
+			        });    		        
+			    });
+	}
 }
 
 function disableProduct(productID)

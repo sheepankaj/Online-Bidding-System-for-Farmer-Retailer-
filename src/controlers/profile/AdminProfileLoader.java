@@ -55,6 +55,10 @@ public class AdminProfileLoader extends HttpServlet {
 		{
 			response.getWriter().append(ProductService.getProductServiceInstance( getServletContext() ).getProductsAsJSON());
 		}
+		else if(event != null &&  event.equals("Spams"))
+		{
+			response.getWriter().append(ProfilesService.getProfileServiceInstance( getServletContext() ).getProfilesAsJSON());
+		}
 		else if(disableProduct != null && disableProduct.length()>0)
 		{
 			response.getWriter().append(ProductService.getProductServiceInstance( getServletContext() ).disableEnableProduct( Long.parseLong( disableProduct ) ));

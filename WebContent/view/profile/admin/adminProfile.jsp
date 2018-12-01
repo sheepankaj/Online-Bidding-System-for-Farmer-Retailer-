@@ -47,42 +47,25 @@
 
 
 
-<div id="Spams" class="tabcontent">
+<div id="Spams" class="tabcontent" style="height:450px;">
   <h3>Remove Spams</h3>
   
   <p>It will remove the spam farmers/retailers.</p> 
-  
- <table class="table">
+  <div id="table_div" style="overflow-y: auto; height:300px;">
+  	<table class="table" id="user_table">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>User ID</th>
+        <th>Username</th>
+        <th>Type</th>
         <th>Action</th>
       </tr>
-    </thead>
-    
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td><button class="tablinks" onclick="">Remove</button></td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-        <td><button class="tablinks" onclick="">Remove</button></td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-        <td><button class="tablinks" onclick="">Remove</button></td>
-      </tr>
+    </thead>    
+    <tbody>     
     </tbody>
   </table>
+  </div>
+ 
 </div>
 
 
