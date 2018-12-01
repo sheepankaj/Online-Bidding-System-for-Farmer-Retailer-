@@ -19,6 +19,7 @@ import models.entity.Gold;
 import models.entity.NoPriority;
 import models.entity.Platinum;
 import models.entity.Priority;
+import models.entity.ProfileType;
 import models.entity.Retailer;
 import models.entity.RuntimeTypeAdapterFactory;
 import models.entity.Silver;
@@ -47,13 +48,37 @@ public class ProfilesService extends EntityService
 			//profilesService.testGSON();
 		}
 		return profilesService;
-	}
-	
-	
+	}	
 	
 	public void addProfile( User profile )
 	{
 		profiles.add( profile );
+	}
+	
+	public String addRetailerProfile(String username,String password,String companyName,String companyAddress,String fax,String tel)
+	{
+		String message ="";
+		User user = getProfile( username );
+		if(user != null)
+		{
+			// profile exists so cannot add one
+			message = "{\"state\":\"success\",\"message\":\"Username already exists\"}";
+		}
+		else
+		{
+			Retailer retailer = new Retailer();
+			retailer.setPassword( password );
+			retailer.setFax( fax );
+			retailer.setCompanyAddress( companyAddress );
+			retailer.setCompanyName( companyName );
+			retailer.setTel( tel );
+			retailer.setPassword( password );
+			retailer.setUsername( username );
+			retailer.setProfileType( ProfileType.RETAILER );
+			profiles.add( retailer );
+			message = "{\"state\":\"success\",\"message\":\"Successfully added the profile\"}";
+		}		
+		return message;
 	}
 	
 	public User getProfile( String username )

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.entity.Contract;
+import models.profile.ProfilesService;
 import models.report.ReportService;
 
 /**
@@ -42,11 +43,12 @@ public class RegisterRetailer extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		response.setContentType("application/pdf");
-		List<Contract> contracts = new ArrayList<Contract>();
-
-		ReportService.getReportServiceInstance().generateContractReport( contracts, "PDF", response );
-		//response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).validLogin( username, password ));
+		String business_name = request.getParameter("business_name");
+		String business_address = request.getParameter("business_address");
+		String business_tel = request.getParameter("business_tel");
+		String business_fax = request.getParameter("business_fax");
+		response.setContentType("application/json");
+		response.getWriter().append(ProfilesService.getProfileServiceInstance(getServletContext()).addRetailerProfile( username, password, business_name, business_address, business_fax, business_tel ));
 	}
 
 }
