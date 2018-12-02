@@ -25,6 +25,7 @@ import models.entity.Retailer;
 import models.entity.RuntimeTypeAdapterFactory;
 import models.entity.Silver;
 import models.entity.User;
+import models.login.LoginService;
 
 public class ProfilesService extends EntityService
 {
@@ -46,6 +47,7 @@ public class ProfilesService extends EntityService
 		{
 			profilesService = new ProfilesService(context,filePath);
 			profilesService.loadEntities();
+			//profilesService.printMD5s();
 			//profilesService.testGSON();
 		}
 		return profilesService;
@@ -73,7 +75,7 @@ public class ProfilesService extends EntityService
 			retailer.setCompanyAddress( companyAddress );
 			retailer.setCompanyName( companyName );
 			retailer.setTel( tel );
-			retailer.setPassword( password );
+			retailer.setPassword( LoginService.getMD5HashString( password ) );
 			retailer.setUsername( username );
 			retailer.setProfileType( ProfileType.RETAILER );
 			retailer.setPriority( new NoPriority( "nopriority" ) );
@@ -99,7 +101,7 @@ public class ProfilesService extends EntityService
 			farmer.setPassword( password );
 			farmer.setTelephone( tel );
 			farmer.setFarmAddress( farmAddress );
-			farmer.setPassword( password );
+			farmer.setPassword( LoginService.getMD5HashString( password ) );
 			farmer.setUsername( username );
 			farmer.setUserID( RandomNumberGenerator.getLongID() );
 			farmer.setProfileType( ProfileType.FARMER );
@@ -156,7 +158,8 @@ public class ProfilesService extends EntityService
 	{
 		User user = getProfile( username );
 		boolean vaild = false;
-		if(user != null && user.getPassword().equals( password ))
+		String md5Hashed = LoginService.getMD5HashString( password );
+		if(user != null && user.getPassword().equals( md5Hashed ))
 		{
 			return true;
 		}
@@ -164,7 +167,7 @@ public class ProfilesService extends EntityService
 		{
 			return false;
 		}
-		else if(user != null && !user.getPassword().equals( password ))
+		else if(user != null && !user.getPassword().equals( md5Hashed ))
 		{
 			return false;
 		}
@@ -174,8 +177,9 @@ public class ProfilesService extends EntityService
 	public boolean validPasswordCheck(String username, String password)
 	{
 		User user = getProfile( username );
+		String md5Hashed = LoginService.getMD5HashString( password );
 		boolean vaildPassword = false;
-		if(user != null && user.getPassword().equals( password ))
+		if(user != null && user.getPassword().equals( md5Hashed ))
 		{
 			return true;
 		}
@@ -183,7 +187,7 @@ public class ProfilesService extends EntityService
 		{
 			return false;
 		}
-		else if(user != null && !user.getPassword().equals( password ))
+		else if(user != null && !user.getPassword().equals( md5Hashed ))
 		{
 			return false;
 		}
@@ -261,5 +265,13 @@ public class ProfilesService extends EntityService
 			System.out.println( json );
 			Type listType = new TypeToken<List<User>>(){}.getType();
 			List<User> fromJson = gson.fromJson(json, listType);
+	}
+	
+	public void printMD5s()
+	{
+		for(User profile : profiles)
+		{
+			System.out.println( profile.getPassword()+" : "+LoginService.getMD5HashString( profile.getPassword() ) );
+		}
 	}
 }

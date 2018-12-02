@@ -1,5 +1,9 @@
 package models.login;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import javax.servlet.ServletContext;
 
 public class LoginService
@@ -32,5 +36,26 @@ public class LoginService
 		{
 			LoginService.context = context;
 		}		
+	}
+	
+	public static String getMD5HashString(String passwordPlainString)
+	{
+		String md5Hash = "";
+		MessageDigest md;
+		StringBuilder sb = new StringBuilder();
+		try
+		{
+			md = MessageDigest.getInstance("MD5");
+			byte[] hashInBytes = md.digest(passwordPlainString.getBytes(StandardCharsets.UTF_8));	        
+	        for (byte b : hashInBytes) {
+	            sb.append(String.format("%02x", b));
+	        }
+	        md5Hash = sb.toString();
+		}
+		catch ( NoSuchAlgorithmException e )
+		{
+			e.printStackTrace();
+		}
+        return md5Hash;
 	}
 }
