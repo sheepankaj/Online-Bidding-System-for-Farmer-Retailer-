@@ -23,6 +23,7 @@ public class EntityService
 		this.context = context;
 		this.filePath = filePath;
 	}
+	
 	public void loadEntities() throws FileNotFoundException
 	{
 		is = context.getResourceAsStream(filePath);		
