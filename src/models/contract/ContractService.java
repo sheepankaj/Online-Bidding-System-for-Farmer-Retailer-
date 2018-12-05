@@ -36,6 +36,8 @@ public class ContractService extends EntityService
 		super(context,filePath);
 	}
 	
+	
+	
 	public static ContractService getContractServiceInstance(ServletContext context)
 	{
 		if(instance == null)

@@ -21,14 +21,14 @@ import models.entity.RuntimeTypeAdapterFactory;
 public class PaymentService extends EntityService
 {
 
-	public static PaymentService paymentService;
+	private static PaymentService paymentService;
 	public static String EXPIRED_PAYMENT_DETAILS = "Payment Details are expired";
 	static String filePath = "/WEB-INF/db/bankaccounts/Bankaccounts.json";
 	ServletContext context;
 	List<BankAccount> accounts = new ArrayList<>();
 	Map<String, Payment> paymentMap = new HashMap<String, Payment>();
 
-	public PaymentService( ServletContext context, String filePath )
+	private PaymentService( ServletContext context, String filePath )
 	{
 		super( context, filePath );
 	}

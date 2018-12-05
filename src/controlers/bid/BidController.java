@@ -1,6 +1,7 @@
 package controlers.bid;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,12 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import models.bid.BiddingService;
-import models.contract.ContractFactory;
 import models.contract.ContractService;
 import models.entity.Bid;
 import models.entity.Contract;
-import models.entity.Farmer;
-import models.entity.Product;
 import models.entity.ProductStock;
 import models.entity.User;
 import models.login.LoginService;

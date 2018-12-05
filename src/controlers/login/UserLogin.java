@@ -1,7 +1,6 @@
 package controlers.login;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,19 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import models.bid.BiddingService;
-import models.contract.ContractService;
-import models.entity.Contract;
-import models.entity.Farmer;
-import models.entity.Product;
 import models.entity.User;
 import models.login.LoginService;
-import models.notification.NotificationManager;
-import models.notification.NotificationService;
-import models.payment.PaymentService;
-import models.product.ProductService;
 import models.profile.ProfilesService;
-import models.report.ReportService;
 
 /**
  * Servlet implementation class UserLogin
