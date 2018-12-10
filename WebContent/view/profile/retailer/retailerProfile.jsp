@@ -22,7 +22,7 @@
   <button class="tablinks" onclick="openCity(event, 'View Product Catalogue')">View Product Catalogue</button>
   <button class="tablinks" onclick="openCity(event, 'Manage Contracts')">Manage Contracts and Bids</button>
   <button class="tablinks" onclick="openCity(event, 'Manage Payments')">Manage Payments</button>
-  <button class="tablinks" onclick="openCity(event, 'Change Password')">Change Password</button>
+ 
 </div>
 
 

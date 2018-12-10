@@ -21,8 +21,7 @@
 		<button class="tablinks" onclick="openCity(event, 'Account Details')" id="defaultOpen">Account</button>
 		<button class="tablinks" onclick="openCity(event, 'Add Products')">Add Products</button>
 		<button class="tablinks" onclick="openCity(event, 'Bids')">View Bids</button>
-		<button class="tablinks" onclick="openCity(event, 'Contract')">Agree and Sign Contract</button>
-		<button class="tablinks" onclick="openCity(event, 'Change password')">Change password</button>
+		
 	</div>
 
 	<div id="Account Details" class="tabcontent">
@@ -52,7 +51,7 @@
 						<input type="button" value="Submit Stock" id="submitProductStock" class="input_class"/>	
 					</form>
 		</div>
-</div>
+    </div>
     <form method="post" action="../../../BidsController" id="acceptBidForm"  target="_blank">    
 		<div id="Bids" class="tabcontent">
 			<select id="bids-dropdown" name="bids-dropdown"></select>

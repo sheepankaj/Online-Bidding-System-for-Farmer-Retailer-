@@ -106,7 +106,7 @@ public class ProfilesService extends EntityService
 			farmer.setUserID( RandomNumberGenerator.getLongID() );
 			farmer.setProfileType( ProfileType.FARMER );
 			farmer.setPriority( new NoPriority( "nopriority" ) );
-			profiles.add( farmer );
+			profiles.add( farmer );//adding farmer object into profile list
 			message = "{\"state\":\"success\",\"message\":\"Successfully added the profile\"}";
 		}		
 		return message;

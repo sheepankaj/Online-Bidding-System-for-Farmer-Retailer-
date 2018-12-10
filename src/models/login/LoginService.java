@@ -37,18 +37,18 @@ public class LoginService
 			LoginService.context = context;
 		}		
 	}
-	
+	//to encrypt the password entered by the user
 	public static String getMD5HashString(String passwordPlainString)
 	{
 		String md5Hash = "";
 		MessageDigest md;
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder();//mutable
 		try
 		{
 			md = MessageDigest.getInstance("MD5");
 			byte[] hashInBytes = md.digest(passwordPlainString.getBytes(StandardCharsets.UTF_8));	        
 	        for (byte b : hashInBytes) {
-	            sb.append(String.format("%02x", b));
+	            sb.append(String.format("%02x", b));//conversion of byte by byte into algorithm
 	        }
 	        md5Hash = sb.toString();
 		}

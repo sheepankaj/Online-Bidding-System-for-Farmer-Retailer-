@@ -40,14 +40,13 @@ public class UserLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LoginService.setServletContext( getServletContext() );
+		LoginService.setServletContext( getServletContext() );//getting the profile
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		HttpSession session = request.getSession(true);
 
 		session.setAttribute("username", request.getParameter("username"));
-		response.setContentType("application/json");
-		//#ProductService.getProductServiceInstance( getServletContext() );		
+		response.setContentType("application/json");		
 		User user = null;
 		if(ProfilesService.getProfileServiceInstance(getServletContext()).validLoginCheck( username, password ))
 		{
