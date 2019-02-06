@@ -40,7 +40,6 @@ public class ProductService extends EntityService
 	public void saveProductList() throws IOException
 	{
 		setWriter( new FileWriter(getContext().getRealPath("/WEB-INF/db/product/Product.json"),true));
-		products.add( new Product( "Pork", 939494 ) );
 		setGson(new GsonBuilder().create());
 		getGson().toJson(products, getWriter());
 		getWriter().close();

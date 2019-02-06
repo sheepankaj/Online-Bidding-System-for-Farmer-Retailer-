@@ -87,6 +87,7 @@ public class NotificationService
 		.setAgreedFinalPrice(priceParsed)
 		.build();
 		BiddingService.getBiddingServiceInstance(LoginService.getServeletContext()).addBid( newBid);
+		
 		product.setLatestProductStockPrice( priceParsed );
 		product.setLatestProductStockQuantity( parsedQty );
 		product.notifyNotificationListeners();

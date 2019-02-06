@@ -18,6 +18,7 @@ import models.entity.Contract10PercentDiscount;
 import models.entity.DailyContract;
 import models.entity.EntityService;
 import models.entity.MonthlyContract;
+import models.entity.RandomNumberGenerator;
 import models.entity.Retailer;
 import models.entity.RuntimeTypeAdapterFactory;
 import models.entity.StockFrequency;
@@ -64,7 +65,7 @@ public class ContractService extends EntityService
 		else
 		{
 			contract =  ContractFactory.createContract( frequency,bid);
-		}		
+		}		    
 		return contract;
 	}	
 	

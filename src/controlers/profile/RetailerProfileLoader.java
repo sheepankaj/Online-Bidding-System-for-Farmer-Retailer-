@@ -54,6 +54,7 @@ public class RetailerProfileLoader extends HttpServlet {
 		else if(event != null &&  event.equals("Manage Payments"))
 		{
 			String contractJSON = ContractService.getContractServiceInstance(getServletContext()).getRetailerContracts( user.getUserID() );
+			System.out.println( contractJSON );
 			String accounts = PaymentService.getPaymentServiceInstance( getServletContext() ).getUserBankAccountsAsJSON( user.getUserID() );
 			response.getWriter().append("{\"contracts\":"+contractJSON+",\"accounts\":"+accounts+"}");		    
 		}
@@ -68,8 +69,7 @@ public class RetailerProfileLoader extends HttpServlet {
 		else
 		{
 			response.getWriter().append("{\"state\":\"Success\",\"message\":\"Login Successfull..!!\",\"page\":\""+user.getUsername()+"\",\"id\":\""+user.getUserID()+"\",\"address\":\""+user.getCompanyAddress()+"\",\"tel\":\""+user.getTel()+"\",\"spam\":\""+user.isSpam()+"\"}");			
-		}
-		
+		}		
 	}
 
 }
